@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+
+    <meta charset="utf-8">
+    <title>Service App</title>
+    <link type="text/css" rel="stylesheet" href="resources/css/styles.css" media="all" />
+    <link rel="stylesheet" href="resources/css/bootstrap.css" />
+    <link rel="stylesheet" href="resources/css/app.css" />
+    <script src="resources/js/angular/angular.js"></script>
+    <script src="resources/js/angular/angular-route.js"></script>
+	<script src="resources/js/app.js"></script>
+	<script src="resources/js/service/ItemService.js"></script>
+	<script src="resources/js/controller/ItemListController.js"></script>
+
+<!-- 	<base href="/Spring4MVCAngularJSRoutingExample/index.html" />  -->
+
+</head>
+<body>
+		
+	<div class="generic-container">
+		<h2>Book cheap hotels</h2>
+		<div class="panel panel-default">
+			<!-- Default panel contents -->
+		    <div class="panel-heading"><span class="lead">Search hotels</span></div>
+		    
+		     <div ng-controller="UtilityController as util">
+		   
+		    <div class="tablecontainer">
+		     <label>Destination 
+		      <input class="ac_input city_input" ng-required="true" ng-change="util.doFormatDate(searchTerm)" ng-value="searchTerm"  path="CityAJaxH" placeholder="Enter destination" ng-model="searchTerm" style="height:30px;width:300px" type="search" id="CityAjaxH" name="CityAjaxH" required/>
+		      </label>
+		      <br/>
+		     <label>Check-in date
+		      
+		      <input  name="sdateh" ng-model="sdateh" id="from" readonly="readonly"  class="date-input"/>
+		      </label>
+		      <br/>
+		      
+		     <label>Nights to stay
+		       
+		      <select  style="height:30px;width:30%" id="nights" name="nights" ng-model="nights">
+			   <option  selected value="1">1</option>
+			   <option value="2">2</option>
+			   <option value="3">3</option>
+			   <option value="4">4</option>
+			   <option value="5">5</option>
+			   <option value="6">6</option>
+			   <option value="7">7</option>
+			   <option value="8">8</option>
+			   <option value="9">9</option>
+			   <option value="10">10</option>
+			   <option value="11">11</option>
+			   <option value="12">12</option>
+			   <option value="13">13</option>
+			   <option value="14">14</option>
+			   <option value="15">15</option>
+			   <option value="16">16</option>
+			   <option value="17">17</option>
+			   <option value="18">18</option>
+			   <option value="19">19</option>
+			   <option value="20">20</option>
+			   <option value="21">21</option>
+			   <option value="22">22</option>
+			   <option value="23">23</option>
+			   <option value="24">24</option>
+			   <option value="25">25</option>
+			   <option value="26">26</option>
+			   <option value="27">27</option>
+			   <option value="28">28</option>
+			   
+			  </select>
+		      
+		      
+		      </label>
+		       
+		      <input type="hidden" id="hotelId">
+			 <input type="hidden" id="CityAjaxH2">
+			 <input type="hidden" id="CityLocal">
+		      <br/>
+		     
+		     <label> 
+		      <a href="#/items/hotels/{{searchTerm}}" style="background:#1e90ff;color:#fff;padding:10px;font-size:14pt;">Search</a>
+		     
+		     <!-- 
+		      <a href="#" onclick="location.href='#/items/hotels/'+$('#CityAjaxH').val()+'/'+$('#from').val()+'/'+$('#nights').val();" style="background:#1e90ff;color:#fff;padding:10px;font-size:14pt;">Search2</a>
+		      <a href="#/items/hotels/{{searchTerm}}/{{sdateh}}/{{nights}}" style="background:#1e90ff;color:#fff;padding:10px;font-size:14pt;">Search2</a>
+		      -->
+		     
+		      </label>
+		    </div>
+		   </div>
+		     
+		</div>
+	</div>
+
+	<div ng-view></div>
+	
+
+<script src="resources/js/controller/ItemListController.js"></script>
+<script src="resources/js/controller/ItemDetailsController.js"></script>
+<script type="text/javascript" src="resources/js/development-bundle/jquery-1.6.2.js"></script>  
+<script type="text/javascript" src="resources/js/development-bundle/ui/jquery.ui.core.js"></script>  
+<script type="text/javascript" src="resources/js/development-bundle/ui/jquery.ui.datepicker.js"></script>  
+<script type="text/javascript" src="resources/js/development-bundle/jquery.autocomplete.js"></script>  
+<script type="text/javascript" src="resources/js/utils.js"></script> 
+<script type="text/javascript" src="resources/js/js.js"></script> 
+<script type="text/javascript" src="resources/js/utilsp.js"></script>
+<script type="text/javascript">    
+
+$(function() {  var dates = $( "#from" ).datepicker({  defaultDate: "+1w",  showOn: "both",  changeMonth: true,  buttonImageOnly: true,  numberOfMonths: 2,  dateFormat:'dd/mm/y',  onSelect: function( selectedDate ) {  var option = this.id == "from" ? "minDate" : "maxDate",  instance = $( this ).data( "datepicker" ),  date = $.datepicker.parseDate(  instance.settings.dateFormat ||  $.datepicker._defaults.dateFormat,  selectedDate, instance.settings );  dates.not( this ).datepicker( "option", option, date );  }  });  });     
+
+function findValue(li) {  if( li == null ) return alert("No match!");     if( !!li.extra ) var sValue = li.extra[0];     else var sValue = li.selectValue;  if (document.getElementById('CityAjaxH2')!=null){  document.getElementById('CityAjaxH2').value = li.extra[1];  }    }    
+function selectItem(li) {  findValue(li);  }    
+function formatItem(row) {      if (document.getElementById('CityAjaxH2')!=null){  document.getElementById('CityAjaxH2').value = '';  }  return row[1] ;  }    
+function lookupAjax(){   var oSuggest = $("#CityAjaxH")[0].autocompleter;  oSuggest.findValue();  return false;  }    
+function lookupLocal(){    var oSuggest = $("#CityLocal")[0].autocompleter;  oSuggest.findValue();    return false;   }  
+$("#CityAjaxH").autocomplete(  "item/autoComplete",  {  delay:10,  minChars:3,  matchSubset:1,  matchContains:3,  cacheLength:0,  onItemSelect:selectItem,  onFindValue:findValue,  formatItem:formatItem,  autoFill:false  }  );     
+
+</script> 
+</body>
+</html>
