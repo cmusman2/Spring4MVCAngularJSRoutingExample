@@ -44,7 +44,8 @@ public class HotelDescription {
 	public void setHotelImages(HotelImages hotelImages) {
 		HotelImages = hotelImages;
 	}
-	@XmlElement
+	
+	@XmlElement(name = "RoomTypes")
 	public HotelRooms getHotelRooms() {
 		return HotelRooms;
 	}

@@ -36,7 +36,17 @@
 	                          
 	                         
 	                      </tr>
-
+	                      <tr ng-repeat="room in itemDetailsCtrl.item.data.hotelRooms.hotelRoomDetails">
+	                         <td>                             
+                                 {{room.description}}
+	                         </td>
+	                         <td>                             
+                                 {{room.descriptionLong}}
+	                         </td>
+	                          
+	                         
+	                      </tr>
+	                      
 	                    </table>
 	                    </td>
 	                    
