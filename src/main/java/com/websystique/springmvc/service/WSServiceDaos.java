@@ -160,7 +160,7 @@ try
 			 JAXBContext jc = JAXBContext.newInstance(HotelDescription.class);
 		      Unmarshaller unmarshaller = jc.createUnmarshaller();
 		      HotelDescription hotelDescription = (HotelDescription)JAXBIntrospector.getValue( unmarshaller.unmarshal(sr));
-		      
+		          
 		      if(hotelDescription!=null)
 		      System.out.println(hotelDescription.toString());
 		      else
