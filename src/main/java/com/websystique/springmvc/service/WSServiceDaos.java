@@ -62,7 +62,7 @@ public class WSServiceDaos {
 try
 {
 	
-	x = getHotelListData(city,sd,nights);
+	//x = getHotelListData(city,sd,nights);
 	
 	//System.out.println(x);
 	
@@ -89,6 +89,7 @@ try
 		List<HotelSummary> hs = new ArrayList();
 		
 		HotelSummary h= new HotelSummary();
+		h.setHotelid(1);
 		h.setName("Marriott Manchester, Downtown");
 		h.setAddress1("In the city center");
 		h.setLowrate("325.55");
@@ -96,6 +97,7 @@ try
 		hs.add(h);
 		
 		h= new HotelSummary();
+		h.setHotelid(2);
 		h.setName("Crown plaza City Center");
 		h.setAddress1("Water front");
 		h.setLowrate("125.80");
@@ -103,6 +105,7 @@ try
 		hs.add(h);		
 		
 		h= new HotelSummary();
+		h.setHotelid(3);
 		h.setName("Crown plaza City Center");
 		h.setAddress1("Water front");
 		h.setLowrate("125.80");
@@ -110,6 +113,7 @@ try
 		hs.add(h);	
 	  
 		h= new HotelSummary();
+		h.setHotelid(4);
 		h.setName("Crown plaza City Center");
 		h.setAddress1("Water front");
 		h.setLowrate("125.80");
@@ -118,6 +122,7 @@ try
 
 
 		h= new HotelSummary();
+		h.setHotelid(5);
 		h.setName("Crown plaza City Center");
 		h.setAddress1("Water front");
 		h.setLowrate("125.80");
