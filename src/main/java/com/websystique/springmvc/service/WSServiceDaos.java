@@ -88,7 +88,7 @@ try
 	    for(String s:data)
 		xml+=s;
 	    
-		System.out.println(data.toString());
+		System.out.println(xml);
 
 	}catch(Exception exp)
 	{
