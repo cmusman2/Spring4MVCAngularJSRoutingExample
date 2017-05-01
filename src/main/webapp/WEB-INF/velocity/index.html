@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Service App</title>
+    <title>Book cheap hotels</title>
     
     <link type="text/css" rel="stylesheet" href="resources/css/styles.css" media="all" />
     <link rel="stylesheet" href="resources/css/bootstrap.css" />
@@ -22,7 +22,7 @@
 		
 	<div class="generic-container">
 		<h2>Book cheap hotels</h2>
-		<div class="panel panel-default">
+		<div class="panel panel-default" style="background:url(resources/images/bgimg.jpg); background-size: cover;">
 			<!-- Default panel contents -->
 		    <div class="panel-heading"><span class="lead">Search hotels</span></div>
 		    
@@ -35,13 +35,13 @@
 		      <br/>
 		     <label>Check-in date
 		      
-		      <input  name="sdateh" ng-model="sdateh" id="from" readonly="readonly"  class="date-input"/>
+		      <input style="cursor:pointer;height:30px;"   name="sdateh" ng-model="sdateh" id="from" readonly="readonly"  class="date-input"/>
 		      </label>
 		      <br/>
 		      
 		     <label>Nights to stay
 		       
-		      <select  style="height:30px;width:30%" id="nights" name="nights" ng-model="nights">
+		      <select class="input" style="height:30px;" id="nights" name="nights" ng-model="nights">
 			   <option  selected value="1">1</option>
 			   <option value="2">2</option>
 			   <option value="3">3</option>
@@ -81,7 +81,7 @@
 			 <input type="hidden" id="CityLocal">
 		      <br/>
 		     
-		     <label> 
+		     
 		      <a href="#/items/hotels/{{searchTerm}}" style="background:#1e90ff;color:#fff;padding:10px;font-size:14pt;">Search</a>
 		     
 		     <!-- 
@@ -89,7 +89,7 @@
 		      <a href="#/items/hotels/{{searchTerm}}/{{sdateh}}/{{nights}}" style="background:#1e90ff;color:#fff;padding:10px;font-size:14pt;">Search2</a>
 		      -->
 		     
-		      </label>
+		      
 		    </div>
 		   </div>
 		     

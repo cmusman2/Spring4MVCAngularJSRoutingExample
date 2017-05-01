@@ -776,8 +776,22 @@ td{
 
 .htlname a{text-decoration:none;color:#1e90ff;}
 
+.roomname {
+	font-size:12pt;color:#1e90ff;
+	font-family: fantasy;font-weight:bold;
+	
+	}
+
 .price
 {
 		font-size:12pt;color:#ff0000;
 	font-family: fantasy;font-weight:bold;
 }
+
+.imgHtlDetail{
+    border-width:0;
+    width:30
+}
+
+.titleheading{font-size:14pt;font-weight:bold}
+.searchPane{background:url(resources/images/bgimg.jpg); background-size: cover;}

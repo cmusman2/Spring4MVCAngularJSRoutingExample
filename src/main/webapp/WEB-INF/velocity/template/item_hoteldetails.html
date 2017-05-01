@@ -1,7 +1,7 @@
 <div class="generic-container">
 	<div class="panel panel-default"> 
 		<!-- Default panel contents -->
-	    <div class="panel-heading"><span class="lead"><span  class="htlname">{{itemDetailsCtrl.item.data.hotelSummary.name}}</span></span></div>
+	    <div class="panel-heading"><span class="lead"><span  class="htlname">{{itemDetailsCtrl.item.data.hotelSummary.name}}</span></span><a href="" style="color:#222">Back to results</a></div>
 	    <div class="tablecontainer">
 	    	<table class="table table-hover">
 	            
@@ -20,7 +20,7 @@
 	                            {{itemDetailsCtrl.item.data.hotelSummary.locationDescription}}<br/>
 	                            {{itemDetailsCtrl.item.data.hotelSummary.city}}<br/>
 	                            {{itemDetailsCtrl.item.data.hotelSummary.countryCode}}<br/>
-	                         </td>
+	                         </td>	                        
 	                      </tr>
 	                      <tr>
 	                        <td colspan="2">
@@ -31,16 +31,33 @@
 	                      
 	                      <tr>
 	                         <td colspan="2" valign="top"><br/>	                             
-                                 <img ng-repeat="img in itemDetailsCtrl.item.data.hotelImages.Images" src="{{img.thumbnailUrl}}"/>
+                                 <img width="50" style="padding:5px" ng-repeat="img in itemDetailsCtrl.item.data.hotelImages.Images" src="{{img.thumbnailUrl}}"/>
 	                         </td>
 	                          	                          
 	                      </tr>
-	                      <tr ng-repeat="room in itemDetailsCtrl.item.data.hotelRooms.hotelRoomDetails">
-	                         <td valign="top">                             
-                                 {{room.description}}  
+	                      <tr>
+	                         <td colspan="2" valign="top"><br/>	                             
+                                <span class="titleheading">Following types of rooms are available at {{itemDetailsCtrl.item.data.hotelSummary.name}}
+                                </span>   
 	                         </td>
-	                         <td valign="top">   	                            	                         
-	                            <div ng-bind-html=" room.descriptionLong  | trusted"></div>               
+	                          	                          
+	                      </tr>
+
+	                      <tr ng-repeat="room in itemDetailsCtrl.item.data.hotelRooms.hotelRoomDetails">
+	                         <td valign="top" colspan="2">  
+	                                                        
+                                <a href="" ng-click="checked=(checked ? false : true)">
+                                <span class="roomname"> {{room.description}}</span>  
+	                            
+	                         
+	                         </a>
+	                         <br />	                            	                         
+	                            <div class="check-element animate-show-hide" ng-show="checked" ng-bind-html=" room.descriptionLong  | trusted">
+	                            
+
+                             </div>
+
+	                                        
 	                         </td>
 	                          
 	                         
