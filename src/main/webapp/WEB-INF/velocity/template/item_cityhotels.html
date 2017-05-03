@@ -1,5 +1,5 @@
-<div class="generic-container">
-	<div class="panel panel-default">
+<div class="generic-containerx">
+	<div class="panel panel-defaultx">
 		<!-- Default panel contents -->
 	    <div class="panel-heading"><span class="lead">Search results</span></div>
 	    <div class="tablecontainer">
@@ -10,22 +10,30 @@
 	                   <td> 
 	                    <table>
 	                      <tr>
-	                         <td class="htlname">{{item.name}}</td>
+	                         <td>
+	                         <span  class="htlname">{{item.name}}</span>
+	                         <br/>{{item.address1}} {{item.postalcode}}, {{item.city}}
+	                         </td>
 	                      </tr>
 	                      <tr>
-	                         <td><img src="http://images.lowestroomrates.com{{item.thumbnailurl}}"/></td>
-	                         <td>{{item.address1}}<br/{{item.postalcode}}></td>
-	                         <td>{{item.name}}</td>
-	                         <td><span  class="price">{{item.lowrate}}</span><br/>
-	                           <a href="#/items/hotels/details/{{item.hotelid}}">See details</a>
-	                         </td>
+	                         <td valign="top" width="1%"><img src="http://images.lowestroomrates.com{{item.thumbnailurl}}"/></td>
+	                         <td valign="top" style="padding:5px;font-weight:bold">
+	                      
+	                          <span ng-bind-html=" item.locationdescription  | trusted"></span>
+	                          <br/>
+	                          <span style="font-weight:normal" ng-bind-html=" item.shortdescription  | trusted"></span>
+	                           
+	                          </td>
+
 	                          
 	                         
 	                      </tr>
 
 	                    </table>
 	                    </td>
-	                    
+	                         <td valign="top"><span  class="price">{{item.lowrate}}</span><br/>
+	                           <a href="#/items/hotels/details/{{item.hotelid}}">See&nbsp;details</a>
+	                         </td>
 	                </tr>
 	            </tbody>
 			</table>

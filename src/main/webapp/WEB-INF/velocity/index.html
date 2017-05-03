@@ -20,17 +20,18 @@
 </head>
 <body>
 		
-	<div class="generic-container">
+	<div class="generic-containerx">
 		<h2>Book cheap hotels</h2>
-		<div class="panel panel-default" style="background:url(resources/images/bgimg.jpg); background-size: cover;">
+		<div class="panel panel-default" style="height:450px;background:url(resources/images/bgimg.jpg); background-size: cover;">
 			<!-- Default panel contents -->
-		    <div class="panel-heading"><span class="lead">Search hotels</span></div>
-		    
-		     <div ng-controller="UtilityController as util">
 		   
-		    <div class="tablecontainer">
+		    
+		    
+		     <div ng-controller="UtilityController as util" style="padding:10px;height:200px;width:50%;position:relative;top:100px;margin:auto;background:#fff">
+		   
+		     
 		     <label>Destination 
-		      <input class="ac_input city_input" ng-required="true" ng-change="util.doFormatDate(searchTerm)" ng-value="searchTerm"  path="CityAJaxH" placeholder="Enter destination" ng-model="searchTerm" style="height:30px;width:300px" type="search" id="CityAjaxH" name="CityAjaxH" required/>
+		      <input style="height:30px;width:100%" class="ac_input city_input" ng-required="true" ng-change="util.doFormatDate(searchTerm)" ng-value="searchTerm"  path="CityAJaxH" placeholder="Enter destination" ng-model="searchTerm" type="search" id="CityAjaxH" name="CityAjaxH" required/>
 		      </label>
 		      <br/>
 		     <label>Check-in date
@@ -79,21 +80,21 @@
 		      <input type="hidden" id="hotelId">
 			 <input type="hidden" id="CityAjaxH2">
 			 <input type="hidden" id="CityLocal">
-		      <br/>
+		      <br/><br/>
 		     
-		     
+		     <div style="margin:auto;">
 		      <a href="#/items/hotels/{{searchTerm}}" style="background:#1e90ff;color:#fff;padding:10px;font-size:14pt;">Search</a>
-		     
+		     </div>
 		     <!-- 
 		      <a href="#" onclick="location.href='#/items/hotels/'+$('#CityAjaxH').val()+'/'+$('#from').val()+'/'+$('#nights').val();" style="background:#1e90ff;color:#fff;padding:10px;font-size:14pt;">Search2</a>
 		      <a href="#/items/hotels/{{searchTerm}}/{{sdateh}}/{{nights}}" style="background:#1e90ff;color:#fff;padding:10px;font-size:14pt;">Search2</a>
 		      -->
 		     
 		      
-		    </div>
+		     
 		   </div>
 		     
-		</div>
+		 
 	</div>
 
 	<div ng-view></div>

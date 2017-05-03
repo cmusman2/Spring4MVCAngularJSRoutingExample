@@ -30,7 +30,6 @@ import javax.xml.bind.annotation.XmlType;
  "rate"
 })*/
 
-
 @XmlRootElement(name = "hotelsummary")
 public class HotelSummary implements Serializable {
 	@XmlElement
@@ -42,203 +41,231 @@ public class HotelSummary implements Serializable {
 		this.hotelid = hotelid;
 	}
 
+	protected int hotelid;
 
- protected int hotelid;
+	protected String name;
 
- protected String name;
+	protected String address1;
 
- protected String address1;
+	protected String address2;
 
- protected String address2;
+	protected String postalcode;
 
- protected String postalcode;
+	protected String thumbnailurl;
 
- protected String thumbnailurl;
+	protected String lowrate;
+	protected String currencycode;
+	protected String locationdescription;
+	
 
- protected String lowrate;
- 
+	protected String ratecurrencycode;
 
- protected String locationdescription;
+	protected String shortdescription;
+	
+	private String countrycode;
+    private String tripadvisorratingurl;
+	
+	private HotelRoomAvailInfos roomrates;
+	
+	 
+	@XmlElement(name="roomratedetailslist")
+	public HotelRoomAvailInfos getRoomrates() {
+		return roomrates;
+	}
 
- public String getPostalcode() {
-	return postalcode;
-}
+	public void setRoomrates(HotelRoomAvailInfos roomrates) {
+		this.roomrates = roomrates;
+	}
 
-public void setPostalcode(String postalcode) {
-	this.postalcode = postalcode;
-}
-@XmlElement
-public String getThumbnailurl() {	
-	if (thumbnailurl!=null && !thumbnailurl.isEmpty()) thumbnailurl = thumbnailurl.replace("_t.", "_l.");
-	return thumbnailurl;
-}
-
-public void setThumbnailurl(String thumbnailurl) {
-	this.thumbnailurl = thumbnailurl;
-}
-@XmlElement
-public String getLowrate() {
-	return lowrate;
-}
-
-public void setLowrate(String lowrate) {
-	this.lowrate = lowrate;
-}
-@XmlElement
-public String getLocationdescription() {
-	return locationdescription;
-}
-
-public void setLocationdescription(String locationdescription) {
-	this.locationdescription = locationdescription;
-}
-@XmlElement
-public String getCountrycode() {
-	return countrycode;
-}
-
-public void setCountrycode(String countrycode) {
-	this.countrycode = countrycode;
-}
-@XmlElement
-public String getRatecurrencycode() {
-	return ratecurrencycode;
-}
-
-public void setRatecurrencycode(String ratecurrencycode) {
-	this.ratecurrencycode = ratecurrencycode;
-}
-
-
- protected String countrycode;
- 
-
- protected String ratecurrencycode;
- 
- 
-  
-
-
- protected String shortdescription;
- 
-
-
- 
-
-
- @XmlElement
- public String getShortdescription() {
-	return shortdescription;
-}
-
-public void setShortdescription(String shortdescription) {
-	this.shortdescription = shortdescription;
-}
-
-
-protected String city;
- 
+	
+	
 	@XmlElement
- public String getCity() {
+	public String getCountrycode() {
+		return countrycode;
+	}
+
+	public void setCountrycode(String countrycode) {
+		this.countrycode = countrycode;
+	}
+
+	@XmlElement
+	public String getTripadvisorratingurl() {
+		return tripadvisorratingurl;
+	}
+
+	public void setTripadvisorratingurl(String tripadvisorratingurl) {
+		this.tripadvisorratingurl = tripadvisorratingurl;
+	}
+
+	@XmlElement
+	public String getCurrencycode() {
+		return currencycode;
+	}
+
+	public void setCurrencycode(String currencycode) {
+		this.currencycode = currencycode;
+	}	
+
+
+	@XmlElement
+	public String getPostalcode() {
+		return postalcode;
+	}
+
+	public void setPostalcode(String postalcode) {
+		this.postalcode = postalcode;
+	}
+
+	@XmlElement
+	public String getThumbnailurl() {
+		if (thumbnailurl != null && !thumbnailurl.isEmpty())
+			thumbnailurl = thumbnailurl.replace("_t.", "_l.");
+		return thumbnailurl;
+	}
+
+	public void setThumbnailurl(String thumbnailurl) {
+		this.thumbnailurl = thumbnailurl;
+	}
+
+	@XmlElement
+	public String getLowrate() {
+		if (lowrate!=null && lowrate!="")
+			lowrate = getCurrencySymbol(ratecurrencycode)+ " " +lowrate;
+		return lowrate;
+	}
+
+	public void setLowrate(String lowrate) {
+		this.lowrate = lowrate;
+	}
+
+	@XmlElement
+	public String getLocationdescription() {
+		return locationdescription;
+	}
+
+	public void setLocationdescription(String locationdescription) {
+		this.locationdescription = locationdescription;
+	}
+
+	
+	@XmlElement
+	public String getRatecurrencycode() {
+		return ratecurrencycode;
+	}
+
+	public void setRatecurrencycode(String ratecurrencycode) {
+		this.ratecurrencycode = ratecurrencycode;
+	}
+
+
+	@XmlElement
+	public String getShortdescription() {
+		if (shortdescription!=null && shortdescription!="")
+		{
+			shortdescription = shortdescription.replace("&lt;p&gt;&lt;b&gt;Property Location&lt;/b&gt; &lt;br /&gt;", "");
+			shortdescription +=shortdescription+"...";
+		}
+		return shortdescription;
+	}
+
+	public void setShortdescription(String shortdescription) {
+		this.shortdescription = shortdescription;
+	}
+
+	protected String city;
+
+	@XmlElement
+	public String getCity() {
 		return city;
 	}
 
 	public void setCity(String city) {
 		this.city = city;
 	}
- 
 
- /**
-  * Gets the value of the name property.
-  * 
-  * @return
-  *     possible object is
-  *     {@link String }
-  *     
-  */
+	/**
+	 * Gets the value of the name property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
 	@XmlElement
- public String getName() {
-     return name;
- }
+	public String getName() {
+		return name;
+	}
 
- /**
-  * Sets the value of the name property.
-  * 
-  * @param value
-  *     allowed object is
-  *     {@link String }
-  *     
-  */
- public void setName(String value) {
-     this.name = value;
- }
+	/**
+	 * Sets the value of the name property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setName(String value) {
+		this.name = value;
+	}
 
- /**
-  * Gets the value of the address1 property.
-  * 
-  * @return
-  *     possible object is
-  *     {@link String }
-  *     
-  */
- @XmlElement
- public String getAddress1() {
-     return address1;
- }
+	/**
+	 * Gets the value of the address1 property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	@XmlElement
+	public String getAddress1() {
+		return address1;
+	}
 
- /**
-  * Sets the value of the address1 property.
-  * 
-  * @param value
-  *     allowed object is
-  *     {@link String }
-  *     
-  */
- public void setAddress1(String value) {
-     this.address1 = value;
- }
+	/**
+	 * Sets the value of the address1 property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setAddress1(String value) {
+		this.address1 = value;
+	}
 
- /**
-  * Gets the value of the address2 property.
-  * 
-  * @return
-  *     possible object is
-  *     {@link String }
-  *     
-  */
- @XmlElement
- public String getAddress2() {
-     return address2;
- }
+	/**
+	 * Gets the value of the address2 property.
+	 * 
+	 * @return possible object is {@link String }
+	 * 
+	 */
+	@XmlElement
+	public String getAddress2() {
+		return address2;
+	}
 
- /**
-  * Sets the value of the address2 property.
-  * 
-  * @param value
-  *     allowed object is
-  *     {@link String }
-  *     
-  */
- public void setAddress2(String value) {
-     this.address2 = value;
- }
+	/**
+	 * Sets the value of the address2 property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setAddress2(String value) {
+		this.address2 = value;
+	}
 
+	@Override
+	public String toString() {
+		return "Hotel:" + hotelid + "|" + name + "|" + address1 + "|" + address2 + "|" + postalcode + "|" + thumbnailurl
+				+ "|" + lowrate;
 
+	}
 
- 
-
- @Override
- public String toString() {
-     return "Hotel:"
-       +hotelid
-      +"|"+name
-      +"|"+address1 
-      +"|"+address2 
-      +"|"+postalcode 
-      +"|"+thumbnailurl 
-      +"|"+lowrate;
-     
- }    
- 
- public HotelSummary(){}
+	
+	private String getCurrencySymbol(String cc)
+	{
+		if (cc==null) return "";
+		if (cc=="USD") return "$"; else
+		 if (cc=="GBP") return "£"; else 
+		  if (cc=="EUR") return "€";  else				
+		return cc;
+	}
+	
+	public HotelSummary() {
+	}
 }

@@ -25,6 +25,9 @@ img{
     border-width:0;
 }
 
+.htloptProm{
+	background-color:#ff6600;color:White;font-size:10pt;
+}
 
 div.table {display: table; }
 div.tr {display: table-row; text-align:left;}
@@ -754,6 +757,7 @@ table
 
 td{
 	padding: 0;
+	valign:top;
 }
 
 .test

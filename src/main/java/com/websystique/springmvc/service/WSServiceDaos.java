@@ -73,12 +73,12 @@ public class WSServiceDaos {
 	  //String x = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?><ns2:hotellistresponse xmlns:ns2=\"http://v3.hotel.wsapi.ean.com\"><customersessionid>0ABAAA42-487E-F915-62D2-4C6B0D9015B0</customersessionid><numberofroomsrequested>0</numberofroomsrequested><moreresultsavailable>false</moreresultsavailable><hotellist size=\"1374\" activepropertycount=\"1374\"><hotelsummary order=\"0\"><hotelid>284677</hotelid><name>Best Western Plus Delmere Hotel</name><address1>130 Sussex Gardens</address1><city>London</city><postalcode>W2 1UB</postalcode><countrycode>GB</countrycode><airportcode>LHR</airportcode><propertycategory>1</propertycategory><hotelrating>3.0</hotelrating><confidencerating>94</confidencerating><amenitymask>0</amenitymask><tripadvisorrating>4.0</tripadvisorrating><tripadvisorreviewcount>139</tripadvisorreviewcount><tripadvisorratingurl>http://www.tripadvisor.com/img/cdsi/img2/ratings/traveler/4.0-16366-4.gif</tripadvisorratingurl><locationdescription>Near Marble Arch</locationdescription><shortdescription>&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Property Location&amp;lt;/b&amp;gt; &amp;lt;br /&amp;gt;With a stay at Best Western Plus Delmere Hotel in London (Paddington), you&amp;apos;ll be convenient to Hyde Park Speakers&amp;apos; Corner and Selfridges.  This hotel is close to</shortdescription><highrate>284.29</highrate><lowrate>163.91</lowrate><ratecurrencycode>USD</ratecurrencycode><latitude>51.51563</latitude><longitude>-0.17226</longitude><proximitydistance>3.075692</proximitydistance><proximityunit>MI</proximityunit><hotelindestination>true</hotelindestination><thumbnailurl>/hotels/1000000/30000/21700/21632/21632_126_t.jpg</thumbnailurl><deeplink>http://www.travelnow.com/templates/396041/hotels/284677/overview?lang=en&amp;amp;currency=USD&amp;amp;standardCheckin=null/null/null&amp;amp;standardCheckout=6/7/2018</deeplink></hotelsummary></hotellist></ns2:hotellistresponse>";
 try
 {
+	String xml= "";
 	
-	//x = getHotelListData(city,sd,nights);
 	
 	//System.out.println(x);
 	
-	String xml= "";
+	 
 	try
 	{
 		ClassLoader classLoader = new WSServiceDaos().getClass().getClassLoader();
@@ -86,16 +86,17 @@ try
 		 
 		List<String> data = Files.readAllLines(file.toPath());
 	    for(String s:data)
-		xml+=s;
-	    
-		System.out.println(xml);
+		xml+=s;	    	
 
 	}catch(Exception exp)
 	{
 		System.out.println(exp.getMessage());
 		exp.printStackTrace();
-	}
+	} 
 	
+   // xml = getHotelListData(city,sd,nights);
+	 
+	System.out.println(xml);
 	if (xml=="") return null;
 	StringReader sr = new StringReader(xml);
       
@@ -187,7 +188,7 @@ try
 			postData.setEntity(new UrlEncodedFormEntity(urlParametersData));
 			String xml= "";
 			
-			
+			 
 			try
 			{
 				ClassLoader classLoader = new WSServiceDaos().getClass().getClassLoader();
@@ -203,7 +204,7 @@ try
 			{
 				System.out.println(exp.getMessage());
 				exp.printStackTrace();
-			}
+			} 
 			
 			//xml=getData(postData);
 			
