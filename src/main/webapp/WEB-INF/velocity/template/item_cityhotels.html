@@ -20,9 +20,14 @@
 	                         <td valign="top" style="padding:5px;font-weight:bold">
 	                         <img src="{{item.tripadvisorratingurl}}"/><br/>
 	                      <img src="resources/images/{{item.hotelrating}}.png"/><br/>
+	                      <p style="font-weight:normal">
+	                      {{item.roomrates.hotelroomavailinfos[0].roomdescription}} for {{item.roomrates.hotelroomavailinfos[0].maxroomoccupancy}}<br/>
 	                          <span ng-bind-html=" item.locationdescription  | trusted"></span>
 	                          <br/>
 	                          
+	                          <br/>
+	                          <span style="color:#B40404">{{item.roomrates.hotelroomavailinfos[0].valueadds.roomratevalueAdds[0].description}}</span>
+	                          <p>
 	                          <span style="font-weight:normal" ng-bind-html=" item.shortdescription  | trusted"></span>
 	                           
 	                          </td>
