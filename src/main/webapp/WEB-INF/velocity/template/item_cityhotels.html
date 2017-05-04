@@ -7,8 +7,8 @@
 	            
 	            <tbody>
 	                <tr ng-repeat="item in itemListCtrl.items.data">
-	                   <td> 
-	                    <table>
+	                   <td style="border-bottom:thin dashed #1e90ff"> 
+	                    <table> 
 	                      <tr>
 	                         <td>
 	                         <span  class="htlname">{{item.name}}</span>
@@ -16,11 +16,13 @@
 	                         </td>
 	                      </tr>
 	                      <tr>
-	                         <td valign="top" width="1%"><img src="http://images.lowestroomrates.com{{item.thumbnailurl}}"/></td>
+	                         <td valign="top" width="1%"><img style="border:thin solid #1e90ff;padding:1px" src="http://images.lowestroomrates.com{{item.thumbnailurl}}"/></td>
 	                         <td valign="top" style="padding:5px;font-weight:bold">
-	                      
+	                         <img src="{{item.tripadvisorratingurl}}"/><br/>
+	                      <img src="resources/images/{{item.hotelrating}}.png"/><br/>
 	                          <span ng-bind-html=" item.locationdescription  | trusted"></span>
 	                          <br/>
+	                          
 	                          <span style="font-weight:normal" ng-bind-html=" item.shortdescription  | trusted"></span>
 	                           
 	                          </td>
@@ -32,7 +34,7 @@
 	                    </table>
 	                    </td>
 	                         <td valign="top"><span  class="price">{{item.lowrate}}</span><br/>
-	                           <a href="#/items/hotels/details/{{item.hotelid}}">See&nbsp;details</a>
+	                           <a class="booknow" href="#/items/hotels/details/{{item.hotelid}}">See&nbsp;details</a>
 	                         </td>
 	                </tr>
 	            </tbody>

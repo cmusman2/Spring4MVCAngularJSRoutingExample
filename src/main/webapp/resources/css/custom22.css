@@ -178,6 +178,13 @@ a.testbuttonx:active {
 	font-size:14pt;  
 } 
 
+.booknow{
+padding:5px;background:#1e90ff;color:#fff;font-size:14pt;
+}
+
+.booknow a{
+padding:5px;background:#1e90ff;color:#fff;font-size:14pt;
+}
 
 a.testbutton, a.testbutton:visited {   
 display:block;   
@@ -788,7 +795,7 @@ td{
 
 .price
 {
-		font-size:12pt;color:#ff0000;
+		font-size:12pt;color:#B40431;
 	font-family: fantasy;font-weight:bold;
 }
 

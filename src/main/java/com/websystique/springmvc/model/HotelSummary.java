@@ -61,13 +61,56 @@ public class HotelSummary implements Serializable {
 	protected String ratecurrencycode;
 
 	protected String shortdescription;
+	private String hotelrating;
 	
-	private String countrycode;
-    private String tripadvisorratingurl;
+   
+
+	private String tripadvisorratingurl;
 	
 	private HotelRoomAvailInfos roomrates;
 	
-	 
+	@XmlElement
+	public String getHotelrating() {
+		if (hotelrating!=null && hotelrating!="") 
+		{
+			if (hotelrating=="1.0" || hotelrating=="1" || 
+					hotelrating==".5" || hotelrating=="." || 
+							hotelrating==".0" || hotelrating==".0" || hotelrating=="0.")
+			{
+				hotelrating="1.0";
+			}else
+				if (hotelrating=="1.0" || hotelrating=="1")
+				{
+					hotelrating="1.0";
+				}
+				else
+					if (hotelrating=="2" || hotelrating=="2.0")
+					{
+						hotelrating="2.0";
+					}
+					else
+						if (hotelrating=="3" || hotelrating=="3.0")
+						{
+							hotelrating="3.0";
+						}	else
+							if (hotelrating=="4" || hotelrating=="4.0")
+							{
+								hotelrating="4.0";
+							}	else
+								if (hotelrating=="5" || hotelrating=="5.0")
+								{
+									hotelrating="5.0";
+								}
+			
+		}else
+			hotelrating="1.0";
+			return hotelrating;
+	}
+
+	public void setHotelrating(String hotelrating) {
+			this.hotelrating = hotelrating;
+	 }
+	
 	@XmlElement(name="roomratedetailslist")
 	public HotelRoomAvailInfos getRoomrates() {
 		return roomrates;
@@ -79,15 +122,6 @@ public class HotelSummary implements Serializable {
 
 	
 	
-	@XmlElement
-	public String getCountrycode() {
-		return countrycode;
-	}
-
-	public void setCountrycode(String countrycode) {
-		this.countrycode = countrycode;
-	}
-
 	@XmlElement
 	public String getTripadvisorratingurl() {
 		return tripadvisorratingurl;

@@ -34,7 +34,7 @@ public class ChargeableRateInfo {
 		this.averagerate = averagerate;
 	}
 	
-	@XmlAttribute
+	@XmlAttribute(name="currencycode")
 	public String getCurrecncycode() {
 		return currencycode;
 	}
