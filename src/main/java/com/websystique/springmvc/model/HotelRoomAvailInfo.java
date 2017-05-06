@@ -8,7 +8,7 @@ public class HotelRoomAvailInfo {
 	
     private String roomtypecode;
     private String ratecode;
-    private int maxroomoccupancy;
+    private String maxroomoccupancy;
 	private String roomdescription;
 	private RoomRateInfos roomrateinfos;
 	
@@ -49,11 +49,11 @@ public class HotelRoomAvailInfo {
 	}
 
 	@XmlElement(name="maxroomoccupancy")
-	public int getMaxroomoccupancy() {
+	public String getMaxroomoccupancy() {		
 		return maxroomoccupancy;
 	}
 
-	public void setMaxroomoccupancy(int maxroomoccupancy) {
+	public void setMaxroomoccupancy(String maxroomoccupancy) {
 		this.maxroomoccupancy = maxroomoccupancy;
 	}
 

@@ -1,8 +1,18 @@
-<div class="generic-container">
-	<div class="panel panel-default"> 
+<div class="generic-containerx">
+	<div class="panel panel-defaultx"> 
 		<!-- Default panel contents -->
-	    <div class="panel-heading"><span class="lead"><span  class="htlname">{{itemDetailsCtrl.item.data.hotelSummary.name}}</span></span><a href="" style="color:#222">Back to results</a></div>
-	    <div class="tablecontainer">
+	    <div class="panel-heading"><span class="lead" style="font-weight:bold">
+	    {{itemDetailsCtrl.item.data.hotelSummary.name}}	<img src="resources/images/{{itemDetailsCtrl.item.data.hotelSummary.hotelRating}}.png"/>     
+	    <img src="{{itemDetailsCtrl.item.data.hotelSummary.tripAdvisorRatingUrl}}"/>
+	    </span>
+	    <br/>
+	    {{itemDetailsCtrl.item.data.hotelSummary.address1}}
+	     {{itemDetailsCtrl.item.data.hotelSummary.postalCode}},
+	      {{itemDetailsCtrl.item.data.hotelSummary.city}},
+	      {{itemDetailsCtrl.item.data.hotelSummary.countryCode}}
+	      
+	    <a href="" style="color:#222">Back to results</a></div>
+	    <div class="tablecontainerx">
 	    	<table class="table table-hover">
 	            
 	            <tbody>
@@ -13,18 +23,19 @@
 	                        <td valign="top" style="width:1%"><img src="{{itemDetailsCtrl.item.data.hotelImages.Images[2].url}}"/></td>
 	                         <td valign="top">
 	                            
-	                            <img src="{{itemDetailsCtrl.item.data.hotelSummary.tripAdvisorRatingUrl}}"/>
+	                            
 	                            <br/>
-	                            {{itemDetailsCtrl.item.data.hotelSummary.address1}}<br/>
-	                            {{itemDetailsCtrl.item.data.hotelSummary.postalCode}}<br/>
-	                            {{itemDetailsCtrl.item.data.hotelSummary.locationDescription}}<br/>
-	                            {{itemDetailsCtrl.item.data.hotelSummary.city}}<br/>
-	                            {{itemDetailsCtrl.item.data.hotelSummary.countryCode}}<br/>
+	                             
+	                            <br/>
+	                             Family Room<br/>
+	                            <br/>
+	                            <br/>
 	                         </td>	                        
 	                      </tr>
 	                      <tr>
 	                        <td colspan="2">
-	                        {{itemDetailsCtrl.item.data.hotelSummary.propertyDescription}}
+	                        <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.checkInInstructions  | trusted">
+	                        </span>	                      
 	                        </td>
 	                      </tr>
 	                      

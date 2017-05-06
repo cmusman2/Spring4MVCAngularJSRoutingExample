@@ -15,8 +15,18 @@ public class HotelDescription {
 	private HotelRooms HotelRooms;
 	private PropertyAmenities PropertyAmenities;
 
+	private HotelRoomAvailInfos roomrates;
 	
-    @XmlElement(name = "HotelSummary")
+	@XmlElement(name = "RoomRates")
+    public HotelRoomAvailInfos getRoomrates() {
+		return roomrates;
+	}
+
+	public void setRoomrates(HotelRoomAvailInfos roomrates) {
+		this.roomrates = roomrates;
+	}
+
+	@XmlElement(name = "HotelSummary")
 	public HotelSummaryDetails getHotelSummary() {
 		return HotelSummary;
 	}
@@ -53,7 +63,8 @@ public class HotelDescription {
 	public void setHotelRooms(HotelRooms hotelRooms) {
 		HotelRooms = hotelRooms;
 	}
-	@XmlElement
+	
+	@XmlElement(name="PropertyAmenities")
 	public PropertyAmenities getPropertyAmenities() {
 		return PropertyAmenities;
 	}

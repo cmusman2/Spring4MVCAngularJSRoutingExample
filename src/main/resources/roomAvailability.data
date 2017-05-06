@@ -1,0 +1,301 @@
+<ns2:HotelRoomAvailabilityResponse xmlns:ns2="http://v3.hotel.wsapi.ean.com/" size="3">
+<customerSessionId>0AB2903A-159F-3E91-5AD2-A0C77A39515F</customerSessionId>
+<hotelId>106347</hotelId>
+<arrivalDate>04/15/2017</arrivalDate>
+<departureDate>04/17/2017</departureDate>
+<hotelName>MCM Elegante Hotel &amp; Suites</hotelName>
+<hotelAddress>2330 W Northwest Hwy</hotelAddress>
+<hotelCity>Dallas</hotelCity>
+<hotelStateProvince>TX</hotelStateProvince>
+<hotelCountry>US</hotelCountry>
+<numberOfRoomsRequested>1</numberOfRoomsRequested>
+<checkInInstructions><p><b>Know Before You Go</b> <br /><ul> <li>Children 16 years old and younger stay free when occupying the parent or guardian's room, using existing bedding. </li><li>The property has connecting/adjoining rooms, which are subject to availability and can be requested by contacting the property using the number on the booking confirmation. </li> </ul></p><p><b>Fees</b> <br /><p>The following fees and deposits are charged by the property at time of service, check-in, or check-out. </p> <ul> <li>Pet deposit: USD 75.00</li> <li>Pet fee: USD 75 per pet, per stay</li> <li>Rollaway bed fee: USD 12.00 per night</li> </ul> <p>The above list may not be comprehensive. Fees and deposits may not include tax and are subject to change. </p></p></checkInInstructions>
+<specialCheckInInstructions>Airport shuttle service is available at scheduled times during limited hours. Contact the property in advance to get details.</specialCheckInInstructions>
+<HotelRoomResponse>
+    <rateCode>200706716</rateCode>
+    <roomTypeCode>200127420</roomTypeCode>
+    <rateDescription>Deluxe Room, 2 Queen Beds</rateDescription>
+    <roomTypeDescription>Deluxe Room, 2 Queen Beds</roomTypeDescription>
+    <supplierType>E</supplierType>
+    <propertyId>5900</propertyId>
+    <BedTypes size="1">
+        <BedType id="23">
+            <description>2 queen beds</description>
+        </BedType>
+    </BedTypes>
+    <smokingPreferences>NS</smokingPreferences>
+    <rateOccupancyPerRoom>4</rateOccupancyPerRoom>
+    <quotedOccupancy>2</quotedOccupancy>
+    <minGuestAge>0</minGuestAge>
+    <RateInfos size="1">
+        <RateInfo priceBreakdown="true" promo="false" rateChange="false">
+            <RoomGroup>
+                <Room>
+                    <numberOfAdults>2</numberOfAdults>
+                    <numberOfChildren>1</numberOfChildren>
+                    <childAges>3</childAges>
+                    <rateKey>33869a0b-c201-4004-9bf6-5ebb50005f07-5001</rateKey>
+                    <ChargeableNightlyRates>
+                        <NightlyRate baseRate="129.17" rate="129.17" promo="false" fenced="false" />
+                        <NightlyRate baseRate="129.17" rate="129.17" promo="false" fenced="false" />
+                    </ChargeableNightlyRates>
+                </Room>
+            </RoomGroup>
+            <ChargeableRateInfo averageBaseRate="129.17" averageRate="129.17" commissionableUsdTotal="258.34" currencyCode="USD" maxNightlyRate="129.17" nightlyRateTotal="258.34" surchargeTotal="46.38" total="304.72">
+                <NightlyRatesPerRoom size="2">
+                    <NightlyRate baseRate="129.17" rate="129.17" promo="false" fenced="false" />
+                    <NightlyRate baseRate="129.17" rate="129.17" promo="false" fenced="false" />
+                </NightlyRatesPerRoom>
+                <Surcharges size="1">
+                    <Surcharge type="TaxAndServiceFee" amount="46.38" />
+                </Surcharges>
+            </ChargeableRateInfo>
+            <cancellationPolicy>We understand that sometimes your travel plans change. We do not charge a change or cancel fee. However, this property (MCM Elegante Hotel &amp; Suites) imposes the following penalty to its customers that we are required to pass on: Cancellations or changes made after 6:00 PM ((GMT-06:00)) on Apr 15, 2017, or no-shows, are subject to a 1 Night Room &amp; Tax penalty. </cancellationPolicy>
+            <CancelPolicyInfoList>
+                <CancelPolicyInfo>
+                    <versionId>0</versionId>
+                    <cancelTime>19:00:00</cancelTime>
+                    <startWindowHours>0</startWindowHours>
+                    <nightCount>1</nightCount>
+                    <currencyCode>USD</currencyCode>
+                    <timeZoneDescription>(GMT-06:00)</timeZoneDescription>
+                </CancelPolicyInfo>
+                <CancelPolicyInfo>
+                    <versionId>0</versionId>
+                    <cancelTime>19:00:00</cancelTime>
+                    <startWindowHours>1</startWindowHours>
+                    <nightCount>0</nightCount>
+                    <currencyCode>USD</currencyCode>
+                    <timeZoneDescription>(GMT-06:00)</timeZoneDescription>
+                </CancelPolicyInfo>
+            </CancelPolicyInfoList>
+            <nonRefundable>false</nonRefundable>
+            <rateType>MerchantStandard</rateType>
+            <currentAllotment>11</currentAllotment>
+            <guaranteeRequired>false</guaranteeRequired>
+            <depositRequired>true</depositRequired>
+            <taxRate>46.38</taxRate>
+        </RateInfo>
+    </RateInfos>
+    <ValueAdds size="3">
+        <ValueAdd id="2104">
+            <description>Full Breakfast</description>
+        </ValueAdd>
+        <ValueAdd id="2192">
+            <description>Free Wireless Internet</description>
+        </ValueAdd>
+        <ValueAdd id="2196">
+            <description>Free Airport Shuttle</description>
+        </ValueAdd>
+    </ValueAdds>
+    <deepLink>https://www.travelnow.com/templates/369532/hotels/106347/book?lang=en&amp;currency=USD&amp;standardCheckin=4/15/2017&amp;standardCheckout=4/17/2017&amp;selectedPrice=304.72&amp;supplierType=E&amp;rateCode=200706716&amp;roomTypeCode=200127420&amp;roomsCount=1&amp;rooms[0].adultsCount=2&amp;rooms[0].childrenCount=1&amp;rooms[0].children[0].age=3</deepLink>
+    <RoomImages size="3">
+        <RoomImage>
+            <url>http://media.expedia.com/hotels/1000000/10000/5900/5900/5900_94_s.jpg</url>
+            <highResolutionUrl>http://media.expedia.com/hotels/1000000/10000/5900/5900/5900_94_z.jpg</highResolutionUrl>
+        </RoomImage>
+        <RoomImage>
+            <url>http://media.expedia.com/hotels/1000000/10000/5900/5900/6a6c2f48_s.jpg</url>
+            <highResolutionUrl>http://media.expedia.com/hotels/1000000/10000/5900/5900/6a6c2f48_z.jpg</highResolutionUrl>
+        </RoomImage>
+        <RoomImage>
+            <url>http://media.expedia.com/hotels/1000000/10000/5900/5900/5f6f1ee6_s.jpg</url>
+            <highResolutionUrl>http://media.expedia.com/hotels/1000000/10000/5900/5900/5f6f1ee6_z.jpg</highResolutionUrl>
+        </RoomImage>
+    </RoomImages>
+</HotelRoomResponse>
+<HotelRoomResponse>
+    <rateCode>493756</rateCode>
+    <roomTypeCode>203084</roomTypeCode>
+    <rateDescription>Cabin, Poolside</rateDescription>
+    <roomTypeDescription>Cabin, Poolside</roomTypeDescription>
+    <supplierType>E</supplierType>
+    <propertyId>5900</propertyId>
+    <BedTypes size="1">
+        <BedType id="40">
+            <description>1 bed</description>
+        </BedType>
+    </BedTypes>
+    <smokingPreferences>NS</smokingPreferences>
+    <rateOccupancyPerRoom>3</rateOccupancyPerRoom>
+    <quotedOccupancy>2</quotedOccupancy>
+    <minGuestAge>0</minGuestAge>
+    <RateInfos size="1">
+        <RateInfo priceBreakdown="true" promo="false" rateChange="false">
+            <RoomGroup>
+                <Room>
+                    <numberOfAdults>2</numberOfAdults>
+                    <numberOfChildren>1</numberOfChildren>
+                    <childAges>3</childAges>
+                    <rateKey>1e5bc9ae-03dc-46d0-b4d1-d2841b8926bb-5001</rateKey>
+                    <ChargeableNightlyRates>
+                        <NightlyRate baseRate="159.17" rate="159.17" promo="false" fenced="false" />
+                        <NightlyRate baseRate="159.17" rate="159.17" promo="false" fenced="false" />
+                    </ChargeableNightlyRates>
+                </Room>
+            </RoomGroup>
+            <ChargeableRateInfo averageBaseRate="159.17" averageRate="159.17" commissionableUsdTotal="318.34" currencyCode="USD" maxNightlyRate="159.17" nightlyRateTotal="318.34" surchargeTotal="57.18" total="375.52">
+                <NightlyRatesPerRoom size="2">
+                    <NightlyRate baseRate="159.17" rate="159.17" promo="false" fenced="false" />
+                    <NightlyRate baseRate="159.17" rate="159.17" promo="false" fenced="false" />
+                </NightlyRatesPerRoom>
+                <Surcharges size="1">
+                    <Surcharge type="TaxAndServiceFee" amount="57.18" />
+                </Surcharges>
+            </ChargeableRateInfo>
+            <cancellationPolicy>We understand that sometimes your travel plans change. We do not charge a change or cancel fee. However, this property (MCM Elegante Hotel &amp; Suites) imposes the following penalty to its customers that we are required to pass on: Cancellations or changes made after 6:00 PM ((GMT-06:00)) on Apr 15, 2017, or no-shows, are subject to a 1 Night Room &amp; Tax penalty. </cancellationPolicy>
+            <CancelPolicyInfoList>
+                <CancelPolicyInfo>
+                    <versionId>0</versionId>
+                    <cancelTime>19:00:00</cancelTime>
+                    <startWindowHours>0</startWindowHours>
+                    <nightCount>1</nightCount>
+                    <currencyCode>USD</currencyCode>
+                    <timeZoneDescription>(GMT-06:00)</timeZoneDescription>
+                </CancelPolicyInfo>
+                <CancelPolicyInfo>
+                    <versionId>0</versionId>
+                    <cancelTime>19:00:00</cancelTime>
+                    <startWindowHours>1</startWindowHours>
+                    <nightCount>0</nightCount>
+                    <currencyCode>USD</currencyCode>
+                    <timeZoneDescription>(GMT-06:00)</timeZoneDescription>
+                </CancelPolicyInfo>
+            </CancelPolicyInfoList>
+            <nonRefundable>false</nonRefundable>
+            <rateType>MerchantStandard</rateType>
+            <currentAllotment>9</currentAllotment>
+            <guaranteeRequired>false</guaranteeRequired>
+            <depositRequired>true</depositRequired>
+            <taxRate>57.18</taxRate>
+        </RateInfo>
+    </RateInfos>
+    <ValueAdds size="3">
+        <ValueAdd id="2104">
+            <description>Full Breakfast</description>
+        </ValueAdd>
+        <ValueAdd id="2192">
+            <description>Free Wireless Internet</description>
+        </ValueAdd>
+        <ValueAdd id="2196">
+            <description>Free Airport Shuttle</description>
+        </ValueAdd>
+    </ValueAdds>
+    <deepLink>https://www.travelnow.com/templates/369532/hotels/106347/book?lang=en&amp;currency=USD&amp;standardCheckin=4/15/2017&amp;standardCheckout=4/17/2017&amp;selectedPrice=375.52&amp;supplierType=E&amp;rateCode=493756&amp;roomTypeCode=203084&amp;roomsCount=1&amp;rooms[0].adultsCount=2&amp;rooms[0].childrenCount=1&amp;rooms[0].children[0].age=3</deepLink>
+    <RoomImages size="4">
+        <RoomImage>
+            <url>http://media.expedia.com/hotels/1000000/10000/5900/5900/5900_90_s.jpg</url>
+            <highResolutionUrl>http://media.expedia.com/hotels/1000000/10000/5900/5900/5900_90_z.jpg</highResolutionUrl>
+        </RoomImage>
+        <RoomImage>
+            <url>http://media.expedia.com/hotels/1000000/10000/5900/5900/5900_89_s.jpg</url>
+            <highResolutionUrl>http://media.expedia.com/hotels/1000000/10000/5900/5900/5900_89_z.jpg</highResolutionUrl>
+        </RoomImage>
+        <RoomImage>
+            <url>http://media.expedia.com/hotels/1000000/10000/5900/5900/5900_91_s.jpg</url>
+            <highResolutionUrl>http://media.expedia.com/hotels/1000000/10000/5900/5900/5900_91_z.jpg</highResolutionUrl>
+        </RoomImage>
+        <RoomImage>
+            <url>http://media.expedia.com/hotels/1000000/10000/5900/5900/b01acbb2_s.jpg</url>
+            <highResolutionUrl>http://media.expedia.com/hotels/1000000/10000/5900/5900/b01acbb2_z.jpg</highResolutionUrl>
+        </RoomImage>
+    </RoomImages>
+</HotelRoomResponse>
+<HotelRoomResponse>
+    <rateCode>200706678</rateCode>
+    <roomTypeCode>200127410</roomTypeCode>
+    <rateDescription>Cabin, 2 Queen Beds, Poolside</rateDescription>
+    <roomTypeDescription>Cabin, 2 Queen Beds, Poolside</roomTypeDescription>
+    <supplierType>E</supplierType>
+    <propertyId>5900</propertyId>
+    <BedTypes size="1">
+        <BedType id="23">
+            <description>2 queen beds</description>
+        </BedType>
+    </BedTypes>
+    <smokingPreferences>NS</smokingPreferences>
+    <rateOccupancyPerRoom>4</rateOccupancyPerRoom>
+    <quotedOccupancy>2</quotedOccupancy>
+    <minGuestAge>0</minGuestAge>
+    <RateInfos size="1">
+        <RateInfo priceBreakdown="true" promo="false" rateChange="false">
+            <RoomGroup>
+                <Room>
+                    <numberOfAdults>2</numberOfAdults>
+                    <numberOfChildren>1</numberOfChildren>
+                    <childAges>3</childAges>
+                    <rateKey>e174dee5-6144-407a-9cfe-97c207f0874d-5001</rateKey>
+                    <ChargeableNightlyRates>
+                        <NightlyRate baseRate="159.17" rate="159.17" promo="false" fenced="false" />
+                        <NightlyRate baseRate="159.17" rate="159.17" promo="false" fenced="false" />
+                    </ChargeableNightlyRates>
+                </Room>
+            </RoomGroup>
+            <ChargeableRateInfo averageBaseRate="159.17" averageRate="159.17" commissionableUsdTotal="318.34" currencyCode="USD" maxNightlyRate="159.17" nightlyRateTotal="318.34" surchargeTotal="57.18" total="375.52">
+                <NightlyRatesPerRoom size="2">
+                    <NightlyRate baseRate="159.17" rate="159.17" promo="false" fenced="false" />
+                    <NightlyRate baseRate="159.17" rate="159.17" promo="false" fenced="false" />
+                </NightlyRatesPerRoom>
+                <Surcharges size="1">
+                    <Surcharge type="TaxAndServiceFee" amount="57.18" />
+                </Surcharges>
+            </ChargeableRateInfo>
+            <cancellationPolicy>We understand that sometimes your travel plans change. We do not charge a change or cancel fee. However, this property (MCM Elegante Hotel &amp; Suites) imposes the following penalty to its customers that we are required to pass on: Cancellations or changes made after 6:00 PM ((GMT-06:00)) on Apr 15, 2017, or no-shows, are subject to a 1 Night Room &amp; Tax penalty. </cancellationPolicy>
+            <CancelPolicyInfoList>
+                <CancelPolicyInfo>
+                    <versionId>0</versionId>
+                    <cancelTime>19:00:00</cancelTime>
+                    <startWindowHours>0</startWindowHours>
+                    <nightCount>1</nightCount>
+                    <currencyCode>USD</currencyCode>
+                    <timeZoneDescription>(GMT-06:00)</timeZoneDescription>
+                </CancelPolicyInfo>
+                <CancelPolicyInfo>
+                    <versionId>0</versionId>
+                    <cancelTime>19:00:00</cancelTime>
+                    <startWindowHours>1</startWindowHours>
+                    <nightCount>0</nightCount>
+                    <currencyCode>USD</currencyCode>
+                    <timeZoneDescription>(GMT-06:00)</timeZoneDescription>
+                </CancelPolicyInfo>
+            </CancelPolicyInfoList>
+            <nonRefundable>false</nonRefundable>
+            <rateType>MerchantStandard</rateType>
+            <currentAllotment>15</currentAllotment>
+            <guaranteeRequired>false</guaranteeRequired>
+            <depositRequired>true</depositRequired>
+            <taxRate>57.18</taxRate>
+        </RateInfo>
+    </RateInfos>
+    <ValueAdds size="3">
+        <ValueAdd id="2104">
+            <description>Full Breakfast</description>
+        </ValueAdd>
+        <ValueAdd id="2192">
+            <description>Free Wireless Internet</description>
+        </ValueAdd>
+        <ValueAdd id="2196">
+            <description>Free Airport Shuttle</description>
+        </ValueAdd>
+    </ValueAdds>
+    <deepLink>https://www.travelnow.com/templates/369532/hotels/106347/book?lang=en&amp;currency=USD&amp;standardCheckin=4/15/2017&amp;standardCheckout=4/17/2017&amp;selectedPrice=375.52&amp;supplierType=E&amp;rateCode=200706678&amp;roomTypeCode=200127410&amp;roomsCount=1&amp;rooms[0].adultsCount=2&amp;rooms[0].childrenCount=1&amp;rooms[0].children[0].age=3</deepLink>
+    <RoomImages size="4">
+        <RoomImage>
+            <url>http://media.expedia.com/hotels/1000000/10000/5900/5900/5900_94_s.jpg</url>
+            <highResolutionUrl>http://media.expedia.com/hotels/1000000/10000/5900/5900/5900_94_z.jpg</highResolutionUrl>
+        </RoomImage>
+        <RoomImage>
+            <url>http://media.expedia.com/hotels/1000000/10000/5900/5900/5900_89_s.jpg</url>
+            <highResolutionUrl>http://media.expedia.com/hotels/1000000/10000/5900/5900/5900_89_z.jpg</highResolutionUrl>
+        </RoomImage>
+        <RoomImage>
+            <url>http://media.expedia.com/hotels/1000000/10000/5900/5900/5900_90_s.jpg</url>
+            <highResolutionUrl>http://media.expedia.com/hotels/1000000/10000/5900/5900/5900_90_z.jpg</highResolutionUrl>
+        </RoomImage>
+        <RoomImage>
+            <url>http://media.expedia.com/hotels/1000000/10000/5900/5900/5900_91_s.jpg</url>
+            <highResolutionUrl>http://media.expedia.com/hotels/1000000/10000/5900/5900/5900_91_z.jpg</highResolutionUrl>
+        </RoomImage>
+    </RoomImages>
+</HotelRoomResponse>
+</ns2:HotelRoomAvailabilityResponse>

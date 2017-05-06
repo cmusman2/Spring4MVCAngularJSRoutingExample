@@ -98,7 +98,7 @@
 	</div>
 
 	<div ng-view></div>
-	
+ 
 
 <script src="resources/js/controller/ItemListController.js"></script>
 <script src="resources/js/controller/ItemDetailsController.js"></script>
@@ -106,11 +106,8 @@
 <script type="text/javascript" src="resources/js/development-bundle/ui/jquery.ui.core.js"></script>  
 <script type="text/javascript" src="resources/js/development-bundle/ui/jquery.ui.datepicker.js"></script>  
 <script type="text/javascript" src="resources/js/development-bundle/jquery.autocomplete.js"></script>  
-<script type="text/javascript" src="resources/js/utils.js"></script> 
-<script type="text/javascript" src="resources/js/js.js"></script> 
-<script type="text/javascript" src="resources/js/utilsp.js"></script>
-<script type="text/javascript">    
 
+<script>
 $(function() {  var dates = $( "#from" ).datepicker({  defaultDate: "+1w",  showOn: "both",  changeMonth: true,  buttonImageOnly: true,  numberOfMonths: 2,  dateFormat:'dd/mm/y',  onSelect: function( selectedDate ) {  var option = this.id == "from" ? "minDate" : "maxDate",  instance = $( this ).data( "datepicker" ),  date = $.datepicker.parseDate(  instance.settings.dateFormat ||  $.datepicker._defaults.dateFormat,  selectedDate, instance.settings );  dates.not( this ).datepicker( "option", option, date );  }  });  });     
 
 function findValue(li) {  if( li == null ) return alert("No match!");     if( !!li.extra ) var sValue = li.extra[0];     else var sValue = li.selectValue;  if (document.getElementById('CityAjaxH2')!=null){  document.getElementById('CityAjaxH2').value = li.extra[1];  }    }    
