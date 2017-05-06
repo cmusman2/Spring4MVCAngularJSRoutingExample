@@ -12,12 +12,7 @@ public class HotelResponse {
 	private String moreresultsavailable;
 	private HotelList hotelList;
 		
-	
-	public HotelResponse()
-	{
-		hotelList = new HotelList();
-	}
-	
+		
 
 	public String getNumberofroomsrequested() {
 		return numberofroomsrequested;

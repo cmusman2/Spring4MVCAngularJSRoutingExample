@@ -3,11 +3,11 @@ package com.websystique.springmvc.model;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "PropertyAmenities")
+@XmlRootElement(name = "propertyamenities")
 public class PropertyAmenities {
 	private PropertyAmenity[] propertyAmenity;
 
-	@XmlElement(name="PropertyAmenity")
+	@XmlElement(name="propertyamenity")
 	public PropertyAmenity[] getPropertyAmenity() {
 		return propertyAmenity;
 	}

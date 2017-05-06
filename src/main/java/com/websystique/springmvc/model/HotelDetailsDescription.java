@@ -25,7 +25,7 @@ public class HotelDetailsDescription {
 	private String businessAmenitiesDescription;
 	private String roomDetailDescription;
 
-	@XmlElement
+	@XmlElement(name="numberofrooms")
 	public int getNumberOfRooms() {
 		return numberOfRooms;
 	}
@@ -33,7 +33,7 @@ public class HotelDetailsDescription {
 	public void setNumberOfRooms(int numberOfRooms) {
 		this.numberOfRooms = numberOfRooms;
 	}
-	@XmlElement
+	@XmlElement(name="numberoffloors")
 	public int getNumberOfFloors() {
 		return numberOfFloors;
 	}
@@ -41,7 +41,7 @@ public class HotelDetailsDescription {
 	public void setNumberOfFloors(int numberOfFloors) {
 		this.numberOfFloors = numberOfFloors;
 	}
-	@XmlElement
+	@XmlElement(name="checkintime")
 	public String getCheckInTime() {
 		return checkInTime;
 	}
@@ -49,7 +49,7 @@ public class HotelDetailsDescription {
 	public void setCheckInTime(String checkInTime) {
 		this.checkInTime = checkInTime;
 	}
-	@XmlElement
+	@XmlElement(name="checkouttime")
 	public String getCheckOutTime() {
 		return checkOutTime;
 	}
@@ -57,7 +57,7 @@ public class HotelDetailsDescription {
 	public void setCheckOutTime(String checkOutTime) {
 		this.checkOutTime = checkOutTime;
 	}
-	@XmlElement
+	@XmlElement(name="propertyinformation")
 	public String getPropertyInformation() {
 		return propertyInformation;
 	}
@@ -65,7 +65,7 @@ public class HotelDetailsDescription {
 	public void setPropertyInformation(String propertyInformation) {
 		this.propertyInformation = propertyInformation;
 	}
-	@XmlElement
+	@XmlElement(name="areainformation")
 	public String getAreaInformation() {
 		return areaInformation;
 	}
@@ -73,7 +73,7 @@ public class HotelDetailsDescription {
 	public void setAreaInformation(String areaInformation) {
 		this.areaInformation = areaInformation;
 	}
-	@XmlElement
+	@XmlElement(name="propertydescription")
 	public String getPropertyDescription() {
 		return propertyDescription;
 	}
@@ -81,7 +81,7 @@ public class HotelDetailsDescription {
 	public void setPropertyDescription(String propertyDescription) {
 		this.propertyDescription = propertyDescription;
 	}
-	@XmlElement
+	@XmlElement(name="hotelpolicy")
 	public String getHotelPolicy() {
 		return hotelPolicy;
 	}
@@ -89,7 +89,7 @@ public class HotelDetailsDescription {
 	public void setHotelPolicy(String hotelPolicy) {
 		this.hotelPolicy = hotelPolicy;
 	}
-	@XmlElement
+	@XmlElement(name="roominformation")
 	public String getRoomInformation() {
 		return roomInformation;
 	}
@@ -97,7 +97,7 @@ public class HotelDetailsDescription {
 	public void setRoomInformation(String roomInformation) {
 		this.roomInformation = roomInformation;
 	}
-	@XmlElement
+	@XmlElement(name="drivingdirections")
 	public String getDrivingDirections() {
 		return drivingDirections;
 	}
@@ -105,7 +105,7 @@ public class HotelDetailsDescription {
 	public void setDrivingDirections(String drivingDirections) {
 		this.drivingDirections = drivingDirections;
 	}
-	@XmlElement
+	@XmlElement(name="checkininstructions")
 	public String getCheckInInstructions() {
 		return checkInInstructions;
 	}
@@ -113,7 +113,7 @@ public class HotelDetailsDescription {
 	public void setCheckInInstructions(String checkInInstructions) {
 		this.checkInInstructions = checkInInstructions;
 	}
-	@XmlElement
+	@XmlElement(name="knowBeforeyougodescription")
 	public String getKnowBeforeYouGoDescription() {
 		return knowBeforeYouGoDescription;
 	}
@@ -121,7 +121,7 @@ public class HotelDetailsDescription {
 	public void setKnowBeforeYouGoDescription(String knowBeforeYouGoDescription) {
 		this.knowBeforeYouGoDescription = knowBeforeYouGoDescription;
 	}
-	@XmlElement
+	@XmlElement(name="roomfeesdescription")
 	public String getRoomFeesDescription() {
 		return roomFeesDescription;
 	}
@@ -129,7 +129,7 @@ public class HotelDetailsDescription {
 	public void setRoomFeesDescription(String roomFeesDescription) {
 		this.roomFeesDescription = roomFeesDescription;
 	}
-	@XmlElement
+	@XmlElement(name="mandatoryfeesdescription")
 	public String getMandatoryFeesDescription() {
 		return mandatoryFeesDescription;
 	}
@@ -137,7 +137,7 @@ public class HotelDetailsDescription {
 	public void setMandatoryFeesDescription(String mandatoryFeesDescription) {
 		this.mandatoryFeesDescription = mandatoryFeesDescription;
 	}
-	@XmlElement
+	@XmlElement(name="renovationsdescription")
 	public String getRenovationsDescription() {
 		return renovationsDescription;
 	}
@@ -145,7 +145,7 @@ public class HotelDetailsDescription {
 	public void setRenovationsDescription(String renovationsDescription) {
 		this.renovationsDescription = renovationsDescription;
 	}
-	@XmlElement
+	@XmlElement(name="locationdescription")
 	public String getLocationDescription() {
 		return locationDescription;
 	}
@@ -153,7 +153,7 @@ public class HotelDetailsDescription {
 	public void setLocationDescription(String locationDescription) {
 		this.locationDescription = locationDescription;
 	}
-	@XmlElement
+	@XmlElement(name="diningdescription")
 	public String getDiningDescription() {
 		return diningDescription;
 	}
@@ -161,7 +161,7 @@ public class HotelDetailsDescription {
 	public void setDiningDescription(String diningDescription) {
 		this.diningDescription = diningDescription;
 	}
-	@XmlElement
+	@XmlElement(name="amenitiesdescription")
 	public String getAmenitiesDescription() {
 		return amenitiesDescription;
 	}
@@ -169,7 +169,7 @@ public class HotelDetailsDescription {
 	public void setAmenitiesDescription(String amenitiesDescription) {
 		this.amenitiesDescription = amenitiesDescription;
 	}
-	@XmlElement
+	@XmlElement(name="businessamenitiesdescription")
 	public String getBusinessAmenitiesDescription() {
 		return businessAmenitiesDescription;
 	}
@@ -177,7 +177,7 @@ public class HotelDetailsDescription {
 	public void setBusinessAmenitiesDescription(String businessAmenitiesDescription) {
 		this.businessAmenitiesDescription = businessAmenitiesDescription;
 	}
-	@XmlElement
+	@XmlElement(name="roomdetaildescription")
 	public String getRoomDetailDescription() {
 		return roomDetailDescription;
 	}

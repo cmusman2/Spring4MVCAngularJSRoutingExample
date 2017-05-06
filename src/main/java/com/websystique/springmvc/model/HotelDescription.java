@@ -1,9 +1,12 @@
 package com.websystique.springmvc.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "HotelInformationResponse", namespace="http://v3.hotel.wsapi.ean.com/")
+@XmlRootElement(name = "hotelinformationresponse", namespace="http://v3.hotel.wsapi.ean.com/")
 public class HotelDescription {
 
     
@@ -15,18 +18,19 @@ public class HotelDescription {
 	private HotelRooms HotelRooms;
 	private PropertyAmenities PropertyAmenities;
 
-	private HotelRoomAvailInfos roomrates;
+	private List<HotelRoomAvailInfo> roomrates;
 	
-	@XmlElement(name = "RoomRates")
-    public HotelRoomAvailInfos getRoomrates() {
+	@XmlElement(name = "roomrates")
+    public List<HotelRoomAvailInfo> getRoomrates() {
+		if (roomrates==null) roomrates = new ArrayList<HotelRoomAvailInfo>();
 		return roomrates;
 	}
 
-	public void setRoomrates(HotelRoomAvailInfos roomrates) {
+	public void setRoomrates(List<HotelRoomAvailInfo> roomrates) {
 		this.roomrates = roomrates;
 	}
 
-	@XmlElement(name = "HotelSummary")
+	@XmlElement(name = "hotelsummary")
 	public HotelSummaryDetails getHotelSummary() {
 		return HotelSummary;
 	}
@@ -37,7 +41,7 @@ public class HotelDescription {
 
 	
 	
-	@XmlElement(name="HotelDetails")
+	@XmlElement(name="hoteldetails")
 	public HotelDetailsDescription getHotelDetails() {
 		return HotelDetails;
 	}
@@ -46,7 +50,7 @@ public class HotelDescription {
 		HotelDetails = hotelDetails;
 	}
 	
-	@XmlElement(name = "HotelImages")
+	@XmlElement(name = "hotelimages")
 	public HotelImages getHotelImages() {
 		return HotelImages;
 	}
@@ -55,7 +59,7 @@ public class HotelDescription {
 		HotelImages = hotelImages;
 	}
 	
-	@XmlElement(name = "RoomTypes")
+	@XmlElement(name = "roomtypes")
 	public HotelRooms getHotelRooms() {
 		return HotelRooms;
 	}
@@ -64,7 +68,7 @@ public class HotelDescription {
 		HotelRooms = hotelRooms;
 	}
 	
-	@XmlElement(name="PropertyAmenities")
+	@XmlElement(name="propertyamenities")
 	public PropertyAmenities getPropertyAmenities() {
 		return PropertyAmenities;
 	}

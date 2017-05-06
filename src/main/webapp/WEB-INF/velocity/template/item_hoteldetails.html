@@ -20,16 +20,37 @@
 	                   <td> 
 	                    <table>
 	                      <tr>
-	                        <td valign="top" style="width:1%"><img src="{{itemDetailsCtrl.item.data.hotelImages.Images[2].url}}"/></td>
+	                        <td valign="top" style="width:1%"><img src="{{itemDetailsCtrl.item.data.hotelImages.Images[1].url}}"/></td>
 	                         <td valign="top">
+	                            <table style="background:#eee">
+	                              <tr ng-repeat="rate in itemDetailsCtrl.item.data.roomrates">
+	                               <td style="padding:5px;font-weight:bold;font-size:11pt;">
+	                                   {{rate.ratedescription}}
+	                                   <span style="font-weight:normal;color:green;font-size:10pt" ng-repeat="vs in rate.valueadds">
+	                                      <span ng-repeat="v in vs">
+	                                        <br/>{{v.description}}
+	                                       </span>
+	                                      
+	                                   </span>
+	                               
+	                               </td>
+	                               <td></td>
+	                               <td>
+	                                 <span ng-repeat="rinfo in rate.roomrateinfos">
+	                                    
+	                                    <span class="price" ng-repeat="r in rinfo">
+	                                      {{r.chargeablerates.averagebaserate}}
+	                                    </span>
+	                                    <br/>including taxes & fees
+	                                 </span>
+	                                 <br/>
+	                                 <a href="#" class="booknow">Book now</a>
+	                               </td>
+	                               
+	                              </tr>
+	                              
+	                            </table>
 	                            
-	                            
-	                            <br/>
-	                             
-	                            <br/>
-	                             Family Room<br/>
-	                            <br/>
-	                            <br/>
 	                         </td>	                        
 	                      </tr>
 	                      <tr>

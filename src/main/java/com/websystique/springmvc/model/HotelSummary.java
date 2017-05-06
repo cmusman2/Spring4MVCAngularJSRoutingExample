@@ -111,6 +111,7 @@ public class HotelSummary implements Serializable {
 			this.hotelrating = hotelrating;
 	 }
 	
+	
 	@XmlElement(name="roomratedetailslist")
 	public HotelRoomAvailInfos getRoomrates() {
 		return roomrates;
@@ -122,7 +123,7 @@ public class HotelSummary implements Serializable {
 
 	
 	
-	@XmlElement
+	@XmlElement(name="tripadvisorratingurl")
 	public String getTripadvisorratingurl() {
 		return tripadvisorratingurl;
 	}
@@ -141,7 +142,7 @@ public class HotelSummary implements Serializable {
 	}	
 
 
-	@XmlElement
+	@XmlElement(name="postalcode")
 	public String getPostalcode() {
 		return postalcode;
 	}

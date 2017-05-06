@@ -85,7 +85,7 @@ public class HotelSummaryDetails {
 		this.city = city;
 	}
 
-	@XmlElement
+	@XmlElement(name="hotelrating")
 	public String getHotelRating() {
 		return hotelRating;
 	}
@@ -95,7 +95,7 @@ public class HotelSummaryDetails {
 		this.hotelRating = hotelRating;
 	}
 
-	@XmlElement
+	@XmlElement(name="propertycategory")
 	public String getPropertyCategory() {
 		return propertyCategory;
 	}
@@ -105,8 +105,8 @@ public class HotelSummaryDetails {
 		this.propertyCategory = propertyCategory;
 	}
 
-	@XmlElement
-	public String getPostalCode() {
+	@XmlElement(name="postalcode")
+	public String getPostalCoCde() {
 		return postalCode;
 	}
 
@@ -115,7 +115,7 @@ public class HotelSummaryDetails {
 		this.postalCode = postalCode;
 	}
 
-	@XmlElement
+	@XmlElement(name="countrycode")
 	public String getCountryCode() {
 		return countryCode;
 	}
@@ -125,7 +125,7 @@ public class HotelSummaryDetails {
 		this.countryCode = countryCode;
 	}
 
-	@XmlElement
+	@XmlElement(name="tripadvisorratingurl")
 	public String getTripAdvisorRatingUrl() {
 		return tripAdvisorRatingUrl;
 	}
@@ -135,7 +135,7 @@ public class HotelSummaryDetails {
 		this.tripAdvisorRatingUrl = tripAdvisorRatingUrl;
 	}
 
-	@XmlElement
+	@XmlElement(name="tripadvisorrating")
 	public String getTripAdvisorRating() {
 		return tripAdvisorRating;
 	}
@@ -195,7 +195,7 @@ public class HotelSummaryDetails {
 		this.ratecurrencycode = ratecurrencycode;
 	}
 
-	@XmlElement
+	@XmlElement(name="lowrate")
 	public String getLowRate() {
 		return getCurrencySymbol(ratecurrencycode)+"" +lowRate;
 	}

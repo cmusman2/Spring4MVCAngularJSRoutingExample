@@ -11,7 +11,7 @@ public class HotelRoomDetails {
 	private RoomAmenities RoomAmenitiesDetails;
 	
 	
-	@XmlElement
+	@XmlElement(name="roomcode")
 	public String getRoomCode() {
 		return roomCode;
 	}
@@ -19,7 +19,7 @@ public class HotelRoomDetails {
 	public void setRoomCode(String roomCode) {
 		this.roomCode = roomCode;
 	}
-	@XmlElement
+	@XmlElement(name="roomtypeid")
 	public String getRoomTypeId() {
 		return roomTypeId;
 	}
@@ -35,7 +35,7 @@ public class HotelRoomDetails {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	@XmlElement
+	@XmlElement(name="descriptionlong")
 	public String getDescriptionLong() {
 		return descriptionLong;
 	}
@@ -43,7 +43,7 @@ public class HotelRoomDetails {
 	public void setDescriptionLong(String descriptionLong) {
 		this.descriptionLong = descriptionLong;
 	}
-	@XmlElement
+	@XmlElement(name="roomAmenitiesdetails")
 	public RoomAmenities getRoomAmenitiesDetails() {
 		return RoomAmenitiesDetails;
 	}

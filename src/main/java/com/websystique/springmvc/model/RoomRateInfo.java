@@ -18,15 +18,17 @@ public class RoomRateInfo {
 	private boolean depositRequired;
 	private RoomGroup roomgroup;
 
-	@XmlElement(name="cancellationPolicy")
+	@XmlElement(name="cancellationpolicy")
 	public String getCancellationPolicy() {
 		return cancellationPolicy;
 	}
 
+
 	public void setCancellationPolicy(String cancellationPolicy) {
 		this.cancellationPolicy = cancellationPolicy;
 	}
-
+	 
+	@XmlElement(name="nonrefundable")
 	public boolean isNonRefundaable() {
 		return nonRefundaable;
 	}
@@ -35,6 +37,7 @@ public class RoomRateInfo {
 		this.nonRefundaable = nonRefundaable;
 	}
 
+	@XmlElement(name="ratetype")
 	public String getRateType() {
 		return rateType;
 	}
@@ -43,6 +46,7 @@ public class RoomRateInfo {
 		this.rateType = rateType;
 	}
 	
+	@XmlElement(name="currentallotment")
 	public int getCurrentAllotment() {
 		return currentAllotment;
 	}
@@ -51,6 +55,7 @@ public class RoomRateInfo {
 		this.currentAllotment = currentAllotment;
 	}
 
+	@XmlElement(name="guaranteerequired")
 	public boolean isGuaranteeRequired() {
 		return guaranteeRequired;
 	}
@@ -59,6 +64,7 @@ public class RoomRateInfo {
 		this.guaranteeRequired = guaranteeRequired;
 	}
 
+	@XmlElement(name="depositrequired")
 	public boolean isDepositRequired() {
 		return depositRequired;
 	}
@@ -84,5 +90,5 @@ public class RoomRateInfo {
 	public void setChargeablerates(ChargeableRateInfo chargeablerates) {
 		this.chargeablerates = chargeablerates;
 	}
-
+ 
 }

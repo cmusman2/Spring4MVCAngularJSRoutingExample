@@ -1,6 +1,7 @@
 package com.websystique.springmvc.model;
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 public class HotelImage {
 	private int category;
@@ -9,7 +10,18 @@ public class HotelImage {
 	private float height;
 	private String url;
 	private String thumbnailUrl;
+	private String highresolutionurl;
 	private String caption;
+	
+	@XmlElement(name="highresolutionurl")
+	public String getHighresolutionurl() {
+		return highresolutionurl;
+	}
+
+	public void setHighresolutionurl(String highresolutionurl) {
+		this.highresolutionurl = highresolutionurl;
+	}
+
 
 	@XmlElement
 	public int getCategory() {
@@ -51,7 +63,7 @@ public class HotelImage {
 	public void setUrl(String url) {
 		this.url = url;
 	}
-	@XmlElement
+	@XmlElement(name="thumbnailurl")
 	public String getThumbnailUrl() {
 		return thumbnailUrl;
 	}
