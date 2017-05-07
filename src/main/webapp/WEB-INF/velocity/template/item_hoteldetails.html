@@ -2,7 +2,9 @@
 	<div class="panel panel-defaultx"> 
 		<!-- Default panel contents -->
 	    <div class="panel-heading"><span class="lead" style="font-weight:bold">
-	    {{itemDetailsCtrl.item.data.hotelSummary.name}}	<img src="resources/images/{{itemDetailsCtrl.item.data.hotelSummary.hotelRating}}.png"/>     
+	    {{itemDetailsCtrl.item.data.hotelSummary.name}}	
+	    <img src="resources/images/{{itemDetailsCtrl.item.data.hotelSummary.hotelRating}}.png"/> 
+	        
 	    <img src="{{itemDetailsCtrl.item.data.hotelSummary.tripAdvisorRatingUrl}}"/>
 	    </span>
 	    <br/>
@@ -22,7 +24,10 @@
 	                   <td> 
 	                    <table>
 	                      <tr>
-	                        <td valign="top" style="width:1%"><img src="{{itemDetailsCtrl.item.data.hotelImages.Images[1].url}}"/></td>
+	                        <td valign="top" style="width:1%">
+	                        <img width="330" height="250" ng-repeat="img in itemDetailsCtrl.item.data.hotelImages.Images" ng-if=" img.category == 1 " src="{{img.url}}"/>
+	                        
+	                        </td>
 	                         <td valign="top">
 	                            <table style="background:#eee">
 	                              <tr ng-repeat="rate in itemDetailsCtrl.item.data.roomrates"  ng-if=" $index < 2 " ng-init="outerIndex = $index">
@@ -93,7 +98,7 @@
 	                      
 	                      <tr>
 	                         <td colspan="2" valign="top"><br/>	                             
-                                 <img width="50" style="padding:5px" ng-repeat="img in itemDetailsCtrl.item.data.hotelImages.Images" src="{{img.thumbnailUrl}}"/>
+                                 <img width="50" style="padding:5px" ng-repeat="img in itemDetailsCtrl.item.data.hotelImages.Images" src="{{img.thumbnailUrl}}" title="{{img.caption}}"/>
 	                         </td>
 	                          	                          
 	                      </tr>
