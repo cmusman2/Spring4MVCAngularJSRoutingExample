@@ -52,6 +52,12 @@ public class MainTemplateController {
     	return "template/item_hoteldetails";	
     }
     
+    @RequestMapping(value="/booking")
+    public String booking() { 
+    	System.out.println("getting to booking");
+    	return "template/item_booking";	
+    }
+    
     @RequestMapping(value="/autoComplete")
     public String autoComplete() { 
     	return "";	

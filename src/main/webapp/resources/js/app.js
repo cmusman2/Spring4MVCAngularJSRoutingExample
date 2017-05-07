@@ -97,6 +97,15 @@ App.config(['$routeProvider', function($routeProvider) {
             }
 		})
 		
+		.when('/items/booking/:id', {
+			templateUrl: 'items/booking',
+			controller : "ItemDetailsController as itemDetailsCtrl",
+			resolve: { 
+                async: ['ItemService','$route', function(ItemService , $route) {
+                    return ItemService.fetchBooking('booking',$route.current.params.id);
+               	}]
+            }
+		})
 		
 		
 		//.otherwise({redirectTo:'/items/computers'});		

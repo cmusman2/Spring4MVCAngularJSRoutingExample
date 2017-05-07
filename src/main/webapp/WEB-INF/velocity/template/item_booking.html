@@ -2,16 +2,13 @@
 	<div class="panel panel-defaultx"> 
 		<!-- Default panel contents -->
 	    <div class="panel-heading"><span class="lead" style="font-weight:bold">
-	    {{itemDetailsCtrl.item.data.hotelSummary.name}}	<img src="resources/images/{{itemDetailsCtrl.item.data.hotelSummary.hotelRating}}.png"/>     
+	    Booking	details<img src="resources/images/{{itemDetailsCtrl.item.data.hotelSummary.hotelRating}}.png"/>     
 	    <img src="{{itemDetailsCtrl.item.data.hotelSummary.tripAdvisorRatingUrl}}"/>
 	    </span>
 	    <br/>
-	    {{itemDetailsCtrl.item.data.hotelSummary.address1}}
-	     {{itemDetailsCtrl.item.data.hotelSummary.postalCode}},
-	      {{itemDetailsCtrl.item.data.hotelSummary.city}},
-	      {{itemDetailsCtrl.item.data.hotelSummary.countryCode}}
+	     Please check hotel details and press Confirm button to complete booking.
 	      
-	    <a href="" style="color:#222">Back to results</a></div>
+	     </div>
 	    <div class="tablecontainerx">
 	    
 	    	<table class="table table-hover">
@@ -51,7 +48,7 @@
 	                                 </span>
 	                                 <br/>
 	                                 
-	                                 <a href="#/items/booking/{{itemDetailsCtrl.item.data.hotelSummary.hotelid}}" class="booknow">Book now</a>
+	                                 <a href="#" class="booknow">Book now</a>
 	                               </td>
 	                               <tr>
 	                                   <td colspan="3">
@@ -97,13 +94,7 @@
 	                         </td>
 	                          	                          
 	                      </tr>
-	                      <tr>
-	                         <td colspan="2" valign="top"><br/>	                             
-                                <span class="titleheading">Following types of rooms are available at {{itemDetailsCtrl.item.data.hotelSummary.name}}
-                                </span>   
-	                         </td>
-	                          	                          
-	                      </tr>
+	                       
 
 	                      <tr ng-repeat="room in itemDetailsCtrl.item.data.hotelRooms.hotelRoomDetails">
 	                         <td valign="top" colspan="2">  	                                                   
@@ -124,6 +115,7 @@
 	                      </tr>
 	                      
 	                    </table>
+	                     Confirm Booking
 	                    </td>
 	                    
 	                </tr>

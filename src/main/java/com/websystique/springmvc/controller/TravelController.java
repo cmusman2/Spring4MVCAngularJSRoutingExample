@@ -291,6 +291,16 @@ public class TravelController {
 	}
 	
 	
+	@RequestMapping(value = "/booking/{id}")
+	public   ResponseEntity<HotelDescription> booking(@PathVariable String id) throws ClientProtocolException, IOException
+	{		System.out.println("booking...");
+
+	       HotelDescription h = new HotelDescription();
+                    
+          return new ResponseEntity<HotelDescription>(h, HttpStatus.OK);
+	}
+	
+	
 	@RequestMapping(value = "/autoComplete")
 	public   String autoComplete(String q) throws ClientProtocolException, IOException
 	{		

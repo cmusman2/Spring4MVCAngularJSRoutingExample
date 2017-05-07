@@ -4,7 +4,8 @@ import javax.xml.bind.annotation.XmlElement;
 
 public class HotelSummaryDetails {
 
-	 private String name;
+	 private String hotelid;
+     private String name;
      private String address1;
      private String address2;
      private String city;
@@ -205,7 +206,21 @@ public class HotelSummaryDetails {
 		this.lowRate = lowRate;
 	}
 
+	 
+	 @XmlElement(name="hotelid")
+	 public String getHotelid() {
+		return hotelid;
+	}
 
+
+	public void setHotelid(String hotelid) {
+		this.hotelid = hotelid;
+	}
+
+	@XmlElement(name="postalcode")
+	public String getPostalCode() {
+		return postalCode;
+	}
 
 
      private String getCurrencySymbol(String cc)
