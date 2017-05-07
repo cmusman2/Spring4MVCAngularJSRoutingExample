@@ -108,7 +108,7 @@ App.config(['$routeProvider', function($routeProvider) {
 		})
 		
 		
-		//.otherwise({redirectTo:'/items/computers'});		
+		.otherwise({redirectTo:'/items/'});		
 }]);
 
 App.filter('trusted', ['$sce', function($sce) {

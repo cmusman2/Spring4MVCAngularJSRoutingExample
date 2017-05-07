@@ -62,7 +62,7 @@ public class WSServiceDaos {
 	
 	//System.out.println(x);
 	
-	 
+	/* 
 	try
 	{
 		ClassLoader classLoader = new WSServiceDaos().getClass().getClassLoader();
@@ -76,9 +76,9 @@ public class WSServiceDaos {
 	{
 		System.out.println(exp.getMessage());
 		exp.printStackTrace();
-	} 
+	} */
 	
-   
+   xml = getHotelListData(city, sd, nights);
 	System.out.println(xml);
 	if (xml=="") return null;
 	
@@ -167,7 +167,7 @@ public class WSServiceDaos {
 			postData.setEntity(new UrlEncodedFormEntity(urlParametersData));
 			String xml= "";
 			
-			 
+			 /*
 			try
 			{
 				ClassLoader classLoader = new WSServiceDaos().getClass().getClassLoader();
@@ -183,9 +183,9 @@ public class WSServiceDaos {
 			{
 				System.out.println(exp.getMessage());
 				exp.printStackTrace();
-			} 
+			} */
 			
-			//xml=getData(postData);
+			xml=getData(postData);
 			
 			if (xml=="") return null;
 			
@@ -194,12 +194,13 @@ public class WSServiceDaos {
 			  HotelDescription hotelDescription  = Deserialise(HotelDescription.class, xml);
 		      if(hotelDescription!=null)
 		      {
+		    	   
 		         System.out.println(hotelDescription.toString());
 		         HotelRoomAvailabilityResponse rooms = HotelRoomAvailability(hotelIdent);
 		         List<HotelRoomAvailInfo> rs=rooms.getHotelRooms();
 		         
 		        	 hotelDescription.setRoomrates(rs);
-		          
+		           
 		         
 		      }
 		      else
@@ -237,7 +238,7 @@ public class WSServiceDaos {
 			postData.setEntity(new UrlEncodedFormEntity(urlParametersData));
 			String xml= "";
 			
-			 
+			  
 			try
 			{
 				ClassLoader classLoader = new WSServiceDaos().getClass().getClassLoader();
@@ -253,7 +254,7 @@ public class WSServiceDaos {
 			{
 				System.out.println(exp.getMessage());
 				exp.printStackTrace();
-			} 
+			}  
 			
 			//xml=getData(postData);
 			

@@ -32,7 +32,7 @@ App.factory('ItemService', ['$http', '$q', function($http, $q){
 			fetchSpecificHotel: function(category,id) {
 				return $http.get('../Spring4MVCAngularJSRoutingExample/item/'+category+'/'+id,{headers :{"content-type" : "application/json"}})
 				  .success(function(data){itemListCtrl.items =data; return data;})
-				  .error(function(data){alert('error:'+data);itemListCtrl.items =data; return data;})
+				  .error(function(data){/*alert('error:'+data);*/itemListCtrl.items =data; return data;})
 				  
 				  ;
 		   },
@@ -40,7 +40,7 @@ App.factory('ItemService', ['$http', '$q', function($http, $q){
 		   fetchBooking: function(category,id) {
 				return $http.get('../Spring4MVCAngularJSRoutingExample/item/'+category+'/'+id,{headers :{"content-type" : "application/json"}})
 				  .success(function(data){itemListCtrl.items =data; return data;})
-				  .error(function(data){alert('error:'+data);itemListCtrl.items =data; return data;})
+				  .error(function(data){/*alert('error:'+data);*/itemListCtrl.items =data; return data;})
 				  
 				  ;
 		   },

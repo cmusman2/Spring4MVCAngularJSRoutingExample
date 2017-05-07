@@ -25,7 +25,7 @@
 	                        <td valign="top" style="width:1%"><img src="{{itemDetailsCtrl.item.data.hotelImages.Images[1].url}}"/></td>
 	                         <td valign="top">
 	                            <table style="background:#eee">
-	                              <tr ng-repeat="rate in itemDetailsCtrl.item.data.roomrates">
+	                              <tr ng-repeat="rate in itemDetailsCtrl.item.data.roomrates"  ng-if=" $index < 2 " ng-init="outerIndex = $index">
 	                              <td>
 	                              <table width="100%">
 	                              <tr>
