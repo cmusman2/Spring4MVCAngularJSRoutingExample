@@ -10,17 +10,9 @@ public class HotelImage {
 	private float height;
 	private String url;
 	private String thumbnailUrl;
-	private String highresolutionurl;
 	private String caption;
 	
-	@XmlElement(name="highresolutionurl")
-	public String getHighresolutionurl() {
-		return highresolutionurl;
-	}
-
-	public void setHighresolutionurl(String highresolutionurl) {
-		this.highresolutionurl = highresolutionurl;
-	}
+ 
 
 
 	@XmlElement

@@ -10,7 +10,7 @@ public class RoomRateInfo {
 	// private ChargeableRateInfo[] alternatechargeablerates;
 
 	private String cancellationPolicy;
-	private boolean nonRefundaable;
+	private boolean nonRefundable;
 	private String rateType;
 	private int currentAllotment;
 
@@ -30,11 +30,11 @@ public class RoomRateInfo {
 	 
 	@XmlElement(name="nonrefundable")
 	public boolean isNonRefundaable() {
-		return nonRefundaable;
+		return nonRefundable;
 	}
 
 	public void setNonRefundaable(boolean nonRefundaable) {
-		this.nonRefundaable = nonRefundaable;
+		this.nonRefundable = nonRefundaable;
 	}
 
 	@XmlElement(name="ratetype")

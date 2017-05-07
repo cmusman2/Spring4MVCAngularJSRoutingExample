@@ -22,14 +22,14 @@ public class HotelRoomAvailInfo {
 	private String quotedoccupany;
 	private String minguestage;
 	
-	private List<HotelImage> roomimages;
+	private RoomImages roomimages;
 	
 	@XmlElement(name="roomimages")
-	public List<HotelImage> getRoomimages() {
+	public RoomImages getRoomimages() {
 		return roomimages;
 	}
 
-	public void setRoomimages(List<HotelImage> roomimages) {
+	public void setRoomimages(RoomImages roomimages) {
 		this.roomimages = roomimages;
 	}
 

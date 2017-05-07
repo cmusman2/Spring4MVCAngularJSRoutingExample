@@ -26,6 +26,9 @@
 	                         <td valign="top">
 	                            <table style="background:#eee">
 	                              <tr ng-repeat="rate in itemDetailsCtrl.item.data.roomrates">
+	                              <td>
+	                              <table width="100%">
+	                              <tr>
 	                               <td style="padding:5px;font-weight:bold;font-size:11pt;">
 	                                   {{rate.ratedescription}}
 	                                   <span style="font-weight:normal;color:green;font-size:10pt" ng-repeat="vs in rate.valueadds">
@@ -37,18 +40,43 @@
 	                               
 	                               </td>
 	                               <td></td>
-	                               <td>
+	                               <td align="right">
 	                                 <span ng-repeat="rinfo in rate.roomrateinfos">
-	                                    
+	                                     
 	                                    <span class="price" ng-repeat="r in rinfo">
-	                                      {{r.chargeablerates.averagebaserate}}
+	                                    
+	                                     {{r.chargeablerates.currencycode}} {{r.chargeablerates.total}}
 	                                    </span>
 	                                    <br/>including taxes & fees
 	                                 </span>
 	                                 <br/>
+	                                 
 	                                 <a href="#" class="booknow">Book now</a>
 	                               </td>
-	                               
+	                               <tr>
+	                                   <td colspan="3">
+                                           <a href="" ng-click="checked=(checked ? false : true)">
+                                               <span style="font-weight:normal;font-size:10pt; class="roomname">See cancellation policy</span>  
+	                                       </a>
+	                                      
+	                                          <span ng-repeat="rinfo in rate.roomrateinfos">
+	                                      
+	                                               <span class="price" ng-repeat="r in rinfo">	                                    
+	                                                 
+	                                                 <div style="font-weight:normal;font-size:10pt;color:#222" class="check-element animate-show-hide" ng-show="checked" ng-bind-html=" r.cancellationPolicy  | trusted"/>
+	                                               </span>
+	                                    
+	                                         </span>
+	                                       
+	                                       
+                                       </td>
+	                               </tr>
+	                               <tr>
+	                               <td colspan="3" style="background:#fff;height:2px">&nbsp;</td>
+	                               </tr>
+	                                
+	                               </table>
+	                              </td> 
 	                              </tr>
 	                              
 	                            </table>
@@ -78,13 +106,11 @@
 	                      </tr>
 
 	                      <tr ng-repeat="room in itemDetailsCtrl.item.data.hotelRooms.hotelRoomDetails">
-	                         <td valign="top" colspan="2">  
-	                                                        
+	                         <td valign="top" colspan="2">  	                                                   
                                 <a href="" ng-click="checked=(checked ? false : true)">
                                 <span class="roomname"> {{room.description}}</span>  
-	                            
+	                             </a>
 	                         
-	                         </a>
 	                         <br />	                            	                         
 	                            <div class="check-element animate-show-hide" ng-show="checked" ng-bind-html=" room.descriptionLong  | trusted">
 	                            

@@ -1,5 +1,6 @@
 package com.websystique.springmvc.model;
 
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 
 public class HotelRoomDetails {
@@ -11,7 +12,7 @@ public class HotelRoomDetails {
 	private RoomAmenities RoomAmenitiesDetails;
 	
 	
-	@XmlElement(name="roomcode")
+	@XmlAttribute(name="roomcode")
 	public String getRoomCode() {
 		return roomCode;
 	}
@@ -19,7 +20,7 @@ public class HotelRoomDetails {
 	public void setRoomCode(String roomCode) {
 		this.roomCode = roomCode;
 	}
-	@XmlElement(name="roomtypeid")
+	@XmlAttribute(name="roomtypeid")
 	public String getRoomTypeId() {
 		return roomTypeId;
 	}
