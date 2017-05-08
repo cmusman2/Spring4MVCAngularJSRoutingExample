@@ -15,6 +15,8 @@ public class HotelRoomAvailInfo {
 	private RoomRateInfos roomrateinfos;
 	private String ratedescription;
 	private String roomtypedescription;
+	private String descriptionLong;
+
 	private String suppliertype;
 	private String propertyid;
 	private String smokingpreferences;
@@ -24,6 +26,8 @@ public class HotelRoomAvailInfo {
 	
 	private RoomImages roomimages;
 	
+	
+
 	@XmlElement(name="roomimages")
 	public RoomImages getRoomimages() {
 		return roomimages;
@@ -49,6 +53,15 @@ public class HotelRoomAvailInfo {
 		this.roomtypedescription = roomtypedescription;
 	}
 
+	@XmlElement(name="descriptionLong")
+	public String getDescriptionLong() {
+		return descriptionLong;
+	}
+
+	public void setDescriptionLong(String descriptionLong) {
+		this.descriptionLong = descriptionLong;
+	}
+	
 	public String getSuppliertype() {
 		return suppliertype;
 	}

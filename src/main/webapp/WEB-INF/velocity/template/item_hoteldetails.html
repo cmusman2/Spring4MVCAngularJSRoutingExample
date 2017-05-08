@@ -59,7 +59,7 @@
 	                                 <a href="#/items/booking/{{itemDetailsCtrl.item.data.hotelSummary.hotelid}}" class="booknow">Book now</a>
 	                               </td>
 	                               <tr>
-	                                   <td colspan="3">
+	                                   <td colspan="3" style="padding:3px">
                                            <a href="" ng-click="checked=(checked ? false : true)">
                                                <span style="font-weight:normal;font-size:10pt; class="roomname">See cancellation policy</span>  
 	                                       </a>
@@ -74,6 +74,14 @@
 	                                         </span>
 	                                       
 	                                       
+                                       </td>
+	                               </tr>
+	                               	  <tr>
+	                                   <td colspan="3" style="padding:3px">
+                                           <a href="" ng-click="detailschecked=(detailschecked ? false : true)">
+                                               <span style="font-weight:normal;font-size:10pt; class="roomdetails">See details</span>  
+	                                       </a>
+	                                       <div style="font-weight:normal;font-size:10pt;color:#222" class="check-element animate-show-hide" ng-show="detailschecked" ng-bind-html=" rate.descriptionLong  | trusted"/>
                                        </td>
 	                               </tr>
 	                               <tr>

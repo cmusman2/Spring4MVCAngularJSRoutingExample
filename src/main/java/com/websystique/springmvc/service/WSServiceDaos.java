@@ -36,7 +36,9 @@ import com.websystique.springmvc.model.HotelDescription;
 import com.websystique.springmvc.model.HotelResponse;
 import com.websystique.springmvc.model.HotelRoomAvailInfo;
 import com.websystique.springmvc.model.HotelRoomAvailabilityResponse;
+import com.websystique.springmvc.model.HotelRoomDetails;
 import com.websystique.springmvc.model.HotelRoomResponse;
+import com.websystique.springmvc.model.HotelRooms;
 import com.websystique.springmvc.model.HotelSummary;
 
 
@@ -197,6 +199,26 @@ public class WSServiceDaos {
 		    	   
 		         System.out.println(hotelDescription.toString());
 		         HotelRoomAvailabilityResponse rooms = HotelRoomAvailability(hotelIdent);
+		         
+		         HotelRooms hrs = hotelDescription.getHotelRooms();
+		         for(HotelRoomAvailInfo roomInfo : rooms.getHotelRooms())
+		         {
+		            for(HotelRoomDetails h :hrs.getHotelRoomDetails())
+		            {
+		            	String rcode=h.getRoomCode();
+		            	String rtcoce=roomInfo.getRoomtypecode();
+		        	    if( /*  h.getRoomTypeId() ==  roomInfo.getRatecode() && */  rcode.equals(rtcoce))
+		        	    {
+		        	    	roomInfo.setDescriptionLong(h.getDescriptionLong()); 		        	    	
+		        	    	break;
+		        	    }
+		            }
+		            
+		         }
+		                 //ratecode=204167857
+		        		 //roomtypecode=200826820
+
+		         
 		         List<HotelRoomAvailInfo> rs=rooms.getHotelRooms();
 		         
 		        	 hotelDescription.setRoomrates(rs);
@@ -223,7 +245,7 @@ public class WSServiceDaos {
 	  String result = authenticate();
 	  if(result.length()>0)
 	  {
-		  HttpPost postData = new HttpPost(baseUrl+"/src/htllistDetail.php");		  
+		  HttpPost postData = new HttpPost(baseUrl+"/src/Roomratesnew.php");		  
 		  
 		  DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yy");
 		  GregorianCalendar cal = new GregorianCalendar();
@@ -238,7 +260,7 @@ public class WSServiceDaos {
 			postData.setEntity(new UrlEncodedFormEntity(urlParametersData));
 			String xml= "";
 			
-			  
+			  /*
 			try
 			{
 				ClassLoader classLoader = new WSServiceDaos().getClass().getClassLoader();
@@ -254,9 +276,9 @@ public class WSServiceDaos {
 			{
 				System.out.println(exp.getMessage());
 				exp.printStackTrace();
-			}  
+			}  */
 			
-			//xml=getData(postData);
+			xml=getData(postData);
 			
 			if (xml=="") return null;
 			
