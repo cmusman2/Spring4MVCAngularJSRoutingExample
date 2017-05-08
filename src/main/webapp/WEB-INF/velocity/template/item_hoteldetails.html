@@ -40,9 +40,15 @@
 	                                      <span ng-repeat="v in vs">
 	                                        <br/>{{v.description}}
 	                                       </span>
-	                                      
+	                                     
 	                                   </span>
-	                               
+	                                   <span style="font-weight:normal" ng-repeat="rinfo in rate.roomrateinfos">
+	                                     <span ng-repeat="r in rinfo">	
+	                                     <br/>
+	                                       <span style="color:red" ng-if="r.nonRefundable == 'true'">Non refundable</span>
+	                                       <span style="color:green" ng-if="r.nonRefundable == 'false'">Free cancellation</span>
+	                                      </span>
+	                                   </span>
 	                               </td>
 	                               <td></td>
 	                               <td align="right">
@@ -67,13 +73,12 @@
 	                                          <span ng-repeat="rinfo in rate.roomrateinfos">
 	                                      
 	                                               <span class="price" ng-repeat="r in rinfo">	                                    
-	                                                 
+	                                                  
 	                                                 <div style="font-weight:normal;font-size:10pt;color:#222" class="check-element animate-show-hide" ng-show="checked" ng-bind-html=" r.cancellationPolicy  | trusted"/>
 	                                               </span>
 	                                    
 	                                         </span>
-	                                       
-	                                       
+	                                       	                                         
                                        </td>
 	                               </tr>
 	                               	  <tr>
