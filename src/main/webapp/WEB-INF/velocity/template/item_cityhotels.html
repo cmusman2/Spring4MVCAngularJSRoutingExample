@@ -30,6 +30,7 @@
 	                               {{v.description}}<br/>
 	                             </span>	                             	                            
 	                          </span>
+	                          
 	                          <!-- 
 	                          <p>
 	                          <span style="font-weight:normal" ng-bind-html=" item.shortdescription  | trusted"></span>
@@ -46,7 +47,27 @@
 	                    </table>
 	                    </a>
 	                    </td>
-	                         <td valign="top" align="right"><span  class="price">{{item.lowrate}}</span><br/>
+	                         <td valign="top" align="right"> 
+	                         
+	                         	                         <span ng-repeat="rate in item.roomrates.hotelroomavailinfos">
+	                          
+	                          <span ng-repeat="rinfo in rate.roomrateinfos">
+	                                   
+	                                    <span class="price" ng-repeat="r in rinfo">
+	                                   
+	                                     {{r.chargeablerates.currencycode}} {{r.chargeablerates.total}}
+	                                    </span>
+	                                    <br/>including taxes & fees
+	                                 </span>
+	                          </span>
+	                         
+	                         
+	                         
+	                         
+	                         
+	                          <br/>
+	                         
+	                         
 	                           <a class="booknow" href="#/items/hotels/details/{{item.hotelid}}">See&nbsp;details</a>
 	                         </td>
 	                </tr>

@@ -110,36 +110,43 @@
 	                      
 	                      
 	                      <tr>
-	                         <td colspan="2" valign="top"><br/>	                             
-                                 <img width="50" style="padding:5px" ng-repeat="img in itemDetailsCtrl.item.data.hotelImages.Images" src="{{img.thumbnailUrl}}" title="{{img.caption}}"/>
+	                         <td ng-controller="SubmissionController" colspan="2" valign="top"><br/>
+	                         <div style="postion:relative">	 
+	                         <div ng-controller="SubmissionController" ng-show="popoverIsVisible" style="top: 43%;margin-left: -180px;left: 30%;position:absolute;width:660px;background:#000;padding:5px;"> 
+                                  <span style="color:#fff;padding:2px;display:block"> {{caption}}</span>
+                                    <img alt="noimage2" width="650" height="400" src="{{popContent}}" ng-show="popoverIsVisible" />              
+		                     </div>                            
+                                 <img width="50" style="cursor:pointer;padding:5px" ng-repeat="img in itemDetailsCtrl.item.data.hotelImages.Images" src="{{img.thumbnailUrl}}" title="{{img.caption}}" style="cursor:pointer;background:green;" ng-mouseover="showPopover(img.url,img.caption)" ng-mouseleave="hidePopover()"/>
+	                         
+	                         </div>
 	                         </td>
 	                          	                          
 	                      </tr>
 	                      <tr>
 	                         <td colspan="2" valign="top"><br/>	                             
-                                <span class="titleheading">Following types of rooms are available at {{itemDetailsCtrl.item.data.hotelSummary.name}}
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.propertyInformation  | trusted">
                                 </span>   
 	                         </td>
-	                          	                          
 	                      </tr>
 
+	                      <tr>
+	                         <td colspan="2" valign="top"><br/>	                             
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.drivingDirections  | trusted">
+                                </span>   
+	                         </td>
+	                      </tr>
+
+                          <!-- 
 	                      <tr ng-repeat="room in itemDetailsCtrl.item.data.hotelRooms.hotelRoomDetails">
 	                         <td valign="top" colspan="2">  	                                                   
                                 <a href="" ng-click="checked=(checked ? false : true)">
                                 <span class="roomname"> {{room.description}}</span>  
 	                             </a>
-	                         
 	                         <br />	                            	                         
 	                            <div class="check-element animate-show-hide" ng-show="checked" ng-bind-html=" room.descriptionLong  | trusted">
-	                            
-
                              </div>
-
-	                                        
 	                         </td>
-	                          
-	                         
-	                      </tr>
+	                      </tr> -->
 	                      
 	                    </table>
 	                    </td>

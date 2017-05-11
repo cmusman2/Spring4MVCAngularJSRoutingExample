@@ -3,6 +3,7 @@
 <head>
 
     <meta charset="utf-8">
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="PUBLIC">
     <title>Book cheap hotels</title>
     <link rel="shortcut icon" type="image/png" href="resources/images/favicon.png"/>
     <link type="text/css" rel="stylesheet" href="resources/css/styles.css" media="all" />
@@ -16,63 +17,38 @@
 	<script src="resources/js/controller/ItemListController.js"></script>
 
 <!-- 	<base href="/Spring4MVCAngularJSRoutingExample/index.html" />  -->
+<style>
 
+.popover {
+  position: absolute;
+  z-index: 100;
+}
+</style>
 </head>
 <body>
 		
 	<div class="generic-containerx">
 		<h1 style="margin: 0;background:#0c3d72;color:#fff;padding:10px"><img height="70" src="resources/images/logo.png"/></h1>
-		<div class="panel panel-default" style="height:450px;background:url(resources/images/bgimg.jpg); background-size: cover;">
+		<div class="panel panel-default" style="height:470px;background:url(resources/images/bgimg.jpg); background-size: cover;">
 			<!-- Default panel contents -->
 		   
+		    <form ng-controller="SubmissionController" name="searchForm" ng-submit="submitForm()">
 		    
-		    
-		     <div ng-controller="UtilityController as util" style="padding:10px;height:200px;min-width:300px;width:20%;position:relative;top:100px;margin:auto;background:#fff">
+		     <div style="padding:10px;height:210px;opacity:.9;min-width:300px;width:20%;position:relative;top:100px;margin:auto;background:#fff">
 		   
 		     
 		     <label>Destination 
-		      <input style="height:30px;width:100%" class="ac_input city_input" ng-required="true" ng-change="util.doFormatDate(searchTerm)" ng-value="searchTerm"  path="CityAJaxH" placeholder="Enter destination" ng-model="searchTerm" type="search" id="CityAjaxH" name="CityAjaxH" required/>
+		      <input style="height:30px;width:100%" class="ac_input city_input" ng-required="true" ng-change="util.doSearchTerm(searchTerm)" ng-value="searchTerm"  path="CityAJaxH" placeholder="Enter destination" ng-model="searchTerm" type="search" id="CityAjaxH" name="CityAjaxH" required/>
 		      </label>
 		      <br/>
 		     <label>Check-in date
-		      
-		      <input style="cursor:pointer;height:30px;"   name="sdateh" ng-model="sdateh" id="from" readonly="readonly"  class="date-input"/>
+		      		      <input style="cursor:pointer;height:30px; ng-value="from |asDate| date:'dd/MM/yy'" ng-model="from |asDate| date:'dd/MM/yy'" name="from"  id="from" class="date-input" required data-readonly/>
+		       
 		      </label>
 		      <br/>
 		      
 		     <label>Nights to stay
-		       
-		      <select class="input" style="height:30px;" id="nights" name="nights" ng-model="nights">
-			   <option  selected value="1">1</option>
-			   <option value="2">2</option>
-			   <option value="3">3</option>
-			   <option value="4">4</option>
-			   <option value="5">5</option>
-			   <option value="6">6</option>
-			   <option value="7">7</option>
-			   <option value="8">8</option>
-			   <option value="9">9</option>
-			   <option value="10">10</option>
-			   <option value="11">11</option>
-			   <option value="12">12</option>
-			   <option value="13">13</option>
-			   <option value="14">14</option>
-			   <option value="15">15</option>
-			   <option value="16">16</option>
-			   <option value="17">17</option>
-			   <option value="18">18</option>
-			   <option value="19">19</option>
-			   <option value="20">20</option>
-			   <option value="21">21</option>
-			   <option value="22">22</option>
-			   <option value="23">23</option>
-			   <option value="24">24</option>
-			   <option value="25">25</option>
-			   <option value="26">26</option>
-			   <option value="27">27</option>
-			   <option value="28">28</option>
-			   
-			  </select>
+		       <select ng-init="nights = 1" style="height:30px;" id="nights" ng-model="nights" ng-options="n for n in [] | range:1:29"></select>
 		      
 		      
 		      </label>
@@ -81,23 +57,27 @@
 			 <input type="hidden" id="CityAjaxH2">
 			 <input type="hidden" id="CityLocal">
 		      <br/><br/>
-		     
+		     <!-- 
 		     <div style="margin:auto;">
-		      <a href="#/items/hotels/{{searchTerm}}" style="background:#1e90ff;color:#fff;padding:10px;font-size:14pt;">Search</a>
+		      <a href="#/items/hotels/{{searchTerm}}/from/{{nights}}" style="background:#1e90ff;color:#fff;padding:10px;font-size:14pt;">Search</a>
 		     </div>
+		     -->
 		     <!-- 
 		      <a href="#" onclick="location.href='#/items/hotels/'+$('#CityAjaxH').val()+'/'+$('#from').val()+'/'+$('#nights').val();" style="background:#1e90ff;color:#fff;padding:10px;font-size:14pt;">Search2</a>
 		      <a href="#/items/hotels/{{searchTerm}}/{{sdateh}}/{{nights}}" style="background:#1e90ff;color:#fff;padding:10px;font-size:14pt;">Search2</a>
-		      -->
-		     
+		      -->		   
+              <button style="margin-left:100px;background:#1e90ff;color:#fff;padding:5px;font-size:14pt;" ng-click="buttonClicked = true">Search</button>
+              
+ 
+             
+         </form>
 		      
-		     
-		   </div>
+		
 		     
 		 
 	</div>
-
-	<div ng-view></div>
+        <br/>
+	    <div ng-view></div>
  
 
 <script src="resources/js/controller/ItemListController.js"></script>
@@ -116,6 +96,8 @@ function formatItem(row) {      if (document.getElementById('CityAjaxH2')!=null)
 function lookupAjax(){   var oSuggest = $("#CityAjaxH")[0].autocompleter;  oSuggest.findValue();  return false;  }    
 function lookupLocal(){    var oSuggest = $("#CityLocal")[0].autocompleter;  oSuggest.findValue();    return false;   }  
 $("#CityAjaxH").autocomplete(  "item/autoComplete",  {  delay:10,  minChars:3,  matchSubset:1,  matchContains:3,  cacheLength:0,  onItemSelect:selectItem,  onFindValue:findValue,  formatItem:formatItem,  autoFill:false  }  );     
+
+
 
 </script> 
 </body>

@@ -26,7 +26,7 @@ App.config(['$routeProvider', function($routeProvider) {
 			templateUrl: 'items/cityhotels',
 			controller : "ItemListController as itemListCtrl",
 			resolve: {
-                async: ['ItemService','$route', function(ItemService , $route)  {
+                async: ['ItemService','$route', function(ItemService , $route)  {                	
                     return ItemService.fetchSpecificHotels('hotels',$route.current.params.id);
                	}]
             }
@@ -34,9 +34,11 @@ App.config(['$routeProvider', function($routeProvider) {
 		.when('/items/hotels/:id/:sdate/:nights', {
 			templateUrl: 'items/cityhotels',
 			controller : "ItemListController as itemListCtrl",
-			resolve: {
+			resolve: {				
                 async: ['ItemService','$route', function(ItemService , $route)  {
-                	alert(nights);
+                	$route.current.params.id = $('#CityAjaxH').val();
+                	$route.current.params.sdate = $('#from').val();                	                	
+                	//alert($route.current.params.id+$route.current.params.sdate+$route.current.params.nights);
                     return ItemService.fetchSpecificHotels('hotels',$route.current.params.id);
                	}]
             }
@@ -118,3 +120,22 @@ App.filter('trusted', ['$sce', function($sce) {
         return $sce.trustAsHtml(div.textContent);
     };
 }]);
+
+App.filter('range', function() {
+	  return function(input, start, end) {    
+	    start = parseInt(start);
+	    end = parseInt(end);
+	    var direction = (start <= end) ? 1 : -1;
+	    while (start != end) {
+	        input.push(start);
+	        start += direction;
+	    }
+	    return input;
+	  };
+	});
+
+App.filter("asDate", function () {
+    return function (input) {
+        return new Date(input);
+    }
+});

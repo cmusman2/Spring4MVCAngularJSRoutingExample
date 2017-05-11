@@ -64,7 +64,7 @@ public class WSServiceDaos {
 	
 	//System.out.println(x);
 	
-	/* 
+	
 	try
 	{
 		ClassLoader classLoader = new WSServiceDaos().getClass().getClassLoader();
@@ -78,9 +78,9 @@ public class WSServiceDaos {
 	{
 		System.out.println(exp.getMessage());
 		exp.printStackTrace();
-	} */
+	} 
 	
-   xml = getHotelListData(city, sd, nights);
+    xml = getHotelListData(city, sd, nights);
 	System.out.println(xml);
 	if (xml=="") return null;
 	
@@ -94,7 +94,7 @@ public class WSServiceDaos {
 	 }catch(Exception exp)
 {
 	String ss = exp.getMessage();
-	System.out.println(ss);
+	exp.printStackTrace();
 }
 	  
 	  /*
@@ -169,7 +169,7 @@ public class WSServiceDaos {
 			postData.setEntity(new UrlEncodedFormEntity(urlParametersData));
 			String xml= "";
 			
-			 /*
+			 
 			try
 			{
 				ClassLoader classLoader = new WSServiceDaos().getClass().getClassLoader();
@@ -179,16 +179,15 @@ public class WSServiceDaos {
 			    for(String s:data)
 				xml+=s;
 			    
-				System.out.println(data.toString());
+				System.out.println(xml);
  
 			}catch(Exception exp)
 			{
 				System.out.println(exp.getMessage());
 				exp.printStackTrace();
-			} */
+			} 
 			
 			xml=getData(postData);
-			
 			if (xml=="") return null;
 			
 			  System.out.println(xml);
@@ -205,9 +204,13 @@ public class WSServiceDaos {
 		         {
 		            for(HotelRoomDetails h :hrs.getHotelRoomDetails())
 		            {
-		            	String rcode=h.getRoomCode();
-		            	String rtcoce=roomInfo.getRoomtypecode();
-		        	    if( /*  h.getRoomTypeId() ==  roomInfo.getRatecode() && */  rcode.equals(rtcoce))
+		            	String roomCode=h.getRoomCode();
+		            	String roomTypeId = h.getRoomTypeId();
+
+		            	String roomTypeCode=roomInfo.getRoomtypecode();
+		            	String rateCode = roomInfo.getRatecode();
+		            	
+		        	    if( /*rateCode.equals(roomTypeId) &&*/ roomCode.equals(roomTypeCode))
 		        	    {
 		        	    	roomInfo.setDescriptionLong(h.getDescriptionLong()); 		        	    	
 		        	    	break;
@@ -260,7 +263,7 @@ public class WSServiceDaos {
 			postData.setEntity(new UrlEncodedFormEntity(urlParametersData));
 			String xml= "";
 			
-			  /*
+			  
 			try
 			{
 				ClassLoader classLoader = new WSServiceDaos().getClass().getClassLoader();
@@ -276,7 +279,7 @@ public class WSServiceDaos {
 			{
 				System.out.println(exp.getMessage());
 				exp.printStackTrace();
-			}  */
+			}  
 			
 			xml=getData(postData);
 			
@@ -372,6 +375,7 @@ public class WSServiceDaos {
 	  
 
 	  return getData(post);
+	  //return "auth";
   }
   
   public static String getLocationData(String q) throws ClientProtocolException, IOException
