@@ -87,8 +87,14 @@ App.controller('UtilityController', function ($scope){
 			  $scope.slides = ds;
 		  }
 
-		  $scope.hasImgaes=function()
+		  $scope.hasImgaes=function(setIndex)
 		  {
+			  for(var i=0;i< $scope.slides.length; i++)
+				  if ($scope.slides[i].id == setIndex){
+					  alert('found');break;
+					  }
+			   
+			  
 			  if (ItemService.liveDataImgaes.images == null) {alert('no')} else {alert('yes' + ItemService.liveDataImgaes.images.length);}
 		  }
 		  

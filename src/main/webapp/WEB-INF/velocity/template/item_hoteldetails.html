@@ -13,7 +13,7 @@
   
   <!-- Trigger the modal with a button -->
   
-<span ng-controller="CarouselCtrl" ng-click="hasImgaes()">Has images?</span>
+<span ng-controller="CarouselCtrl" ng-click="hasImgaes(10)">Has images?</span>
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -68,8 +68,20 @@
 	                    <table>
 	                      <tr>
 	                        <td valign="top" style="width:1%">
+	                           <div ng-controller="CarouselCtrl">
+  
+    <div uib-carousel active="active" interval="myInterval"  >
+    
+      <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+      
+        <img height="290" ng-src="{{slide.image}}" style="margin:auto;">
+       
+      </div>
+    </div>
+  
+        </div>               <!-- 
 	                        <img width="430" style="border:thin solid #1e90ff;padding:1px" height="290" ng-model="mainimg" ng-repeat="img in itemDetailsCtrl.item.data.hotelImages.Images" ng-if=" img.category == 1 " src="{{img.url}}"/>
-	                        
+	                        -->
 	                        </td>
 	                         <td valign="top">
 	                            <table style="background:#eee">
