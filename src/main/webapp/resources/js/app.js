@@ -1,6 +1,10 @@
 'use strict';
 
-var App = angular.module('myApp',['ngRoute']);
+var App = angular.module('myApp',['ngRoute', 'ui.bootstrap','ngAnimate']);
+/*
+$scope.myInterval = 3000;
+$scope.noWrapSlides = false;
+$scope.active = 0;*/
 
 App.config(['$routeProvider', function($routeProvider) {
 	$routeProvider
@@ -36,10 +40,10 @@ App.config(['$routeProvider', function($routeProvider) {
 			controller : "ItemListController as itemListCtrl",
 			resolve: {				
                 async: ['ItemService','$route', function(ItemService , $route)  {
-                	$route.current.params.id = $('#CityAjaxH').val();
-                	$route.current.params.sdate = $('#from').val();                	                	
+                	//$route.current.params.id = $('#CityAjaxH').val();
+                	//$route.current.params.sdate = $('#from').val();                	                	
                 	//alert($route.current.params.id+$route.current.params.sdate+$route.current.params.nights);
-                    return ItemService.fetchSpecificHotels('hotels',$route.current.params.id);
+                    return ItemService.fetchSpecificHotels('hotels',$route.current.params.id+"?" + $route.current.params.from +"&" + $route.current.params.mights);
                	}]
             }
 		})
@@ -109,7 +113,18 @@ App.config(['$routeProvider', function($routeProvider) {
             }
 		})
 		
-		
+		.when('/test', {
+			templateUrl: 'items/index2',
+			controller : "testController as testCtrl",
+			resolve:{
+				async: ['ItemService','$route', function(ItemService , $route) {
+                    return ItemService.fetchTemplate('index2',$route.current.params.id);
+               	}]
+				
+			}
+
+            
+		})
 		.otherwise({redirectTo:'/items/'});		
 }]);
 

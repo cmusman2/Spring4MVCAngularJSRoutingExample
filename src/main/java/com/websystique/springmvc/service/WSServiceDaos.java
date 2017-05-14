@@ -80,7 +80,7 @@ public class WSServiceDaos {
 		exp.printStackTrace();
 	} 
 	
-    xml = getHotelListData(city, sd, nights);
+    //xml = getHotelListData(city, sd, nights);
 	System.out.println(xml);
 	if (xml=="") return null;
 	
@@ -187,7 +187,7 @@ public class WSServiceDaos {
 				exp.printStackTrace();
 			} 
 			
-			xml=getData(postData);
+			//xml=getData(postData);
 			if (xml=="") return null;
 			
 			  System.out.println(xml);
@@ -281,7 +281,7 @@ public class WSServiceDaos {
 				exp.printStackTrace();
 			}  
 			
-			xml=getData(postData);
+			//xml=getData(postData);
 			
 			if (xml=="") return null;
 			
@@ -374,8 +374,8 @@ public class WSServiceDaos {
 	  post.setEntity(new UrlEncodedFormEntity(urlParameters));
 	  
 
-	  return getData(post);
-	  //return "auth";
+	  //return getData(post);
+	  return "auth";
   }
   
   public static String getLocationData(String q) throws ClientProtocolException, IOException

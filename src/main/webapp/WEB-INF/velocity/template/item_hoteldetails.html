@@ -7,6 +7,19 @@
 	        
 	    <img src="{{itemDetailsCtrl.item.data.hotelSummary.tripAdvisorRatingUrl}}"/>
 	    </span>
+	     <div ng-controller="CarouselDemoCtrl">
+  <div style="height: 305px">
+    <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+      <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+        <img ng-src="{{slide.image}}" style="margin:auto;">
+        <div class="carousel-caption">
+          <h4>Slide {{slide.id}}</h4>
+          <p>{{slide.text}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 	    <br/>
 	    {{itemDetailsCtrl.item.data.hotelSummary.address1}}
 	     {{itemDetailsCtrl.item.data.hotelSummary.postalCode}},
@@ -25,7 +38,7 @@
 	                    <table>
 	                      <tr>
 	                        <td valign="top" style="width:1%">
-	                        <img width="330" height="250" ng-repeat="img in itemDetailsCtrl.item.data.hotelImages.Images" ng-if=" img.category == 1 " src="{{img.url}}"/>
+	                        <img width="430" style="border:thin solid #1e90ff;padding:1px" height="290" ng-model="mainimg" ng-repeat="img in itemDetailsCtrl.item.data.hotelImages.Images" ng-if=" img.category == 1 " src="{{img.url}}"/>
 	                        
 	                        </td>
 	                         <td valign="top">
@@ -112,9 +125,16 @@
 	                      <tr>
 	                         <td ng-controller="SubmissionController" colspan="2" valign="top"><br/>
 	                         <div style="postion:relative">	 
-	                         <div ng-controller="SubmissionController" ng-show="popoverIsVisible" style="top: 43%;margin-left: -180px;left: 30%;position:absolute;width:660px;background:#000;padding:5px;"> 
-                                  <span style="color:#fff;padding:2px;display:block"> {{caption}}</span>
-                                    <img alt="noimage2" width="650" height="400" src="{{popContent}}" ng-show="popoverIsVisible" />              
+	                         <div ng-controller="SubmissionController" ng-show="popoverIsVisible" style="top: 43%;margin-left: -180px;left: 30%;position:absolute;width:758px;background:#000;padding:5px;"> 
+                                <table>
+                                  <tr><td colspan="3"><span style="font-size:15pt;font-weight:bold;color:#fff;padding:2px;display:block"> {{caption}}</span></td></tr>
+                                  <tr>
+                                  <td><img id="backward" width="50" src="resources/images/backward.jpg"/></td>
+                                    <td>
+                                    <img alt="noimage2" width="650" height="400" src="{{popContent}}" ng-show="popoverIsVisible" />
+                                   </td>
+                                   <td><img id="forward" width="50" src="resources/images/forward.jpg"/></td>
+                                </table>            
 		                     </div>                            
                                  <img width="50" style="cursor:pointer;padding:5px" ng-repeat="img in itemDetailsCtrl.item.data.hotelImages.Images" src="{{img.thumbnailUrl}}" title="{{img.caption}}" style="cursor:pointer;background:green;" ng-mouseover="showPopover(img.url,img.caption)" ng-mouseleave="hidePopover()"/>
 	                         

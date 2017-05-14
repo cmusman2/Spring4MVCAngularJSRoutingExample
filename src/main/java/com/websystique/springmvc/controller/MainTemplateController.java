@@ -1,6 +1,7 @@
 package com.websystique.springmvc.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -58,9 +59,16 @@ public class MainTemplateController {
     	return "template/item_booking";	
     }
     
+    
     @RequestMapping(value="/autoComplete")
     public String autoComplete() { 
     	return "";	
+    }
+    
+    @RequestMapping(value="/{id}")
+    public String getTemplate(@PathVariable String id) { 
+    	System.out.println("getting to any"+id);
+    	return  "template/item_"+id;	
     }
     
 }
