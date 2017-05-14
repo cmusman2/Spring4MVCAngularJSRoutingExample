@@ -40,16 +40,19 @@ public class MainTemplateController {
     
     @RequestMapping(value="/hotels")
     public String getHtlListTemplate() {
+    	System.out.println("getting to hotels");
     	return "template/item_hotels";	
     }
     
     @RequestMapping(value="/cityhotels")
     public String getCityHtlsTemplate() {
+    	System.out.println("getting to cityhotels");
     	return "template/item_cityhotels";	
     }
     
     @RequestMapping(value="/hoteldetails")
     public String getHotelDetailsTemplate() {
+    	System.out.println("getting to hoteldetails");
     	return "template/item_hoteldetails";	
     }
     

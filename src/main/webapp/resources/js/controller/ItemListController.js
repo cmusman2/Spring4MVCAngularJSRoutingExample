@@ -1,8 +1,9 @@
 'use strict';
 App.controller('ItemListController', ['async', function(async) {
-          var self = this;alert('cont');
+          var self = this;
           self.items=async;
-           
+          
+          
 }]);
 
 
@@ -58,29 +59,38 @@ App.controller('UtilityController', function ($scope){
     $timeout(countUp, 500);
 });
 	
-	App.controller('CarouselDemoCtrl', function ($scope) {
+	App.controller('CarouselCtrl', function ($scope,ItemService) {
 		  $scope.myInterval = 3000;
 		  $scope.noWrapSlides = false;
 		  $scope.active = 0;
 		  var slides = $scope.slides = [];
 		  var currIndex = 0;
 
-		  $scope.addSlide = function() {
+		  $scope.addSlide = function(img) {
 		    var newWidth = 600 + slides.length + 1;
 		    slides.push({
-		      image: 'http://media.expedia.com/hotels/1000000/210000/201100/201089/201089_56_t.jpg',
-		      text: ['Nice image','Awesome photograph','That is so cool','I love that'][slides.length % 4],
+		      image: img.url,
+		      text: img.caption,
 		      id: currIndex++
 		    });
 		  };
 
-		 
+		
 
-		  for (var i = 0; i < 4; i++) {
-		    $scope.addSlide();
+		  for (var i = 0; i < ItemService.liveDataImgaes.images.length; i++) {
+		    $scope.addSlide( ItemService.liveDataImgaes.images[i]);
+		  }
+		  
+		
+		  $scope.dataSlides=function(ds)
+		  {
+			  $scope.slides = ds;
 		  }
 
-		  // Randomize logic below
-
+		  $scope.hasImgaes=function()
+		  {
+			  if (ItemService.liveDataImgaes.images == null) {alert('no')} else {alert('yes' + ItemService.liveDataImgaes.images.length);}
+		  }
 		  
 		});	
+	

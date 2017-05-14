@@ -1,6 +1,6 @@
 'use strict';
 
-var App = angular.module('myApp',['ngRoute', 'ui.bootstrap','ngAnimate']);
+var App = angular.module('myApp',['ngRoute', 'ui.bootstrap'/*,'ngAnimate'*/]);
 /*
 $scope.myInterval = 3000;
 $scope.noWrapSlides = false;
@@ -154,3 +154,5 @@ App.filter("asDate", function () {
         return new Date(input);
     }
 });
+
+
