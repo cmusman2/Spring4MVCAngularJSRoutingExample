@@ -75,7 +75,7 @@ App.controller('UtilityController', function ($scope){
 		    });
 		  };
 
-		
+		  $scope.message="hasimg";
 
 		  for (var i = 0; i < ItemService.liveDataImgaes.images.length; i++) {
 		    $scope.addSlide( ItemService.liveDataImgaes.images[i]);
@@ -88,14 +88,26 @@ App.controller('UtilityController', function ($scope){
 		  }
 
 		  $scope.hasImgaes=function(setIndex)
-		  {
+		  {$scope.message="hasimg3";
 			  for(var i=0;i< $scope.slides.length; i++)
 				  if ($scope.slides[i].id == setIndex){
-					  alert('found');break;
+					  break;
 					  }
 			   
 			  
 			  if (ItemService.liveDataImgaes.images == null) {alert('no')} else {alert('yes' + ItemService.liveDataImgaes.images.length);}
+		  }
+		  
+		  $scope.findId=function(slide)
+		  {			 
+			  return slide.id;
+		  }
+		 
+		  
+		  $scope.setImages=function(img)
+		  {			 
+			  $scope.cimg = img;
+			 
 		  }
 		  
 		});	

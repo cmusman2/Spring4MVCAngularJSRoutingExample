@@ -1,55 +1,13 @@
 <div class="generic-containerx">
 	<div class="panel panel-defaultx"> 
 		<!-- Default panel contents -->
-	    <div class="panel-heading"><span class="lead" style="font-weight:bold">
+	    <div class="panel-heading"><span class="lead" style="font-weight:bold;">
 	    {{itemDetailsCtrl.item.data.hotelSummary.name}}	
 	    <img src="resources/images/{{itemDetailsCtrl.item.data.hotelSummary.hotelRating}}.png"/> 
 	        
 	    <img src="{{itemDetailsCtrl.item.data.hotelSummary.tripAdvisorRatingUrl}}"/>
 	    </span>
 
-  
-  
-  
-  <!-- Trigger the modal with a button -->
-  
-<span ng-controller="CarouselCtrl" ng-click="hasImgaes(10)">Has images?</span>
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Photos</h4>
-        </div>
-        <div class="modal-body">
-         	     <div ng-controller="CarouselCtrl">
-  <div style="height: 560px">
-    <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-    
-      <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
-      <h4 class="modal-title">{{slide.text}}</h4>
-        <img height="550" ng-src="{{slide.image}}" style="margin:auto;">
-        <div class="carousel-caption">
-         
-         
-        </div>
-      </div>
-    </div>
-  </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-</div>
-  
 	    <br/>
 	    {{itemDetailsCtrl.item.data.hotelSummary.address1}}
 	     {{itemDetailsCtrl.item.data.hotelSummary.postalCode}},
@@ -72,9 +30,9 @@
   
     <div uib-carousel active="active" interval="myInterval"  >
     
-      <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+      <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id" style="background:url(resources/images/prog.gif) no-repeat center;margin-top:2px;">
       
-        <img height="290" ng-src="{{slide.image}}" style="margin:auto;">
+        <img class="progress-bar.active" height="290" ng-src="{{slide.image}}" style="margin:auto;">
        
       </div>
     </div>
@@ -177,9 +135,50 @@
                                    </td>
                                    <td><img id="forward" width="50" src="resources/images/forward.jpg"/></td>
                                 </table>            
-		                     </div>                            
-                                 <img width="50"  data-toggle="modal" data-target="#myModal" ng-click="setImgaes()" style="cursor:pointer;padding:5px" ng-repeat="img in itemDetailsCtrl.item.data.hotelImages.Images" src="{{img.thumbnailUrl}}" title="{{img.caption}}" style="cursor:pointer;background:green;"/>
-	                         
+		                     </div>  
+		                     <div ng-controller="CarouselCtrl">                          
+                                 <img width="50"  data-toggle="modal" data-target="#myModal" style="cursor:pointer;padding:5px" ng-repeat="img in itemDetailsCtrl.item.data.hotelImages.Images"  ng-click="setImages(img)" src="{{img.thumbnailUrl}}" title="{{img.caption}}" style="cursor:pointer;background:green;"/>
+                                   <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">{{cimg.caption}}</h4>
+        </div>
+        <div class="modal-body">
+         	    
+         	     
+         	                       <div style="height: 560px">
+                   <div uib-carousel style="background:url(resources/images/prog.gif) no-repeat center;height:480px;margin-top:2px;"> 
+                    
+                        
+                         <img height="550" ng-src="{{cimg.url}}" style="margin:auto;">
+                      
+                  </div>    
+                </div>
+                
+         	     <!--  
+                 <div style="height: 560px">
+                   <div uib-carousel> 
+                      <div uib-slide ng-repeat="slide in slides track by findId(slide)" index="slide.id">
+                         <h4 class="modal-title">{{slide.text}}</h4>
+                         <img height="550" ng-src="{{slide.image}}" style="margin:auto;">
+                      </div>
+                  </div>    
+                </div>
+                -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
 	                         </div>
 	                         </td>
 	                          	                          
