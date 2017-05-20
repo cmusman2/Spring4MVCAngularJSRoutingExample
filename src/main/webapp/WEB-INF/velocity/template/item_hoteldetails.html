@@ -32,7 +32,7 @@
     
       <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id" style="background:url(resources/images/prog.gif) no-repeat center;margin-top:2px;">
       
-        <img class="progress-bar.active" height="290" ng-src="{{slide.image}}" style="margin:auto;">
+        <img class="progress-bar.active" width="400" height="290" ng-src="{{slide.image}}" style="margin:auto;">
        
       </div>
     </div>
@@ -42,9 +42,17 @@
 	                        -->
 	                        </td>
 	                         <td valign="top">
+	                           
 	                            <table style="background:#eee">
 	                              <tr ng-repeat="rate in itemDetailsCtrl.item.data.roomrates"  ng-if=" $index < 2 " ng-init="outerIndex = $index">
 	                              <td>
+	                              <form ng-submit="submitOption()">
+	                              <input type="hidden" name="hotelid" ng-value="itemDetailsCtrl.item.data.hotelSummary.hotelid" />
+	                              <input type="hidden" name="ratecode" ng-value="rate.ratecode" />
+	                              <input type="hidden" name="roomtypecode" ng-value="rate.roomtypecode" />
+	                              <input type="hidden" name="nights" ng-value="nights" />
+	                              <input type="hidden" name="cdate" ng-value="cdate" />
+	                              
 	                              <table width="100%">
 	                              <tr>
 	                               <td style="padding:5px;font-weight:bold;font-size:11pt;">
@@ -69,14 +77,17 @@
 	                                     
 	                                    <span class="price" ng-repeat="r in rinfo">
 	                                    
-	                                     {{r.chargeablerates.currencycode}} {{r.chargeablerates.total}}
+	                                     {{r.chargeablerates.currecncycode}} {{r.chargeablerates.total}}
 	                                    </span>
 	                                    <br/>including taxes & fees
 	                                 </span>
 	                                 <br/>
-	                                 
+	                                 <!-- 
 	                                 <a href="#/items/booking/{{itemDetailsCtrl.item.data.hotelSummary.hotelid}}" class="booknow">Book now</a>
+	                                 -->
+	                                 <a href="" ng-click="" class="booknow">Book now</a>
 	                               </td>
+	                               </tr>
 	                               <tr>
 	                                   <td colspan="3" style="padding:3px">
                                            <a href="" ng-click="checked=(checked ? false : true)">
@@ -94,7 +105,7 @@
 	                                       	                                         
                                        </td>
 	                               </tr>
-	                               	  <tr>
+	                               <tr>
 	                                   <td colspan="3" style="padding:3px">
                                            <a href="" ng-click="detailschecked=(detailschecked ? false : true)">
                                                <span style="font-weight:normal;font-size:10pt; class="roomdetails">See details</span>  
@@ -107,11 +118,12 @@
 	                               </tr>
 	                                
 	                               </table>
+	                                </form>
 	                              </td> 
 	                              </tr>
 	                              
 	                            </table>
-	                            
+	                          
 	                         </td>	                        
 	                      </tr>
 	                      <tr>

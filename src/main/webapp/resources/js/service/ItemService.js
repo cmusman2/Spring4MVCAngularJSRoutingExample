@@ -1,6 +1,15 @@
 'use strict';
 
 App.factory('ItemService', ['$http', '$q', function($http, $q){
+	
+	var city;
+	var hotelid;
+	var checkindate;
+	var nights;
+	var ratecode;
+	var roomtypecode;
+	
+	
 	return {
 		 
 			fetchAllItems: function(category) {
@@ -85,8 +94,27 @@ App.factory('ItemService', ['$http', '$q', function($http, $q){
 						   {"caption":"Living area","url":"http://media.expedia.com/hotels/1000000/210000/201100/201089/201089_125_z.jpg"}
 				           ]
 				   
-			   }
+			   },
+		   
+		   searchCriteria:{
+			   seacrhCity:city,
+			   checkindate:checkindate,
+			   nights:nights			   
+		   },
+		   selectedHotel:{
+			   hotelid:hotelid			   
+		   },
+		   selectedRoom:{
+			   rarecode:ratecode,
+			   roomtypecode:roomtypecode,
+			   nights:nights			   
+		   }
+		   
+		   
+		   
 		   
 	};
+	
+	 
 
 }]);

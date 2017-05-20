@@ -7,6 +7,12 @@
 	            
 	            <tbody>
 	                <tr ng-repeat="item in itemListCtrl.items.data">
+	                 <td>{{item.hotelid}}
+	                  <form ng-controller="SubmissionController" ng-submit="submitForDetails()">
+	                  <input type="hidden" name="hotelid" ng-model="hotelid" ng-value="{{item.hotelid}}"/>
+	                  
+	                  
+	                  <table>
 	                   <td style="border-bottom:thin dashed #1e90ff"> 
 	                    <a href="#/items/hotels/details/{{item.hotelid}}" style="text-decoration:none">
 	                    <table> 
@@ -55,7 +61,7 @@
 	                                   
 	                                    <span class="price" ng-repeat="r in rinfo">
 	                                   
-	                                     {{r.chargeablerates.currencycode}} {{r.chargeablerates.total}}
+	                                     {{r.chargeablerates.currecncycode}} {{r.chargeablerates.total}}
 	                                    </span>
 	                                    <br/>including taxes & fees
 	                                 </span>
@@ -67,9 +73,14 @@
 	                         
 	                          <br/>
 	                         
-	                         
+	                         <!-- 
 	                           <a class="booknow" href="#/items/hotels/details/{{item.hotelid}}">See&nbsp;details</a>
+	                         -->
+	                         <button type="submit" style="margin-left:100px;background:#1e90ff;color:#fff;padding:5px;font-size:14pt;" ng-click="buttonClicked = true">See details</button>
 	                         </td>
+	                   </table>
+	                   </form>
+	                </td>
 	                </tr>
 	            </tbody>
 			</table>

@@ -1,6 +1,6 @@
 'use strict';
 
-var App = angular.module('myApp',['ngRoute', 'ui.bootstrap'/*,'ngAnimate'*/]);
+var App = angular.module('myApp',['ngRoute', 'ui.bootstrap','ngStorage'/*,'ngAnimate'*/]);
 /*
 $scope.myInterval = 3000;
 $scope.noWrapSlides = false;

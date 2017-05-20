@@ -39,8 +39,8 @@ public class ChargeableRateInfo {
 		return currencycode;
 	}
 
-	public void setCurrecncycode(String currecncycode) {
-		this.currencycode = currecncycode;
+	public void setCurrecncycode(String currencycode) {
+		this.currencycode = currencycode;
 	}
 
 	@XmlAttribute

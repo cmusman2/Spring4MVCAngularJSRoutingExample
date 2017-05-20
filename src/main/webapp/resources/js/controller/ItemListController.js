@@ -8,18 +8,33 @@ App.controller('ItemListController', ['async', function(async) {
 
 
 
-App.controller('SubmissionController', function($scope, $window, $location) {
-	  $scope.name = 'World';
+App.controller('SubmissionController', function($scope, $localStorage, $sessionStorage,   $window, $location,    ItemService) {
+	 
 	  var dt = new Date();
 	  dt = dt.setDate(dt.getDate() + 2);
 	  $scope.from= dt;
-	  
+	  $scope.hotelid='';
 	  
 	  $scope.submitForm = function (isValid){	
 		  var path= '/items/hotels/'+ $('#CityAjaxH').val()+'/'+ $('#from').val() + '/' + $('#nights').val();		  
-		  //var path= '/items/hotels/London/20-10-2017/1';		  
+		  //var path= '/items/hotels/London/20-10-2017/1';
+		  $sessionStorage.city = $('#CityAjaxH').val();
+		  $sessionStorage.checkindate = $('#from').val();
+		  $sessionStorage.nights = $('#nights').val();
+		  
+		  
+		  
 		  $location.path(path);	    
 	  }
+	  
+	  $scope.submitForDetails=function ()
+	  {
+		  $sessionStorage.hotelid = $('[name=hotelid]').val();
+		  
+		  var path='/items/hotels/details/'+$sessionStorage.hotelid;
+		  $location.path(path);	
+	  }
+	  
 	  
 	  
 	  $scope.showPopover = function(v,c) {
@@ -112,3 +127,7 @@ App.controller('UtilityController', function ($scope){
 		  
 		});	
 	
+	
+	
+	
+

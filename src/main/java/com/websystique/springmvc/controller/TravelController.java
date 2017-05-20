@@ -292,12 +292,33 @@ public class TravelController {
 	
 	
 	@RequestMapping(value = "/booking/{id}")
-	public   ResponseEntity<HotelDescription> booking(@PathVariable String id) throws ClientProtocolException, IOException
-	{		System.out.println("booking...");
-
-	       HotelDescription h = new HotelDescription();
-                    
-          return new ResponseEntity<HotelDescription>(h, HttpStatus.OK);
+	public   ResponseEntity<HotelDescription> booking(@PathVariable int id) throws ClientProtocolException, IOException, JAXBException, XMLStreamException
+	{		
+		    System.out.println("booking..."+id);
+	        if (id==0) return null;
+	
+	        HotelDescription htls =WSServiceDaos.HotelDetails(id);
+	
+	
+	
+	       try
+	       {
+		
+		    if (htls==null)
+		    {
+		        htls = new HotelDescription();//WSServiceDaos.HotelDetails(hotelid);
+		        htls.setHotelSummary(new HotelSummaryDetails());
+		        htls.getHotelSummary().setName("marriott");
+		    }
+		
+	      }catch(Exception exp)
+	      {
+		
+	      }
+	
+	      System.out.println("coming here now ended");
+	      return new ResponseEntity<HotelDescription>(htls, HttpStatus.OK);
+	 
 	}
 	
 	
