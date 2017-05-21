@@ -1,7 +1,8 @@
 'use strict';
-App.controller('ItemListController', ['async', function(async) {
+App.controller('ItemListController', ['async', function(async,    ItemService) {
           var self = this;
           self.items=async;
+         
           
           
 }]);
@@ -16,22 +17,52 @@ App.controller('SubmissionController', function($scope, $localStorage, $sessionS
 	  $scope.hotelid='';
 	  
 	  $scope.submitForm = function (isValid){	
-		  var path= '/items/hotels/'+ $('#CityAjaxH').val()+'/'+ $('#from').val() + '/' + $('#nights').val();		  
+		  $scope.searchForm.$setSubmitted();
+		  if($scope.searchForm.$invalid){
+		       alert('inalid'); return;
+		    }
+		  
+		   
+		  var path= '/items/hotels/'+ $('#CityAjaxH').val() +'/'+  $('#from').val() + '/' + $scope.nights;		  
 		  //var path= '/items/hotels/London/20-10-2017/1';
-		  $sessionStorage.city = $('#CityAjaxH').val();
-		  $sessionStorage.checkindate = $('#from').val();
-		  $sessionStorage.nights = $('#nights').val();
+		  sessionStorage.city = $('#CityAjaxH').val();
+		  sessionStorage.checkindate = $('#from').val();
+		  sessionStorage.nights = $('#nights').val();
 		  
 		  
-		  
+		 
 		  $location.path(path);	    
 	  }
 	  
 	  $scope.submitForDetails=function ()
 	  {
-		  $sessionStorage.hotelid = $('[name=hotelid]').val();
+		   
+		  $sessionStorage.hotelid = hotelid;
 		  
 		  var path='/items/hotels/details/'+$sessionStorage.hotelid;
+		  $location.path(path);	
+	  }
+	  
+	  $scope.doSubmitForDetails=function ($index)
+	  {
+		  
+	  
+		  sessionStorage.hotelid = JSON.parse(sessionStorage.htlData)[$index].hotelid;
+	
+		  
+		  var path='/items/hotels/details/'+sessionStorage.hotelid;
+		  $location.path(path);	
+	  }
+	  
+	  $scope.doSubmitForBooking=function ($index)
+	  {
+		  
+	  
+		  sessionStorage.ratecode = JSON.parse(sessionStorage.roomData)[$index].ratecode;
+		  sessionStorage.roomtypecode = JSON.parse(sessionStorage.roomData)[$index].roomtypecode;
+	
+		  
+		  var path='/items/booking/'+sessionStorage.hotelid;
 		  $location.path(path);	
 	  }
 	  

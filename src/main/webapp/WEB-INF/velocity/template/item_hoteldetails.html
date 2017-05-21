@@ -46,7 +46,7 @@
 	                            <table style="background:#eee">
 	                              <tr ng-repeat="rate in itemDetailsCtrl.item.data.roomrates"  ng-if=" $index < 2 " ng-init="outerIndex = $index">
 	                              <td>
-	                              <form ng-submit="submitOption()">
+	                             
 	                              <input type="hidden" name="hotelid" ng-value="itemDetailsCtrl.item.data.hotelSummary.hotelid" />
 	                              <input type="hidden" name="ratecode" ng-value="rate.ratecode" />
 	                              <input type="hidden" name="roomtypecode" ng-value="rate.roomtypecode" />
@@ -84,8 +84,8 @@
 	                                 <br/>
 	                                 <!-- 
 	                                 <a href="#/items/booking/{{itemDetailsCtrl.item.data.hotelSummary.hotelid}}" class="booknow">Book now</a>
-	                                 -->
-	                                 <a href="" ng-click="" class="booknow">Book now</a>
+	                                 -->	                                 
+	                                 <a ng-controller="SubmissionController" class="booknow" href ng-click="doSubmitForBooking($index)">Book now</a>
 	                               </td>
 	                               </tr>
 	                               <tr>
@@ -118,7 +118,7 @@
 	                               </tr>
 	                                
 	                               </table>
-	                                </form>
+	                               
 	                              </td> 
 	                              </tr>
 	                              

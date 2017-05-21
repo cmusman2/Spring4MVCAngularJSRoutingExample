@@ -8,6 +8,8 @@ App.factory('ItemService', ['$http', '$q', function($http, $q){
 	var nights;
 	var ratecode;
 	var roomtypecode;
+	var htlData;
+	var roomData;
 	
 	
 	return {
@@ -34,7 +36,7 @@ App.factory('ItemService', ['$http', '$q', function($http, $q){
 		    
 			fetchSpecificHotels: function(category,city) {		
 				return $http.get('../Spring4MVCAngularJSRoutingExample/item/hotels/London')
-				 .success(function(data){itemListCtrl.items =data; return data;})
+				 .success(function(data){ sessionStorage.htlData=JSON.stringify(data); itemListCtrl.items =data;return data;})
 				  .error(function(data){itemListCtrl.items =data; return data;})
 
 				  ;
@@ -43,16 +45,23 @@ App.factory('ItemService', ['$http', '$q', function($http, $q){
 			
 		   },
 
-			fetchSpecificHotel: function(category,id) {  
-				return $http.get('../Spring4MVCAngularJSRoutingExample/item/'+category+'/'+id,{headers :{"content-type" : "application/json"}})
-				  .success(function(data){itemListCtrl.items =data;})
+			fetchSpecificHotel: function(category,id) {
+				var url='../Spring4MVCAngularJSRoutingExample/item/'+category+'/'+id+'?nights='+sessionStorage.nights;				
+				url+='&checkindate='+sessionStorage.checkindate;
+				
+				return $http.get(url,{headers :{"content-type" : "application/json"}})
+				  .success(function(data){sessionStorage.roomData = JSON.stringify(data.roomrates);})
 				  .error(function(data){itemListCtrl.items =data;})
 				  
 				  ;
 		   },
 		   
 		   fetchBooking: function(category,id) {
-				return $http.get('../Spring4MVCAngularJSRoutingExample/item/'+category+'/'+id,{headers :{"content-type" : "application/json"}})
+				var url='../Spring4MVCAngularJSRoutingExample/item/'+category+'/'+id+'?nights='+sessionStorage.nights;				
+				url+='&checkindate='+sessionStorage.checkindate+'&ratecode='+sessionStorage.ratecode;
+				url+='&roomtypecode=' + sessionStorage.roomtypecode;
+				
+				return $http.get(url,{headers :{"content-type" : "application/json"}})
 				  .success(function(data){itemListCtrl.items =data; return data;})
 				  .error(function(data){/*alert('error:'+data);*/itemListCtrl.items =data; return data;})
 				  
@@ -85,14 +94,7 @@ App.factory('ItemService', ['$http', '$q', function($http, $q){
 		   },
 			
 			   dataImgaes:{
-				   images:[{"caption":"In-Room kitchenette","url":"http://media.expedia.com/hotels/1000000/210000/201100/201089/201089_56_z.jpg"},
-				           {"caption":"Bathroom","url":"http://media.expedia.com/hotels/1000000/210000/201100/201089/201089_57_z.jpg"},
-				           {"caption":"Bathroom","url":"http://media.expedia.com/hotels/1000000/210000/201100/201089/201089_59_z.jpg"},
-				           {"caption":"Guestroom","url":"http://media.expedia.com/hotels/1000000/210000/201100/201089/201089_139_z.jpg"},
-						   {"caption":"In-Room Amenity","url":"http://media.expedia.com/hotels/1000000/210000/201100/201089/201089_129_z.jpg"},
-						   {"caption":"Guestroom","url":"http://media.expedia.com/hotels/1000000/210000/201100/201089/201089_132_z.jpg"},
-						   {"caption":"Living area","url":"http://media.expedia.com/hotels/1000000/210000/201100/201089/201089_125_z.jpg"}
-				           ]
+				   images:[]
 				   
 			   },
 		   

@@ -6,14 +6,17 @@
 	    	<table class="table table-hover">
 	            
 	            <tbody>
-	                <tr ng-repeat="item in itemListCtrl.items.data">
-	                 <td>{{item.hotelid}}
-	                  <form ng-controller="SubmissionController" ng-submit="submitForDetails()">
-	                  <input type="hidden" name="hotelid" ng-model="hotelid" ng-value="{{item.hotelid}}"/>
+	                <tr ng-repeat="item in itemListCtrl.items.data track by item.hotelid"  index="item.hotelid">
+	                 <td>
+	                  <form name="doForDetails" ng-controller="SubmissionController" ng-submit="submitForDetails()">
+	                  
 	                  
 	                  
 	                  <table>
-	                   <td style="border-bottom:thin dashed #1e90ff"> 
+	                   <td style="border-bottom:thin dashed #1e90ff">
+	                   
+	                    <input type="hidden" name="hotelid" ng-model="hotelid" ng-value="{{item.hotelid}}" ng-init="{{item.hotelid}}"/>
+	                   
 	                    <a href="#/items/hotels/details/{{item.hotelid}}" style="text-decoration:none">
 	                    <table> 
 	                      <tr>
@@ -76,7 +79,10 @@
 	                         <!-- 
 	                           <a class="booknow" href="#/items/hotels/details/{{item.hotelid}}">See&nbsp;details</a>
 	                         -->
-	                         <button type="submit" style="margin-left:100px;background:#1e90ff;color:#fff;padding:5px;font-size:14pt;" ng-click="buttonClicked = true">See details</button>
+	                         <a class="booknow" href ng-click="doSubmitForDetails($index)">See&nbsp;details</a>
+	                         <!-- 
+	                         <input type="submit" id="submit" value="See details" style="margin-left:100px;background:#1e90ff;color:#fff;padding:5px;font-size:14pt;"/>
+	                         -->
 	                         </td>
 	                   </table>
 	                   </form>
