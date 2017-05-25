@@ -9,6 +9,9 @@ public class ChargeableRateInfo {
 	private float averagebaserate;
 	private float averagerate;
 	private String currencycode;
+	private String currencysymbol;
+
+
 	private float nightlyratetotal;
 	private float surchargetotal;
 	private float total;
@@ -20,6 +23,21 @@ public class ChargeableRateInfo {
 	private Surcharges Roomsurcharges;
 	
 
+	
+	@XmlElement
+	public String getCurrencysymbol() {
+		if (currencycode=="USD")
+		return "$";
+		else
+		if (currencycode=="GPB")
+		return "£";
+		return "$";
+	}
+
+	public void setCurrencysymbol(String currencysymbol) {
+		this.currencysymbol = currencysymbol;
+	}
+	
 	@XmlElement(name="surcharges")
 	public Surcharges getSurcharges() {
 		return Roomsurcharges;

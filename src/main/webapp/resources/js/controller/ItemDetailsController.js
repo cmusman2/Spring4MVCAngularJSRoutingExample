@@ -35,7 +35,10 @@ App.controller('ItemDetailsController', function(async,  $scope,ItemService) {
 App.controller('BookingController', function(async,  $scope,ItemService) {
     var self = this;
     self.item=async;       
+    self.checkindate=sessionStorage.checkindate;
+    $scope.checkindate= sessionStorage.checkindate;
     
+  
     /** remove not valid **/
       for(var i=self.item.data.roomrates.length - 1; i>= 0; i--)
       {
@@ -55,7 +58,7 @@ App.controller('BookingController', function(async,  $scope,ItemService) {
       
       
       
-    
+      $scope.cdate="apapap";
 	  $scope.myInterval = 3000;
 	  $scope.noWrapSlides = false;
 	  $scope.active = 0;
@@ -63,22 +66,13 @@ App.controller('BookingController', function(async,  $scope,ItemService) {
 	  var currIndex = 0;
 	 
 	  ItemService.liveDataImgaes.images = async.data.hotelImages.Images;
-	  /*
-	  $scope.addSlide = function(url,caption) {
-		    
-		    slides.push({
-		      image: url,
-		      text: caption,
-		      id: currIndex++
-		    });
-		  };
-
-		
-		  
-		  for (var i = 0; i < async.data.hotelImages.Images.length; i++) 
-		  {				  
-		    $scope.addSlide(async.data.hotelImages.Images[i].url,async.data.hotelImages.Images[i].caption);
-		  }*/
+	  
+	  $scope.getDate=function(dt)
+	  {
+		  $scope.checkindate = dt;
+		  return $scope.checkindate;
+	  }
+	 
     
 });
 

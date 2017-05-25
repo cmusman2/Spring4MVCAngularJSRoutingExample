@@ -180,48 +180,44 @@
 	                    <td colspan="2" style="font-weight:bold;padding:3px">   Room charges       </td>    
 	                    <td align="right" style="font-weight:bold;padding:3px">
 	                    <span ng-repeat="rinfo in rate.roomrateinfos">  
-	                      <span  ng-repeat="r in rinfo">{{r.chargeablerates.currecncycode}} {{r.chargeablerates.nightlyratetotal}}</span>
-	                    </span>   
-	                       <br/>
-	                       <a href="#" style="font-weight:normal;" onclick="document.getElementById('rateid1').style.display='block';this.innerHTML='';">
-	                         See details
-	                       </a>   
+	                      <span  ng-repeat="r in rinfo">{{r.chargeablerates.currencysymbol}} {{r.chargeablerates.nightlyratetotal}}</span>
+	                    </span>    
 	                    </td> 
 	                 </tr> 
 	                 <tr>
 	                     <td colspan="3"> 
 	                     <div style="display:block" id="rateid1"  ng-repeat="rinfo in rate.roomrateinfos">
 	                      <table width="100%"  ng-repeat="r in rinfo">
-	                       <tr  ng-repeat="rt in r.chargeablerates">
-	                          
-	                          <td colspan="2" align="left" style="padding:5px">                          	                            	                         
-	                             
-	                              <span >
-	                          &nbsp;Thursday,&nbsp;18&nbsp;May,&nbsp;2017
-	                           </span>
-	                          </td>   
-	                          <td align="right" valign="top" style="padding:5px">
-	                          <span ng-repeat="rs in rt.nightlyRates">
-	                          {{r.chargeablerates.currecncycode}} {{rs.baseRate}}
-	                           </span>
+	                       <tr  ng-repeat="rt in r.chargeablerates.nightlyRates">
+	                          <td valign="top" style="padding:5px">
+	                            <table ng-repeat="rs in rt" ng-if=" rs != null " ng-init="date = getDate(checkindate)">
+	                             <tr>
+	                             <td>{{date | date:'dd MM yyyy'}}</td>
+	                             <td align="right">{{r.chargeablerates.currencysymbol}} {{rs.baseRate}}</td>
+	                             </tr>
+	                            </table>
+
 	                          </td> 
 	                       </tr>  
+	                 <tr>
+	                     <td colspan="3" style="border-bottom:#ccc 1px solid">&nbsp;</td>
+	                 </tr>	                       
+	                       <tr  ng-repeat="rt in r.chargeablerates.surcharges">
+	                          <td valign="top" style="padding:5px">
+	                            <table ng-repeat="rs in rt" ng-if=" rs != null " ng-int="date=1">
+	                             <tr>
+	                             <td>{{rs.type}}</td>
+	                             <td align="right">{{r.chargeablerates.currencysymbol}} {{rs.amount}}</td>
+	                             </tr>
+	                            </table>
+
+	                          </td> 
+	                       </tr> 
 	                      </table> 
 	                     </div> 
 	                     </td> 
 	                 </tr>                                                                                  
-	                 <tr>
-	                     <td colspan="3" style="border-bottom:#ccc 1px solid">&nbsp;</td>
-	                 </tr>
-	                 <tr>   
-	                     <td colspan="2">&nbsp;Tax&nbsp;Recovery&nbsp;Charges       </td>    
-	                     <td style="text-align:right;padding:5px">£ 89.80</td> 
-	                 </tr>                                       
-	                 <tr>                                         
-	                     <td colspan="3">&nbsp;                                         
-	                        <span style="font-weight:normal;color:#777;"><xtaxfeeinfo></span>                                         
-	                     </td>                                    
-	                 </tr>                                                                       
+                                                                       
 	                 <tr>                                         
 	                     <td colspan="3">                                         </td>                                     
 	                 </tr>                                                                         
@@ -232,7 +228,7 @@
 	                     <td align="right" colspan="2" valign="top" style="padding:10px;padding-right:5px;border-top:#ccc 1px solid">    
 	                            <span ng-repeat="rinfo in rate.roomrateinfos">                                  
                                         <span class="newprice" style="font-weight:bold;color:#222;font-size:18pt" ng-repeat="r in rinfo">	                                    
-	                                     {{r.chargeablerates.currecncycode}} {{r.chargeablerates.total}}
+	                                     {{r.chargeablerates.currencysymbol}} {{r.chargeablerates.total}}
 	                                    </span>	                        
                                 </span>         
 	                        <span style="font-weight:bold;color:#222;font-size:13pt"><currsymbolconveted><gtotalconveted></span>                                         
