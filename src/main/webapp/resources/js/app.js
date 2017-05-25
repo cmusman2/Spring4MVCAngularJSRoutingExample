@@ -105,7 +105,7 @@ App.config(['$routeProvider', function($routeProvider) {
 		
 		.when('/items/booking/:id', {
 			templateUrl: 'items/booking',
-			controller : "ItemDetailsController as itemDetailsCtrl",
+			controller : "BookingController as bkController",
 			resolve: { 
                 async: ['ItemService','$route', function(ItemService , $route) {
                     return ItemService.fetchBooking('booking',$route.current.params.id);

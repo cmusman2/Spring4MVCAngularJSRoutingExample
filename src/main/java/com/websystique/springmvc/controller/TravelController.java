@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 
@@ -291,13 +292,15 @@ public class TravelController {
 	}
 	
 	
-	@RequestMapping(value = "/booking/{id}")
-	public   ResponseEntity<HotelDescription> booking(@PathVariable int id) throws ClientProtocolException, IOException, JAXBException, XMLStreamException
+	@RequestMapping(value = "/booking/{id}{city}")
+	public   ResponseEntity<HotelDescription> booking(HttpServletRequest request,@PathVariable int id,@PathVariable String city) throws ClientProtocolException, IOException, JAXBException, XMLStreamException
 	{		
-		    System.out.println("booking..."+id);
+		 
+		
+		    System.out.println("booking..."+id+city+request.getParameter("ratecode")+request.getQueryString());
 	        if (id==0) return null;
 	
-	        HotelDescription htls =WSServiceDaos.HotelDetails(id);
+	        HotelDescription htls =WSServiceDaos.HotelDetailsForBooking(id, 1, request.getParameter("checkindate"),request.getParameter("ratecode"),request.getParameter("roomtypecode"));
 	
 	
 	

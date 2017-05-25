@@ -15,6 +15,28 @@ public class ChargeableRateInfo {
 	private boolean nonrefundable;
 	private String rateType;
 	private String currentallotment;
+	
+	private NightlyRatesPerRoom RoomnightlyRates;
+	private Surcharges Roomsurcharges;
+	
+
+	@XmlElement(name="surcharges")
+	public Surcharges getSurcharges() {
+		return Roomsurcharges;
+	}
+
+	public void setSurcharges(Surcharges Roomsurcharges) {
+		this.Roomsurcharges = Roomsurcharges;
+	}
+
+	@XmlElement(name="nightlyratesperroom")
+	public NightlyRatesPerRoom getNightlyRates() {
+		return RoomnightlyRates;
+	}
+
+	public void setNightlyRates(NightlyRatesPerRoom RoomnightlyRates) {
+		this.RoomnightlyRates = RoomnightlyRates;
+	}
 
 	@XmlAttribute
 	public float getAveragebaserate() {

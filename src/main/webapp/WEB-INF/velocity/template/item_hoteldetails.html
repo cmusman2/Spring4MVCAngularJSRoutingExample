@@ -167,7 +167,7 @@
                    <div uib-carousel style="background:url(resources/images/prog.gif) no-repeat center;height:480px;margin-top:2px;"> 
                     
                         
-                         <img height="550" ng-src="{{cimg.url}}" style="margin:auto;">
+                         <img height="550" ng-src="{{cimg.url}}" style="margin:auto;" onload="this.src={{cimg.thumbnailUrl}}" onerror="this.src={{cimg.url}}"/>
                       
                   </div>    
                 </div>

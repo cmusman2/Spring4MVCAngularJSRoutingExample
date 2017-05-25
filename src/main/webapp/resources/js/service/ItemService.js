@@ -62,8 +62,13 @@ App.factory('ItemService', ['$http', '$q', function($http, $q){
 				url+='&roomtypecode=' + sessionStorage.roomtypecode;
 				
 				return $http.get(url,{headers :{"content-type" : "application/json"}})
-				  .success(function(data){itemListCtrl.items =data; return data;})
-				  .error(function(data){/*alert('error:'+data);*/itemListCtrl.items =data; return data;})
+				  .success(
+						  function(data)
+						  {							  
+							  return data;
+						  }
+					)
+				  .error(function(data){/*alert('error:'+data);*/bkController.items =data; return data;})
 				  
 				  ;
 		   },

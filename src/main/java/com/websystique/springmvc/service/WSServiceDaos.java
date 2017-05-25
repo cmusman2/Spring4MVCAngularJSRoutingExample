@@ -80,7 +80,7 @@ public class WSServiceDaos {
 		exp.printStackTrace();
 	} 
 	
-    //xml = getHotelListData(city, sd, nights);
+   //  xml = getHotelListData(city, sd, nights);
 	System.out.println(xml);
 	if (xml=="") return null;
 	
@@ -187,7 +187,7 @@ public class WSServiceDaos {
 				exp.printStackTrace();
 			} 
 			
-			//xml=getData(postData);
+			// xml=getData(postData);
 			if (xml=="") return null;
 			
 			  System.out.println(xml);
@@ -241,6 +241,107 @@ public class WSServiceDaos {
   }
   
   
+  
+  public static HotelDescription HotelDetailsForBooking(int hotelIdent, int nights, String sdate,String rateCode, String roomTypeCode) throws ClientProtocolException, IOException, JAXBException, XMLStreamException
+  {
+	  //authenticate
+	  
+	  String result = authenticate();
+	  if(result.length()>0)
+	  {
+		  HttpPost postData = new HttpPost(baseUrl+"/src/htllistDetail.php");		  
+		  
+		  DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yy");
+		  GregorianCalendar cal = new GregorianCalendar();
+		  		  
+		  
+		  List<NameValuePair> urlParametersData = new ArrayList<NameValuePair>();
+		  urlParametersData.add(new BasicNameValuePair("xuid", result.toString()));
+		  urlParametersData.add(new BasicNameValuePair("yzid0x", result.toString()));
+		  String shid= String.valueOf(hotelIdent);
+		  urlParametersData.add(new BasicNameValuePair("hotelId", shid));
+		
+			postData.setEntity(new UrlEncodedFormEntity(urlParametersData));
+			String xml= "";
+			
+			 
+			try
+			{
+				ClassLoader classLoader = new WSServiceDaos().getClass().getClassLoader();
+				File file = new File(classLoader.getResource("hotelDetails.data").getFile());
+				 
+				List<String> data = Files.readAllLines(file.toPath());
+			    for(String s:data)
+				xml+=s;
+			    
+				System.out.println(xml);
+ 
+			}catch(Exception exp)
+			{
+				System.out.println(exp.getMessage());
+				exp.printStackTrace();
+			} 
+			
+			 xml=getData(postData);
+			if (xml=="") return null;
+			
+			  System.out.println(xml);
+			  
+			  HotelDescription hotelDescription  = Deserialise(HotelDescription.class, xml);
+		      if(hotelDescription!=null)
+		      {
+		    	   		    	  		    	
+		    	 for(HotelRoomAvailInfo hri:hotelDescription.getRoomrates())
+		    	 {
+		    		
+		    	 }
+		    	  
+		         System.out.println(hotelDescription.toString());
+		         HotelRoomAvailabilityResponse rooms = HotelRoomAvailability(hotelIdent);
+		         
+		         HotelRooms hrs = hotelDescription.getHotelRooms();
+		         for(HotelRoomAvailInfo roomInfo : rooms.getHotelRooms())
+		         {
+		            for(HotelRoomDetails h :hrs.getHotelRoomDetails())
+		            {
+		            	String roomCode=h.getRoomCode();
+		            	String roomTypeId = h.getRoomTypeId();
+
+		            	String rtc=roomInfo.getRoomtypecode();
+		            	//String rateCode = roomInfo.getRatecode();
+		            	
+		        	    if( /*rateCode.equals(roomTypeId) &&*/ roomCode.equals(rtc))
+		        	    {
+		        	    	roomInfo.setDescriptionLong(h.getDescriptionLong()); 		        	    	
+		        	    	break;
+		        	    }
+		            }
+		            
+		         }
+		                 //ratecode=204167857
+		        		 //roomtypecode=200826820
+
+		         
+		         List<HotelRoomAvailInfo> rs=rooms.getHotelRooms();
+		         
+		        	 hotelDescription.setRoomrates(rs);
+		           
+		         
+		      }
+		      else
+		    	  System.out.println("not decoded");
+		      
+		      if(hotelDescription!=null)
+		      return hotelDescription;//return hotelResponse.getHotelList().getHotelSummaries();
+		  
+	  }
+	   
+   		 
+	  return null;
+  }
+  
+  
+  
   public static HotelRoomAvailabilityResponse HotelRoomAvailability(int hotelIdent) throws ClientProtocolException, IOException, JAXBException, XMLStreamException
   {
 	  //authenticate
@@ -281,7 +382,7 @@ public class WSServiceDaos {
 				exp.printStackTrace();
 			}  
 			
-			//xml=getData(postData);
+			// xml=getData(postData);
 			
 			if (xml=="") return null;
 			
@@ -374,7 +475,7 @@ public class WSServiceDaos {
 	  post.setEntity(new UrlEncodedFormEntity(urlParameters));
 	  
 
-	  //return getData(post);
+	   //return getData(post);
 	  return "auth";
   }
   

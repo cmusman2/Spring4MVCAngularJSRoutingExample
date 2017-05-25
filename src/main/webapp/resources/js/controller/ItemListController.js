@@ -96,7 +96,7 @@ App.controller('UtilityController', function ($scope){
 
 	App.controller('sliderCtrl', function ($scope, $timeout){	
     $scope.timeInMs = 0;
-   alert($scope.items);
+    
     var countUp = function() {
         $scope.timeInMs+= 500;
         $timeout(countUp, 500);
