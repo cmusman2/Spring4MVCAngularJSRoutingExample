@@ -72,6 +72,24 @@ App.factory('ItemService', ['$http', '$q', function($http, $q){
 				  
 				  ;
 		   },
+		   
+		   submitExternalBooking: function(category,id) {
+				var url='../Spring4MVCAngularJSRoutingExample/item/'+category+'/'+id+'?nights='+sessionStorage.nights;				
+				url+='&checkindate='+sessionStorage.checkindate+'&ratecode='+sessionStorage.ratecode;
+				url+='&roomtypecode=' + sessionStorage.roomtypecode;
+				
+				return $http.get(url,{headers :{"content-type" : "application/json"}})
+				  .success(
+						  function(data)
+						  {							  
+							  return data;
+						  }
+					)
+				  .error(function(data){/*alert('error:'+data);*/bkController.items =data; return data;})
+				  
+				  ;
+		   },		   
+		   
 		   fetchTemplate: function(category,id) {
 				return $http.get('../Spring4MVCAngularJSRoutingExample/item/'+category)
 				  .success(function(data){itemListCtrl.items =data; return data;})

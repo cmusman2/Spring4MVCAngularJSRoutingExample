@@ -113,6 +113,16 @@ App.config(['$routeProvider', function($routeProvider) {
             }
 		})
 		
+		.when('/items/booking/ext/:id', {
+			templateUrl: 'items/booking',
+			controller : "BookingController as bkController",
+			resolve: { 
+                async: ['ItemService','$route', function(ItemService , $route) {
+                    return ItemService.submitExternalBooking('booking',$route.current.params.id);
+               	}]
+            }
+		})		
+		
 		.when('/test', {
 			templateUrl: 'items/index2',
 			controller : "testController as testCtrl",

@@ -9,7 +9,7 @@ App.controller('ItemListController', ['async', function(async,    ItemService) {
 
 
 
-App.controller('SubmissionController', function($scope, $localStorage, $sessionStorage,   $window, $location,    ItemService) {
+App.controller('SubmissionController', function($scope, $localStorage, $sessionStorage,   $window, $location,  $http,  ItemService) {
 	 
 	  var dt = new Date();
 	  dt = dt.setDate(dt.getDate() + 2);
@@ -66,6 +66,155 @@ App.controller('SubmissionController', function($scope, $localStorage, $sessionS
 		  $location.path(path);	
 	  }
 	  
+	  
+	  $scope.doSubmitForBookingExternal=function ($index)
+	  {
+		  
+	  
+		  sessionStorage.ratecode = JSON.parse(sessionStorage.roomData)[$index].ratecode;
+		  sessionStorage.roomtypecode = JSON.parse(sessionStorage.roomData)[$index].roomtypecode;
+		  /*
+	 https://secure.lowestroomrates.com/Booking.php?
+	 hotelId=233126&
+	 arrivalDate=5%2F28%2F17&
+	 departureDate=5%2F29%2F17&
+	 roomTypeCode=131166&
+	 rateCode=206417104&
+	 roomsCount=1&
+	 roomsdata=rooms[0].adultsCount=1|rooms[0].childrenCount=0&
+	 roomQ=&
+	 room1=
+    
+		  */
+		  
+		  var arrivalDate = sessionStorage.checkindate;
+		  var departureDate = arrivalDate;
+		  
+		  if(sessionStorage.checkindate!="")
+		  { //30-05-2017
+			var sd = sessionStorage.checkindate;
+			var sday= sd.substring(0,2);
+			var smon= sd.substring(3,5);
+			var syea= sd.substring(6,10);
+			
+			var nights = sessionStorage.nights;
+			if (nights.indexOf("number:")>-1)
+			{
+				nights = nights.substring(7);
+			}
+			
+			var numNights=0;
+			numNights= nights;
+			if (numNights=="") numNights=1;
+			
+			//number:1
+			
+			
+			arrivalDate = smon+"/"+sday+"/"+syea;
+			
+			var dt =new Date(arrivalDate);
+		 
+			
+		 
+			 
+			
+			dt.setDate(dt.getDate() + parseInt(numNights));
+			
+		 
+            departureDate = (dt.getMonth() + 1) +"/" + dt.getDate() + "/" + dt.getFullYear();
+
+            arrivalDate = encodeURIComponent(arrivalDate);
+            departureDate = encodeURIComponent(departureDate);           
+			 
+		  }
+		  
+
+		  var form = document.createElement("form");
+		  //form.setAttribute("target", "_blank");
+		  
+		  form.setAttribute("target", "formresult");
+		  
+		  form.setAttribute("method", "post");
+		  form.setAttribute("action", "https://secure.lowestroomrates.com/Booking.php");
+
+		  var hiddenField = document.createElement("input");              
+		  hiddenField.setAttribute("name", "hotelId");
+		  hiddenField.setAttribute("value", sessionStorage.hotelid);
+		  form.appendChild(hiddenField);
+		  
+		  hiddenField = document.createElement("input");              
+		  hiddenField.setAttribute("name", "arrivalDate");
+		  hiddenField.setAttribute("value", arrivalDate);
+		  form.appendChild(hiddenField);		  
+		  
+		  hiddenField = document.createElement("input");              
+		  hiddenField.setAttribute("name", "departureDate");
+		  hiddenField.setAttribute("value", departureDate);
+		  form.appendChild(hiddenField);		  
+
+		  hiddenField = document.createElement("input");              
+		  hiddenField.setAttribute("name", "roomTypeCode");
+		  hiddenField.setAttribute("value", sessionStorage.roomtypecode);
+		  form.appendChild(hiddenField);		  
+
+		  hiddenField = document.createElement("input");              
+		  hiddenField.setAttribute("name", "rateCode");
+		  hiddenField.setAttribute("value", sessionStorage.ratecode);
+		  form.appendChild(hiddenField);		  
+
+		  hiddenField = document.createElement("input");              
+		  hiddenField.setAttribute("name", "currency");
+		  hiddenField.setAttribute("value", "");
+		  form.appendChild(hiddenField);		  
+		  
+		  hiddenField = document.createElement("input");              
+		  hiddenField.setAttribute("name", "roomsCount");
+		  hiddenField.setAttribute("value", "1");
+		  form.appendChild(hiddenField);		  
+		  
+		  hiddenField = document.createElement("input");              
+		  hiddenField.setAttribute("name", "roomsdata");
+		  hiddenField.setAttribute("value", "rooms[0].adultsCount=1|rooms[0].childrenCount=0");
+		  form.appendChild(hiddenField);		  
+		  
+		  document.body.appendChild(form);
+
+		  // creating the 'formresult' window with custom features prior to submitting the form
+		  window.open('bookResult.html', 'formresult', 'scrollbars=no,menubar=no,height=600,width=800,resizable=yes,toolbar=no,status=no');
+
+		  form.submit();
+		  
+		  return;
+		  /*
+		  $http({
+		       url:'https://secure.lowestroomrates.com/Booking.php',
+		       method:"POST",
+		       headers: {
+		              //    'Authorization': 'Basic dGVzdDp0ZXN0',
+		                  'Content-Type': 'application/x-www-form-urlencoded'
+		       },
+		       data:$.param({
+		              'hotelId': sessionStorage.hotelid,
+		              'arrivalDate':arrivalDate,
+		              'departureDate':departureDate,
+		              'roomTypeCode':sessionStorage.roomtypecode,
+		              'rateCode':sessionStorage.ratecode,
+		              'currency':'',
+		              'roomsCount':'1',
+		              'roomsdata':'rooms[0].adultsCount=1|rooms[0].childrenCount=0',
+		              'roomQ':'',
+		              'room1':''
+		    	   
+		            })
+		  }).success(function (data) {
+              Console.write(data);
+          });*/
+		  
+		  return;
+		  /*var path='/items/booking/ext/'+sessionStorage.hotelid;
+		  $location.path(path);	
+		  */
+	  }
 	  
 	  
 	  $scope.showPopover = function(v,c) {
