@@ -52,9 +52,10 @@ App.controller('SubmissionController', function($scope, $localStorage, $sessionS
 	  $scope.doSubmitForDetails=function ($index)
 	  {
 		  
-	  
+	   
 		  sessionStorage.hotelid = JSON.parse(sessionStorage.htlData)[$index].hotelid;
 	
+		  sessionStorage.ratecurrencycode = JSON.parse(sessionStorage.htlData)[$index].ratecurrencycode;
 		  
 		  var path='/items/hotels/details/'+sessionStorage.hotelid;
 		  $location.path(path);	
@@ -161,7 +162,7 @@ App.controller('SubmissionController', function($scope, $localStorage, $sessionS
 
 		  hiddenField = document.createElement("input");              
 		  hiddenField.setAttribute("name", "currency");
-		  hiddenField.setAttribute("value", "");
+		  hiddenField.setAttribute("value", sessionStorage.ratecurrencycode);
 		  form.appendChild(hiddenField);		  
 		  
 		  hiddenField = document.createElement("input");              
