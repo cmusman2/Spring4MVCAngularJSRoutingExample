@@ -9,6 +9,29 @@ body
 
 }
 
+table { 
+    overflow: hidden;
+}
+.tablecellx {
+    position:relative;
+}
+
+.tablecell:hover::before {
+    content:"";
+    position: absolute;
+    left: 0;
+    top: -5000px;
+    height: 10000px;
+    width: 100%;
+    z-index: -1;
+    /* keep it below table content */
+    background-color: red;
+}
+
+.tablerow:hover, .tablecell:hover {
+    background-color:red
+}
+
 a{
 	text-decoration:none;
 	color:#0c3d72;
@@ -29,10 +52,10 @@ img{
 	background-color:#ff6600;color:White;font-size:10pt;
 }
 
-div.table {display: table; }
-div.tr {display: table-row; text-align:left;}
-div.td {display: table-cell; text-align:left;}
-div.trl {display: table-row; background-color:#0c3d72;height:50px;}
+div.tablex {display: table; }
+div.trx {display: table-row; text-align:left;}
+div.tdx {display: table-cell; text-align:left;}
+div.trlx {display: table-row; background-color:#0c3d72;height:50px;}
 
 div.tablefleft {display: table; width:100%;margin-left:auto;margin-right:auto;float:left;}
 div.trp {display: table-row; text-align:center;}

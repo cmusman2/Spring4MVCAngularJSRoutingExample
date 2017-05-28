@@ -19,7 +19,7 @@ App.controller('SubmissionController', function($scope, $localStorage, $sessionS
 	  $scope.submitForm = function (isValid){	
 		  $scope.searchForm.$setSubmitted();
 		  if($scope.searchForm.$invalid){
-		       alert('inalid'); return;
+		         return;
 		    }
 		  
 		   
@@ -70,7 +70,7 @@ App.controller('SubmissionController', function($scope, $localStorage, $sessionS
 	  $scope.doSubmitForBookingExternal=function ($index)
 	  {
 		  
-	  
+		  
 		  sessionStorage.ratecode = JSON.parse(sessionStorage.roomData)[$index].ratecode;
 		  sessionStorage.roomtypecode = JSON.parse(sessionStorage.roomData)[$index].roomtypecode;
 		  /*
@@ -89,14 +89,17 @@ App.controller('SubmissionController', function($scope, $localStorage, $sessionS
 		  
 		  var arrivalDate = sessionStorage.checkindate;
 		  var departureDate = arrivalDate;
-		  
+		 
 		  if(sessionStorage.checkindate!="")
 		  { //30-05-2017
-			var sd = sessionStorage.checkindate;
-			var sday= sd.substring(0,2);
+			  
+			 
+			  
+			var sd = sessionStorage.checkindate; 
+			var sday= sd.substring(0,2); 
 			var smon= sd.substring(3,5);
 			var syea= sd.substring(6,10);
-			
+			 
 			var nights = sessionStorage.nights;
 			if (nights.indexOf("number:")>-1)
 			{
@@ -128,7 +131,7 @@ App.controller('SubmissionController', function($scope, $localStorage, $sessionS
 			 
 		  }
 		  
-
+		  
 		  var form = document.createElement("form");
 		  //form.setAttribute("target", "_blank");
 		  
@@ -176,13 +179,14 @@ App.controller('SubmissionController', function($scope, $localStorage, $sessionS
 		  hiddenField.setAttribute("name", "roomsdata");
 		  hiddenField.setAttribute("value", "rooms[0].adultsCount=1|rooms[0].childrenCount=0");
 		  form.appendChild(hiddenField);		  
-		  
+		 
 		  document.body.appendChild(form);
-
+		  
 		  // creating the 'formresult' window with custom features prior to submitting the form
-		  window.open('bookResult.html', 'formresult', 'scrollbars=no,menubar=no,height=600,width=800,resizable=yes,toolbar=no,status=no');
+		  //window.open('bookResult.html', 'formresult', 'scrollbars=no,menubar=no,height=600,width=800,resizable=yes,toolbar=no,status=no');
 
-		  form.submit();
+		  form.submit();  
+		  document.body.removeChild(form);
 		  
 		  return;
 		  /*
@@ -290,7 +294,7 @@ App.controller('UtilityController', function ($scope){
 					  }
 			   
 			  
-			  if (ItemService.liveDataImgaes.images == null) {alert('no')} else {alert('yes' + ItemService.liveDataImgaes.images.length);}
+			 // if (ItemService.liveDataImgaes.images == null) {alert('no')} else {alert('yes' + ItemService.liveDataImgaes.images.length);}
 		  }
 		  
 		  $scope.findId=function(slide)
