@@ -86,7 +86,7 @@ App.controller('UtilityController', function ($scope){
 })
 .filter('trusted', ['$sce', function($sce){
     return function(text) {
-        return $sce.trustAsHtml(text);
+        return $sce.trustAsHtml(decodeURI(text));
     };
 }])
 ;

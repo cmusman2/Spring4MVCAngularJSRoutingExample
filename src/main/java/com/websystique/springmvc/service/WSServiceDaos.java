@@ -32,6 +32,8 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
+
+import com.websystique.springmvc.domain.CheckinDates;
 import com.websystique.springmvc.model.HotelDescription;
 import com.websystique.springmvc.model.HotelResponse;
 import com.websystique.springmvc.model.HotelRoomAvailInfo;
@@ -55,7 +57,7 @@ public class WSServiceDaos {
 	  return null;
   }
   
-  public static List<HotelSummary> Hotels(String city, LocalDate sd, int nights) throws ClientProtocolException, IOException, JAXBException, XMLStreamException
+  public static List<HotelSummary> Hotels(String city, String sd, int nights) throws ClientProtocolException, IOException, JAXBException, XMLStreamException
   {
 	 try
 	 {
@@ -64,7 +66,7 @@ public class WSServiceDaos {
 	
 	//System.out.println(x);
 	
-	
+	/*
 	try
 	{
 		ClassLoader classLoader = new WSServiceDaos().getClass().getClassLoader();
@@ -78,9 +80,9 @@ public class WSServiceDaos {
 	{
 		System.out.println(exp.getMessage());
 		exp.printStackTrace();
-	} 
+	} */
 	
-    xml = getHotelListData(city, sd, nights);
+     xml = getHotelListData(city, sd, nights);
 	System.out.println(xml);
 	if (xml=="") return null;
 	
@@ -97,57 +99,12 @@ public class WSServiceDaos {
 	exp.printStackTrace();
 }
 	  
-	  /*
-	  */
-		List<HotelSummary> hs = new ArrayList();
-		
-		HotelSummary h= new HotelSummary();
-		h.setHotelid(1);
-		h.setName("Marriott Manchester, Downtown");
-		h.setAddress1("In the city center");
-		h.setLowrate("325.55");
-		h.setThumbnailurl("/hotels/2000000/1900000/1897400/1897390/1897390_4_l.jpg");
-		hs.add(h);
-		
-		h= new HotelSummary();
-		h.setHotelid(2);
-		h.setName("Crown plaza City Center");
-		h.setAddress1("Water front");
-		h.setLowrate("125.80");
-		h.setThumbnailurl("/hotels/1000000/900000/898700/898665/898665_117_l.jpg");
-		hs.add(h);		
-		
-		h= new HotelSummary();
-		h.setHotelid(3);
-		h.setName("Crown plaza City Center");
-		h.setAddress1("Water front");
-		h.setLowrate("125.80");
-		h.setThumbnailurl("/hotels/1000000/900000/898700/898665/898665_117_l.jpg");
-		hs.add(h);	
-	  
-		h= new HotelSummary();
-		h.setHotelid(4);
-		h.setName("Crown plaza City Center");
-		h.setAddress1("Water front");
-		h.setLowrate("125.80");
-		h.setThumbnailurl("/hotels/1000000/900000/898700/898665/898665_117_l.jpg");
-		hs.add(h);	
-
-
-		h= new HotelSummary();
-		h.setHotelid(5);
-		h.setName("Crown plaza City Center");
-		h.setAddress1("Water front");
-		h.setLowrate("125.80");
-		h.setThumbnailurl("/hotels/1000000/900000/898700/898665/898665_117_l.jpg");
-		hs.add(h);	
-		
-		//get data
-	  return hs;
+	 return null;
+	 
   }
   
   
-  public static HotelDescription HotelDetails(int hotelIdent) throws ClientProtocolException, IOException, JAXBException, XMLStreamException
+  public static HotelDescription HotelDetails(int hotelIdent, String sd, int nights) throws ClientProtocolException, IOException, JAXBException, XMLStreamException
   {
 	  //authenticate
 	  
@@ -155,10 +112,6 @@ public class WSServiceDaos {
 	  if(result.length()>0)
 	  {
 		  HttpPost postData = new HttpPost(baseUrl+"/src/htllistDetail.php");		  
-		  
-		  DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yy");
-		  GregorianCalendar cal = new GregorianCalendar();
-		  		  
 		  
 		  List<NameValuePair> urlParametersData = new ArrayList<NameValuePair>();
 		  urlParametersData.add(new BasicNameValuePair("xuid", result.toString()));
@@ -169,7 +122,7 @@ public class WSServiceDaos {
 			postData.setEntity(new UrlEncodedFormEntity(urlParametersData));
 			String xml= "";
 			
-			 
+			 /*
 			try
 			{
 				ClassLoader classLoader = new WSServiceDaos().getClass().getClassLoader();
@@ -185,9 +138,9 @@ public class WSServiceDaos {
 			{
 				System.out.println(exp.getMessage());
 				exp.printStackTrace();
-			} 
+			} */
 			
-			xml=getData(postData);
+			 xml=getData(postData);
 			if (xml=="") return null;
 			
 			  System.out.println(xml);
@@ -197,7 +150,7 @@ public class WSServiceDaos {
 		      {
 		    	   
 		         System.out.println(hotelDescription.toString());
-		         HotelRoomAvailabilityResponse rooms = HotelRoomAvailability(hotelIdent);
+		         HotelRoomAvailabilityResponse rooms = HotelRoomAvailability(hotelIdent,sd,nights);
 		         
 		         HotelRooms hrs = hotelDescription.getHotelRooms();
 		         for(HotelRoomAvailInfo roomInfo : rooms.getHotelRooms())
@@ -242,7 +195,7 @@ public class WSServiceDaos {
   
   
   
-  public static HotelDescription HotelDetailsForBooking(int hotelIdent, int nights, String sdate,String rateCode, String roomTypeCode) throws ClientProtocolException, IOException, JAXBException, XMLStreamException
+  public static HotelDescription HotelDetailsForBooking(int hotelIdent, int nights, String sd,String rateCode, String roomTypeCode) throws ClientProtocolException, IOException, JAXBException, XMLStreamException
   {
 	  //authenticate
 	  
@@ -264,7 +217,7 @@ public class WSServiceDaos {
 			postData.setEntity(new UrlEncodedFormEntity(urlParametersData));
 			String xml= "";
 			
-			 
+			 /*
 			try
 			{
 				ClassLoader classLoader = new WSServiceDaos().getClass().getClassLoader();
@@ -281,7 +234,7 @@ public class WSServiceDaos {
 				System.out.println(exp.getMessage());
 				exp.printStackTrace();
 			} 
-			
+			*/
 			 xml=getData(postData);
 			if (xml=="") return null;
 			
@@ -297,7 +250,7 @@ public class WSServiceDaos {
 		    	 }
 		    	  
 		         System.out.println(hotelDescription.toString());
-		         HotelRoomAvailabilityResponse rooms = HotelRoomAvailability(hotelIdent);
+		         HotelRoomAvailabilityResponse rooms = HotelRoomAvailability(hotelIdent, sd, nights);
 		         
 		         HotelRooms hrs = hotelDescription.getHotelRooms();
 		         for(HotelRoomAvailInfo roomInfo : rooms.getHotelRooms())
@@ -342,7 +295,7 @@ public class WSServiceDaos {
   
   
   
-  public static HotelRoomAvailabilityResponse HotelRoomAvailability(int hotelIdent) throws ClientProtocolException, IOException, JAXBException, XMLStreamException
+  public static HotelRoomAvailabilityResponse HotelRoomAvailability(int hotelIdent, String sd, int nights) throws ClientProtocolException, IOException, JAXBException, XMLStreamException
   {
 	  //authenticate
 	  
@@ -350,20 +303,23 @@ public class WSServiceDaos {
 	  if(result.length()>0)
 	  {
 		  HttpPost postData = new HttpPost(baseUrl+"/src/Roomratesnew.php");		  
-		  
-		  DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yy");
-		  GregorianCalendar cal = new GregorianCalendar();
-		  		  
+	  
 		  
 		  List<NameValuePair> urlParametersData = new ArrayList<NameValuePair>();
 		  urlParametersData.add(new BasicNameValuePair("xuid", result.toString()));
 		  urlParametersData.add(new BasicNameValuePair("yzid0x", result.toString()));
 		  String shid= String.valueOf(hotelIdent);
 		  urlParametersData.add(new BasicNameValuePair("hotelId", shid));
+		  
+		  CheckinDates cd = new CheckinDates(sd,nights);	
+		  
+		  urlParametersData.add(new BasicNameValuePair("sdateh", cd.getCheckinDate()));
+		  urlParametersData.add(new BasicNameValuePair("edateh", cd.getCheckoutDate()));
+		  
 		
 			postData.setEntity(new UrlEncodedFormEntity(urlParametersData));
 			String xml= "";
-			
+			/*
 			  
 			try
 			{
@@ -380,9 +336,9 @@ public class WSServiceDaos {
 			{
 				System.out.println(exp.getMessage());
 				exp.printStackTrace();
-			}  
+			}  */
 			
-			xml=getData(postData);
+			 xml=getData(postData);
 			
 			if (xml=="") return null;
 			
@@ -404,7 +360,7 @@ public class WSServiceDaos {
   }
   
   
-  public static String getHotelListData(String city, LocalDate sd, int nights) throws ClientProtocolException, IOException
+  public static String getHotelListData(String city, String sd, int nights) throws ClientProtocolException, IOException
   {
 	 
 	  String result = authenticate();
@@ -413,29 +369,15 @@ public class WSServiceDaos {
 	  {
 		  HttpPost postData = new HttpPost(baseUrl+"/src/htllist.php");		  
 		  
-		  DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yy");
-		  GregorianCalendar cal = new GregorianCalendar();
-		  if (sd==null)
-			  {
-			     
-			    sd = LocalDate.now();
-				 sd.plusDays(1);
-				
-			  }
-		    String s=sd.format(df);
-		  
-		  
-		    sd=sd.plusDays(nights);
-			
-			String e= sd.format(df);		  
+		  CheckinDates cd = new CheckinDates(sd,nights);		  
 		  
 		  List<NameValuePair> urlParametersData = new ArrayList<NameValuePair>();
 		  urlParametersData.add(new BasicNameValuePair("xuid", result.toString()));
 		  urlParametersData.add(new BasicNameValuePair("yzid0x", result.toString()));
 		  
 		  urlParametersData.add(new BasicNameValuePair("CityAjaxH", city));
-		  urlParametersData.add(new BasicNameValuePair("SDATEH", s));
-		  urlParametersData.add(new BasicNameValuePair("EDATEH", e));
+		  urlParametersData.add(new BasicNameValuePair("SDATEH", cd.getCheckinDate()));
+		  urlParametersData.add(new BasicNameValuePair("EDATEH", cd.getCheckoutDate()));
 		  urlParametersData.add(new BasicNameValuePair("maxnum", "15"));
 
 			postData.setEntity(new UrlEncodedFormEntity(urlParametersData));

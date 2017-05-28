@@ -1,7 +1,10 @@
 package com.websystique.springmvc.controller;
 
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.nio.file.WatchService;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -25,7 +28,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.websystique.springmvc.domain.HotelSearch;
 import com.websystique.springmvc.model.Hotel;
 import com.websystique.springmvc.model.HotelDescription;
-import com.websystique.springmvc.model.HotelDetailsDescription;
 import com.websystique.springmvc.model.HotelSummary;
 import com.websystique.springmvc.model.HotelSummaryDetails;
 import com.websystique.springmvc.model.HotelSummaryList;
@@ -59,11 +61,11 @@ public class TravelController {
 	}
 	
 	
-	@RequestMapping(value = "/hotels/{city}")
-	public  ResponseEntity<List<HotelSummary>> getCityHotels(@PathVariable String city)
+	@RequestMapping(value = "/hotels/{city}/{sdate}/{nights}")
+	public  ResponseEntity<List<HotelSummary>> getCityHotels(@PathVariable String city, @PathVariable String sdate, @PathVariable int nights)
 	{
 		//logger.debug("hotels request received....");
-		System.out.println("coming here now for " + city);
+		System.out.println("coming heree now for " + city+"/"+sdate+"/"+nights);
 		
 		  if (city==null || city.isEmpty()) return null;
 		
@@ -72,10 +74,10 @@ public class TravelController {
 		
 		
 		try
-		{
+		{	
+		 
 			
-			
-			htls = WSServiceDaos.Hotels(city, null, 1);
+			htls = WSServiceDaos.Hotels(city, sdate, nights);
 		}catch(Exception exp)
 		{
 			
@@ -97,15 +99,16 @@ public class TravelController {
 		return new ResponseEntity<List<HotelSummary>>(htls, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/hotels/details/{hotelid}")
-	public  ResponseEntity<HotelDescription> getHotelDetails(@PathVariable int hotelid) throws ClientProtocolException, IOException, JAXBException, XMLStreamException
+	@RequestMapping(value = "/hotels/details/{hotelid}/{sdate}/{nights}")
+	public  ResponseEntity<HotelDescription> getHotelDetails(@PathVariable int hotelid, @PathVariable String sdate, @PathVariable int nights) throws ClientProtocolException, IOException, JAXBException, XMLStreamException
 	{
 		//logger.debug("hotels request received....");
 		System.out.println("coming here now for details - " + hotelid);
 		
 		  if (hotelid==0) return null;
-		
-		  HotelDescription htls =WSServiceDaos.HotelDetails(hotelid);
+
+			
+		  HotelDescription htls =WSServiceDaos.HotelDetails(hotelid, sdate,nights);
 		
 		
 		
@@ -276,7 +279,7 @@ public class TravelController {
 		List<HotelSummary> hotels=null;
 		try
 		{
-		   hotels = WSServiceDaos.Hotels(hotelSearch.getCityAjaxH(), hotelSearch.getSDATEH(), hotelSearch.getNights());
+		   hotels = WSServiceDaos.Hotels(hotelSearch.getCityAjaxH(), null/*hotelSearch.getSDATEH()*/, hotelSearch.getNights());
 		}catch(Exception exp)
 		{
 			

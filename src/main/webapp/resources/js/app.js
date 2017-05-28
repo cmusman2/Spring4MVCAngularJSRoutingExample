@@ -42,8 +42,9 @@ App.config(['$routeProvider', function($routeProvider) {
                 async: ['ItemService','$route', function(ItemService , $route)  {
                 	//$route.current.params.id = $('#CityAjaxH').val();
                 	//$route.current.params.sdate = $('#from').val();                	                	
-                	//alert($route.current.params.id+$route.current.params.sdate+$route.current.params.nights);
-                    return ItemService.fetchSpecificHotels('hotels',$route.current.params.id+"?" + $route.current.params.from +"&" + $route.current.params.mights);
+                	
+                	
+                    return ItemService.fetchSpecificHotels($route.current.params.id+"/" + $route.current.params.sdate +"/" + $route.current.params.nights);
                	}]
             }
 		})

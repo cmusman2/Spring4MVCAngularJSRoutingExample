@@ -133,12 +133,29 @@
 	                          
 	                         </td>	                        
 	                      </tr>
-	                      <tr>
-	                        <td colspan="2">
-	                        <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.checkInInstructions  | trusted">
-	                        </span>	                      
-	                        </td>
-	                      </tr>
+	                      
+	                     <tr>
+	                         <td colspan="2" valign="top"> 
+	                           <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.roomDetailDescription != null">
+	                                                      
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.propertyDescription  | trusted">
+                                
+                                </span>   
+                                </span>
+	                         </td>
+	                      </tr>	 	                      
+	                      
+	                     <tr>
+	                         <td colspan="2" valign="top"> 	 
+	                         <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.roomDetailDescription != null">
+	                         <br/>                            
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.roomDetailDescription  | trusted">
+                                
+                                </span>   
+                                </span>
+	                         </td>
+	                      </tr>	                      
+
 	                      
 	                      
 	                      <tr>
@@ -174,7 +191,7 @@
                    <div uib-carousel style="background:url(resources/images/prog.gif) no-repeat center;height:480px;margin-top:2px;"> 
                     
                         
-                         <img height="550" ng-src="{{cimg.url}}" style="margin:auto;" onload="this.src={{cimg.thumbnailUrl}}" onerror="this.src={{cimg.url}}"/>
+                         <img height="550" width="100%" ng-src="{{cimg.url}}" onload="this.src={{cimg.thumbnailUrl}}" onerror="this.src={{cimg.url}}"/>
                       
                   </div>    
                 </div>
@@ -202,20 +219,149 @@
 	                         </td>
 	                          	                          
 	                      </tr>
+	                      
+
+	                      	                      
 	                      <tr>
-	                         <td colspan="2" valign="top"><br/>	                             
+	                         <td colspan="2" valign="top">
+	                           <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.propertyInformation != null">
+	                            <br/>                              
                                 <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.propertyInformation  | trusted">
+                              
                                 </span>   
+                               </span>
+	                         </td>
+	                      </tr>
+	                      
+	                      
+	                      <tr>
+	                        <td colspan="2">
+	                        <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.checkInInstructions != null">
+	                        <br/> 
+	                        <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.checkInInstructions  | trusted">
+	                        
+	                        </span>	
+	                        </span>                      
+	                        </td>
+	                      </tr>	                      
+
+	                      <tr>
+	                         <td colspan="2" valign="top">
+	                         <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.diningDescription != null">
+	                         <br/>                           
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.diningDescription  | trusted">
+                                
+                                </span> 
+                               </span>  
 	                         </td>
 	                      </tr>
 
 	                      <tr>
-	                         <td colspan="2" valign="top"><br/>	                             
-                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.drivingDirections  | trusted">
-                                </span>   
+	                         <td colspan="2" valign="top">
+	                         <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.amenitiesDescription != null">
+	                         <br/>                            
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.amenitiesDescription  | trusted">
+                                 
+                                </span> 
+                              </span>  
 	                         </td>
 	                      </tr>
 
+
+	                      <tr>
+	                         <td colspan="2" valign="top">
+	                         <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.businessAmenitiesDescription != null">
+	                         <br/>                             
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.businessAmenitiesDescription  | trusted" ng-if=" itemDetailsCtrl.item.data.hotelDetails.businessAmenitiesDescription != null">
+                                <br/> 
+                                </span> 
+                                </span>  
+	                         </td>
+	                      </tr>
+
+
+	                      <tr>
+	                         <td colspan="2" valign="top">
+	                         <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.hotelPolicy != null">
+	                         <br/>                            
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.hotelPolicy  | trusted" ng-if=" itemDetailsCtrl.item.data.hotelDetails.hotelPolicy != null">
+                                <br/> 
+                                
+                                </span>  
+                                </span> 
+	                         </td>
+	                      </tr>
+
+	                      <tr>
+	                         <td colspan="2" valign="top">
+	                         <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.locationDescription != null">
+	                         <br/>                             
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.locationDescription  | trusted" ng-if=" itemDetailsCtrl.item.data.hotelDetails.locationDescription != null">
+                                
+                                </span> 
+                                </span>  
+	                         </td>
+	                      </tr>
+
+	                      <tr>
+	                         <td colspan="2" valign="top">
+	                         <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.drivingDirections != null">
+	                         <br/>                             
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.drivingDirections  | trusted" ng-if=" itemDetailsCtrl.item.data.hotelDetails.drivingDirections != null">
+                                
+                                </span> 
+                                </span>  
+	                         </td>
+	                      </tr>
+
+	                      
+	                      <tr>
+	                         <td colspan="2" valign="top">
+	                         <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.knowBeforeYouGoDescription != null">
+	                         <br/>                             
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.knowBeforeYouGoDescription  | trusted" ng-if=" itemDetailsCtrl.item.data.hotelDetails.knowBeforeYouGoDescription != null">
+                              
+                                </span>
+                                </span>   
+	                         </td>
+	                      </tr>
+	                      
+	                     <tr>
+	                         <td colspan="2" valign="top">
+                               <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.renovationDescription != null">
+                               <br/>                            
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.renovationDescription  | trusted" ng-if=" itemDetailsCtrl.item.data.hotelDetails.renovationDescription != null">
+                                <br/>
+                                </span> 
+                                </span>  
+	                         </td>
+	                      </tr>
+	                      
+
+	                      
+	                     <tr>
+	                         <td colspan="2" valign="top">	                             
+                               <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.roomInformation != null">
+                               <br/>                            
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.roomInformation  | trusted" ng-if=" itemDetailsCtrl.item.data.hotelDetails.roomInformation != null">
+                                <br/>
+                                </span>  
+                                </span> 
+	                         </td>
+	                      </tr>
+	                      
+	                     <tr>
+	                         <td colspan="2" valign="top">
+                               <span ng-if=" itemDetailsCtrl.item.data.hotelDetails.roomFeeDescription != null">
+                               <br/>                            
+                             
+                                <span ng-bind-html=" itemDetailsCtrl.item.data.hotelDetails.roomFeeDescription  | trusted" ng-if=" itemDetailsCtrl.item.data.hotelDetails.roomFeeDescription != null">
+                                <br/>
+                                </span>  
+                                </span> 
+	                         </td>
+	                      </tr>
+	                      
                           <!-- 
 	                      <tr ng-repeat="room in itemDetailsCtrl.item.data.hotelRooms.hotelRoomDetails">
 	                         <td valign="top" colspan="2">  	                                                   

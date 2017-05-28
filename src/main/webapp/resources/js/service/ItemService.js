@@ -27,15 +27,17 @@ App.factory('ItemService', ['$http', '$q', function($http, $q){
 							); 
 			},
 			
-			fetchAllHotels: function(category) { 
+			fetchAllHotels: function(category) {  
+				 
 				return $http.get('../Spring4MVCAngularJSRoutingExample/item/'+category,{headers :{"content-type" : "application/json"}})
 				  .success(function(data){alert('succ'+data);itemListCtrl.items =data; return data.hotels;}) 
 				  .success(function(data){}) 
 				  ;
 		   },
 		    
-			fetchSpecificHotels: function(category,city) {		
-				return $http.get('../Spring4MVCAngularJSRoutingExample/item/hotels/London')
+			fetchSpecificHotels: function(category,city) {	
+				 
+				return $http.get('../Spring4MVCAngularJSRoutingExample/item/hotels/'+category)
 				 .success(function(data){ sessionStorage.htlData=JSON.stringify(data); itemListCtrl.items =data;return data;})
 				  .error(function(data){itemListCtrl.items =data; return data;})
 
@@ -45,10 +47,11 @@ App.factory('ItemService', ['$http', '$q', function($http, $q){
 			
 		   },
 
-			fetchSpecificHotel: function(category,id) {
-				var url='../Spring4MVCAngularJSRoutingExample/item/'+category+'/'+id+'?nights='+sessionStorage.nights;				
-				url+='&checkindate='+sessionStorage.checkindate;
+			fetchSpecificHotel: function(category,id) { 
+				var url='../Spring4MVCAngularJSRoutingExample/item/'+category+'/'+id+'/'+sessionStorage.checkindate;				
+				url+='/'+sessionStorage.nights;
 				
+				 
 				return $http.get(url,{headers :{"content-type" : "application/json"}})
 				  .success(function(data){sessionStorage.roomData = JSON.stringify(data.roomrates);})
 				  .error(function(data){itemListCtrl.items =data;})

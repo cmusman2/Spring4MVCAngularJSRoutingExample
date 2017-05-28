@@ -17,12 +17,12 @@
 	                   
 	                    <input type="hidden" name="hotelid" ng-model="hotelid" ng-value="{{item.hotelid}}" ng-init="{{item.hotelid}}"/>
 	                   
-	                    <a href="#/items/hotels/details/{{item.hotelid}}" style="text-decoration:none">
+	                    <a  href ng-click="doSubmitForDetails($index)" style="text-decoration:none">
 	                    <table> 
 	                      <tr>
 	                         <td>
-	                         <span  class="htlname">{{item.name}}</span>
-	                         <br/>{{item.address1}} {{item.postalcode}}, {{item.city}}
+	                         <span  class="htlname">{{item.name  | trusted}}</span>
+	                         <br/>{{item.address1   | trusted}} {{item.postalcode}}, {{item.city}}
 	                         </td>
 	                      </tr>
 	                      <tr>

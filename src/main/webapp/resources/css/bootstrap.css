@@ -6209,7 +6209,7 @@ button.close {
   text-align: center;
   list-style: none;
 }
-.carousel-indicators li {
+.carousel-indicators lix {
   display: inline-block;
   width: 10px;
   height: 10px;

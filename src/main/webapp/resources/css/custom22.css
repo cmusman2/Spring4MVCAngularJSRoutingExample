@@ -776,7 +776,7 @@ selectx {
 body
 {
 	font-size:11pt;
-	font-family: fantasy;
+	font-family: arial;
 }
 
 table
@@ -805,21 +805,21 @@ td{
 .htlname
 {
 	font-size:12pt;color:#1e90ff;
-	font-family: fantasy;font-weight:bold;
+	font-family: Arial;font-weight:bold;
 }
 
 .htlname a{text-decoration:none;color:#1e90ff;}
 
 .roomname {
 	font-size:12pt;color:#1e90ff;
-	font-family: fantasy;font-weight:bold;
+	font-family: Arial;font-weight:bold;
 	
 	}
 
 .price
 {
 		font-size:12pt;color:#B40431;
-	font-family: fantasy;font-weight:bold;
+	font-family: Arial;font-weight:bold;
 }
 
 .imgHtlDetail{

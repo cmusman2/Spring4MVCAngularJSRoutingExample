@@ -2,7 +2,7 @@
 App.controller('ItemListController', ['async', function(async,    ItemService) {
           var self = this;
           self.items=async;
-         
+        
           
           
 }]);
@@ -16,21 +16,27 @@ App.controller('SubmissionController', function($scope, $localStorage, $sessionS
 	  $scope.from= dt;
 	  $scope.hotelid='';
 	  
-	  $scope.submitForm = function (isValid){	
+	  $scope.submitForm = function (isValid){
+		 
 		  $scope.searchForm.$setSubmitted();
 		  if($scope.searchForm.$invalid){
 		         return;
 		    }
-		  
+		 
 		   
-		  var path= '/items/hotels/'+ $('#CityAjaxH').val() +'/'+  $('#from').val() + '/' + $scope.nights;		  
+		  	  
 		  //var path= '/items/hotels/London/20-10-2017/1';
 		  sessionStorage.city = $('#CityAjaxH').val();
 		  sessionStorage.checkindate = $('#from').val();
 		  sessionStorage.nights = $('#nights').val();
 		  
+		  if ((sessionStorage.nights!=null) && (sessionStorage.nights.indexOf("number:")>-1))
+			{
+			  sessionStorage.nights = sessionStorage.nights.substring(7);
+			}
 		  
-		 
+		  var path= '/items/hotels/'+ sessionStorage.city +'/'+  sessionStorage.checkindate + '/' + sessionStorage.nights;
+		  
 		  $location.path(path);	    
 	  }
 	  
@@ -73,19 +79,7 @@ App.controller('SubmissionController', function($scope, $localStorage, $sessionS
 		  
 		  sessionStorage.ratecode = JSON.parse(sessionStorage.roomData)[$index].ratecode;
 		  sessionStorage.roomtypecode = JSON.parse(sessionStorage.roomData)[$index].roomtypecode;
-		  /*
-	 https://secure.lowestroomrates.com/Booking.php?
-	 hotelId=233126&
-	 arrivalDate=5%2F28%2F17&
-	 departureDate=5%2F29%2F17&
-	 roomTypeCode=131166&
-	 rateCode=206417104&
-	 roomsCount=1&
-	 roomsdata=rooms[0].adultsCount=1|rooms[0].childrenCount=0&
-	 roomQ=&
-	 room1=
-    
-		  */
+		 
 		  
 		  var arrivalDate = sessionStorage.checkindate;
 		  var departureDate = arrivalDate;
