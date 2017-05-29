@@ -15,7 +15,7 @@ App.factory('ItemService', ['$http', '$q', function($http, $q){
 	return {
 		 
 			fetchAllItems: function(category) {
-					return $http.get('../Spring4MVCAngularJSRoutingExample/item/'+category)
+					return $http.get('../LowestRoomRatesHS/item/'+category)
 							.then(
 									function(response){
 										return response.data;
@@ -29,7 +29,7 @@ App.factory('ItemService', ['$http', '$q', function($http, $q){
 			
 			fetchAllHotels: function(category) {  
 				 
-				return $http.get('../Spring4MVCAngularJSRoutingExample/item/'+category,{headers :{"content-type" : "application/json"}})
+				return $http.get('../LowestRoomRatesHS/item/'+category,{headers :{"content-type" : "application/json"}})
 				  .success(function(data){alert('succ'+data);itemListCtrl.items =data; return data.hotels;}) 
 				  .success(function(data){}) 
 				  ;
@@ -37,7 +37,7 @@ App.factory('ItemService', ['$http', '$q', function($http, $q){
 		    
 			fetchSpecificHotels: function(category,city) {	
 				 
-				return $http.get('../Spring4MVCAngularJSRoutingExample/item/hotels/'+category)
+				return $http.get('../LowestRoomRatesHS/item/hotels/'+category)
 				 .success(function(data){ sessionStorage.htlData=JSON.stringify(data); itemListCtrl.items =data;return data;})
 				  .error(function(data){itemListCtrl.items =data; return data;})
 
@@ -48,7 +48,7 @@ App.factory('ItemService', ['$http', '$q', function($http, $q){
 		   },
 
 			fetchSpecificHotel: function(category,id) { 
-				var url='../Spring4MVCAngularJSRoutingExample/item/'+category+'/'+id+'/'+sessionStorage.checkindate;				
+				var url='../LowestRoomRatesHS/item/'+category+'/'+id+'/'+sessionStorage.checkindate;				
 				url+='/'+sessionStorage.nights;
 				
 				 
@@ -60,7 +60,7 @@ App.factory('ItemService', ['$http', '$q', function($http, $q){
 		   },
 		   
 		   fetchBooking: function(category,id) {
-				var url='../Spring4MVCAngularJSRoutingExample/item/'+category+'/'+id+'?nights='+sessionStorage.nights;				
+				var url='../LowestRoomRatesHS/item/'+category+'/'+id+'?nights='+sessionStorage.nights;				
 				url+='&checkindate='+sessionStorage.checkindate+'&ratecode='+sessionStorage.ratecode;
 				url+='&roomtypecode=' + sessionStorage.roomtypecode;
 				
@@ -77,7 +77,7 @@ App.factory('ItemService', ['$http', '$q', function($http, $q){
 		   },
 		   
 		   submitExternalBooking: function(category,id) {
-				var url='../Spring4MVCAngularJSRoutingExample/item/'+category+'/'+id+'?nights='+sessionStorage.nights;				
+				var url='../LowestRoomRatesHS/item/'+category+'/'+id+'?nights='+sessionStorage.nights;				
 				url+='&checkindate='+sessionStorage.checkindate+'&ratecode='+sessionStorage.ratecode;
 				url+='&roomtypecode=' + sessionStorage.roomtypecode;
 				
@@ -94,7 +94,7 @@ App.factory('ItemService', ['$http', '$q', function($http, $q){
 		   },		   
 		   
 		   fetchTemplate: function(category,id) {
-				return $http.get('../Spring4MVCAngularJSRoutingExample/item/'+category)
+				return $http.get('../LowestRoomRatesHS/item/'+category)
 				  .success(function(data){itemListCtrl.items =data; return data;})
 				  .error(function(data){alert(id+'error:'+data);testController.items =data; return data;})
 				  
@@ -102,7 +102,7 @@ App.factory('ItemService', ['$http', '$q', function($http, $q){
 		   },
 
 		   fetchSpecificItem: function(category,id) {  
-				return $http.get('../Spring4MVCAngularJSRoutingExample/item/'+category+'/'+id)
+				return $http.get('../LowestRoomRatesHS/item/'+category+'/'+id)
 						.then(
 								function(response){
 									return response.data;

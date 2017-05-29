@@ -50,6 +50,10 @@ public class HotelSummary implements Serializable {
 	protected String address2;
 
 	protected String postalcode;
+	
+	protected String countrycode;
+
+
 
 	protected String thumbnailurl;
 
@@ -67,7 +71,17 @@ public class HotelSummary implements Serializable {
 
 	private String tripadvisorratingurl;
 	
+	
 	private HotelRoomAvailInfos roomrates;
+	
+	@XmlElement
+	public String getCountrycode() {
+		return countrycode;
+	}
+
+	public void setCountrycode(String countrycode) {
+		this.countrycode = countrycode;
+	}
 	
 	@XmlElement
 	public String getHotelrating() {

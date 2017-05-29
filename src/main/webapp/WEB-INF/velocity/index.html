@@ -46,13 +46,13 @@
 <body>
 		
 	<div class="generic-containerx">
-		<h1 style="margin: 0;background:#0c3d72;color:#fff;padding:10px"><a href="#"><img height="70" src="resources/images/logo.png"/></a></h1>
-		<div class="panel panel-default" style="height:470px;background:url(resources/images/bgimg.jpg); background-size: cover;">
+		<h1 style="margin: 0;background:#0c3d72;color:#fff;padding:10px;padding-bottom:10px"><a href="#"><img height="70" src="resources/images/logo.png"/></a></h1>
+		<div class="panel panel-default" style="height:400px;background:url(resources/images/bgimg.jpg); background-size: cover;">
 			<!-- Default panel contents -->
 		   
 		    <form ng-controller="SubmissionController" name="searchForm" ng-submit="submitForm()">
 		    
-		     <div style="padding:10px;height:210px;opacity:.9;min-width:300px;width:20%;position:relative;top:100px;margin:auto;background:#fff">
+		     <div style="padding:10px;padding-top:2px;height:210px;opacity:.9;min-width:300px;width:20%;position:relative;top:100px;margin:auto;background:#fff">
 		   
 		     
 		     <label>Destination 
@@ -74,7 +74,7 @@
 		      <input type="hidden" id="hotelId">
 			 <input type="hidden" id="CityAjaxH2">
 			 <input type="hidden" id="CityLocal">
-		      <br/><br/>
+		      
 		     <!-- 
 		     <div style="margin:auto;">
 		      <a href="#/items/hotels/{{searchTerm}}/from/{{nights}}" style="background:#1e90ff;color:#fff;padding:10px;font-size:14pt;">Search</a>
@@ -94,7 +94,7 @@
 		     
 		 
 	</div>
-        <br/>
+        
 	    </div>
 	    <div ng-view></div>
  

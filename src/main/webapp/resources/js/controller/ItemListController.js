@@ -36,7 +36,7 @@ App.controller('SubmissionController', function($scope, $localStorage, $sessionS
 			}
 		  
 		  var path= '/items/hotels/'+ sessionStorage.city +'/'+  sessionStorage.checkindate + '/' + sessionStorage.nights;
-		  
+		 
 		  $location.path(path);	    
 	  }
 	  
